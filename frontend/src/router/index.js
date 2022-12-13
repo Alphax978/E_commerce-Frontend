@@ -1,6 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AddCategory from '../views/Category/AddCategory'
+import MainCategory from '../views/Category/MainCategory'
+
+
+
 
 const routes = [
   //Router for 
@@ -21,7 +25,17 @@ const routes = [
     path: '/admin/category/add',
     name: 'AddCategory',
     component: AddCategory
-  }
+  },
+  {
+    path: '/admin/category',
+    name: 'MainCategory',
+    component: MainCategory
+  },
+
+
+
+
+
 ]
 
 const router = createRouter({
