@@ -1,0 +1,59 @@
+<template>
+    <div class="container">
+        <div class="row">
+                <div class="col-12 text-center">
+                    <h3 class="pt - 3">Category</h3>
+                    <router-link :to="{ name: 'AddCategory'}">
+                        <button class="btn" style="float:right">Add Category </button>
+                    </router-link>
+                </div>
+        </div>
+        <div class="row">
+            <div v-for = "category of categories" :key="category.id" class="col-xl=4 col-md-6 col-12 pt-3 d-flex" >
+                <category-box :category="category" />
+            </div>
+        </div>
+
+    </div>
+       
+</template>
+
+<script>
+
+
+// const axios = require("axios");
+// import CategoryBox from "../../components/Category/CategoryBox.vue"
+
+export default {
+  name: "CategoryMain",
+  components: { },
+
+    data() {
+        return {
+            // baseURL: "your backend host folder link";
+            // categories: {}
+           
+        };
+
+    },
+    methods: {
+        // asyc getCategories(){
+        //     await axios.get(`${this.baseuURL}/category`)
+        //     .then(res = > (this.categories = res.data ))
+        //     .catch((err => console.log(err));
+        // },
+      
+    },
+    mounted()
+    {
+        // this.getcategories();
+    },
+  
+
+};
+</script>
+
+
+<style >
+
+</style>

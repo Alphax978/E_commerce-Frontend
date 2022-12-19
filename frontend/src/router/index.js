@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AddCategory from '../views/Category/AddCategory'
-import MainCategory from '../views/Category/MainCategory'
+import CategoryMain from '../views/Category/CategoryMain'
 
 
 
@@ -28,8 +28,8 @@ const routes = [
   },
   {
     path: '/admin/category',
-    name: 'MainCategory',
-    component: MainCategory
+    name: 'CategoryMain',
+    component: CategoryMain
   },
 
 
