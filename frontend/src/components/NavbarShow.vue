@@ -2,9 +2,9 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <!-- Navbar content -->
     <!--    Logo-->
-    <router-link class="navbar-brand" :to="{ name: 'Home' }">
-      <img id="logo" src="../assets/icon.png" />
-    </router-link>
+    <!-- <router-link class="navbar-brand" :to="{ name: 'Home' }"> -->
+      <!-- <img id="logo" src="../assets/icon.png" /> -->
+    <!-- </router-link> -->
     <!--    Burger Button-->
     <button
       class="navbar-toggler"
@@ -47,13 +47,13 @@
           </div>
         </div>
       </form>
-      <router-link :to="{ name: 'Admin' }"> Admin </router-link>
+      <!-- <router-link :to="{ name: 'Admin' }"> Admin </router-link> -->
     </div>
   </nav>
 </template>
 <script>
 export default {
-  name: "Navbar",
+  name: "NavbarShow",
 };
 </script>
 <style scoped>

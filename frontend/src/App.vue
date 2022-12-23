@@ -1,5 +1,5 @@
 <template>
-  <Navbar />
+  <NavbarShow />
   <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
@@ -8,20 +8,40 @@
 </template>
 
 <script>
-import Navbar from "./components/Navbar.vue";
-
+import NavbarShow from "./components/NavbarShow.vue";
+import axios from 'axios';
 export default {
-  components: { Navbar },
+  components: { NavbarShow },
   data()
   {
-  
+    return {
+      baseURL: "https://limitless-lake-55070.herokuapp.com/",
+      products: [],
+      categories: []
+    }
   },
-
-  mounted(){
-
+    methods: {
+    async fetchData() {
+      // api call to get all the categories
+      await axios.get(this.baseURL + "category/")
+      .then(res => {
+        this.categories = res.data
+      }).catch((err) => console.log('err', err));
+      // api call to get the products
+      await axios.get(this.baseURL + "product/")
+      .then(res => {
+        this.products = res.data
+      }).catch((err) => console.log('err', err));
+    }
+  },
+  mounted() {
+    this.fetchData();
   }
 
+
+
 };
+
 </script>
 
 <style>
