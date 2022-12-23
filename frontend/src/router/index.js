@@ -4,7 +4,8 @@ import AddCategory from '../views/Category/AddCategory'
 import CategoryMain from '../views/Category/CategoryMain'
 
 
-
+// const cors = require('cors');
+// App.use(cors());
 
 const routes = [
   //Router for 

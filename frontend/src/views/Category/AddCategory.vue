@@ -22,7 +22,7 @@
                         <label>Image</label>
                         <input type="text" class="form-control" v-model="imageUrl">
                     </div>
-                    <button type="button" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-primary" @click="addCategory">Submit</button>
                 </form>
             </div>
             <div class="col-3"></div>
@@ -33,8 +33,8 @@
 
 <script>
 
-// const axios = require("axios");
-// const sweetalert = require('sweetalert');
+const axios = require("axios");
+const sweetalert = require('sweetalert');
 export default {
 
     data() {
@@ -46,37 +46,37 @@ export default {
 
     },
     methods: {
-        addcategory()
+        addCategory()
         {
-            // console.log(this.categoryName, this.description);
-            //     const newcategory = {
-            //         categoryName: this.categoryName,
-            //         description: this.description,
-            //         imageUrl: this.imageUrl,
-            //     };
+            console.log(this.categoryName, this.description);
+                const newcategory = {
+                    categoryName: this.categoryName,
+                    description: this.description,
+                    imageUrl: this.imageUrl,
+                };
 
-                // const baseUrl = "setup github + swagger ui and pass data";
+                const baseURL = "https://limitless-lake-55070.herokuapp.com";
 
-                // axios({
-                //     method: "Post",
-                //     url:`$(baseURL}/category/create`,
-                //     data: JSON.stringify(newcategory),
-                //     Headers: {
-                //         "content-Type": "application/json",
-                //     },
-                // })
+                axios({
+                    method: "Post",
+                    url:`${baseURL}/category/create`,
+                    data: JSON.stringify(newcategory),
+                    Headers: {
+                        "content-Type": "application/json",
+                    },
+                })
 
-                // .then(() => {
-                //     sweetalert({
-                //         text: 'Category has been added',
-                //         icon: "success",
+                .then(() => {
+                    sweetalert({
+                        text: 'Category has been added',
+                        icon: "success",
 
-                //     });
+                    });
                     
-                // })
-                // .catch((err) => {
-                //     console.log(err);
-                // })
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
 
                 //ALL OF THIS WILL EXECUTE AFTER SWGAGER AND GUTHUB SETUP AND AFTER DEVELOPIHG BACKEND
 
@@ -90,7 +90,7 @@ export default {
 
         }
     },
-}
+};
 </script>
 
 

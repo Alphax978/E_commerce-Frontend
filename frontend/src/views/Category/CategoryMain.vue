@@ -21,32 +21,33 @@
 <script>
 
 
-// const axios = require("axios");
-// import CategoryBox from "../../components/Category/CategoryBox.vue"
+const axios = require("axios");
+import CategoryBox from "../../components/Category/CategoryBox.vue";
 
 export default {
   name: "CategoryMain",
-  components: { },
+  components: { CategoryBox },
 
     data() {
         return {
-            // baseURL: "your backend host folder link";
-            // categories: {}
+            baseURL: "https://limitless-lake-55070.herokuapp.com",
+            categories: [],
            
         };
 
     },
     methods: {
-        // asyc getCategories(){
-        //     await axios.get(`${this.baseuURL}/category`)
-        //     .then(res = > (this.categories = res.data ))
-        //     .catch((err => console.log(err));
-        // },
+        async getCategories(){
+            await axios
+                .get(`${this.baseURL}/category/`)
+                .then((res) => (this.categories = res.data ))
+                .catch((err) => console.log(err));
+        },
       
     },
     mounted()
     {
-        // this.getcategories();
+        this.getCategories();
     },
   
 
