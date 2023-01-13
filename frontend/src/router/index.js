@@ -1,8 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomePage from '../views/HomePage.vue';
+import HomePage from '../views/HomePage';
 import AddCategory from '../views/Category/AddCategory';
 import CategoryMain from '../views/Category/CategoryMain';
-import AdminPage from '../views/AdminPage';
+import ProductMain from '../views/Product/ProductMain';
+import AddProduct from '../views/Product/AddProduct';
+import listProducts from '../views/Category/ListProducts';
+import EditCategory from '../views/Category/EditCategory';
+import EditProducts from '../views/Product/EditProduct';
+import ShowDetails from '../views/Product/ShowDetails';
+import WishList from '../views/Product/WishList';
+
+
 
 
 // const cors = require('cors');
@@ -34,10 +42,45 @@ const routes = [
     component: CategoryMain
   },
   {
-    path: '/admin',
-    name: 'AdminPage',
-    component: AdminPage
-  }
+    path:'/admin/product/add',
+    name:'AddProduct',
+    component: AddProduct
+  },
+  {
+    path:'/admin/product',
+    name:'ProductMain',
+    component: ProductMain
+  },
+  {
+    path:'/admin/category/editcategory',
+    name:'EditCategory',
+    component: EditCategory
+  },
+  {
+    path:'/admin/product/listproducts',
+    name:'ListProducts',
+    component: listProducts
+  },
+    // edit product
+    {
+      path: '/admin/Product/editproduct',
+      name: 'EditProducts',
+      component: EditProducts
+    },
+  
+    // show details of product
+    {
+      path: '/admin/Product/showdetails',
+      name: 'ShowDetails',
+      component: ShowDetails
+    },
+    {
+      path:'/admin/Product/wishlist',
+      name:'WishList',
+      component: WishList
+
+    },
+
 
 
 
