@@ -9,6 +9,10 @@ import EditCategory from '../views/Category/EditCategory';
 import EditProducts from '../views/Product/EditProduct';
 import ShowDetails from '../views/Product/ShowDetails';
 import WishList from '../views/Product/WishList';
+import CartPage from '../views/CartPage';
+import AdminPage from '../views/AdminPage'
+import SignIn from '../views/SignIn'
+import SignUp from '../views/SignUp'
 
 
 
@@ -79,6 +83,27 @@ const routes = [
       name:'WishList',
       component: WishList
 
+    },
+    {
+        path: '/cart',
+        name: 'Cart',
+        component: CartPage
+  
+    },
+    {
+      path:'/admin',
+      name:'admin',
+      component: AdminPage
+    },
+    {
+      path: '/signup',
+      name: 'SignUp',
+      component: SignUp,
+    },
+    {
+      path: '/signin',
+      name: 'SignIn',
+      component: SignIn,
     },
 
 
