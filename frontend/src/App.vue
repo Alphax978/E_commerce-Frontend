@@ -11,7 +11,7 @@
 import NavbarShow from "./components/NavbarShow.vue";
 import axios from 'axios';
 export default {
-  components: { NavbarShow },
+  components: { NavbarShow},
   data()
   {
     return {

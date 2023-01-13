@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomePage from '../views/HomePage.vue'
-import AddCategory from '../views/Category/AddCategory'
-import CategoryMain from '../views/Category/CategoryMain'
+import HomePage from '../views/HomePage.vue';
+import AddCategory from '../views/Category/AddCategory';
+import CategoryMain from '../views/Category/CategoryMain';
+import AdminPage from '../views/AdminPage';
 
 
 // const cors = require('cors');
@@ -32,6 +33,11 @@ const routes = [
     name: 'CategoryMain',
     component: CategoryMain
   },
+  {
+    path: '/admin',
+    name: 'AdminPage',
+    component: AdminPage
+  }
 
 
 
