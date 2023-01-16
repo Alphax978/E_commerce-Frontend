@@ -10,7 +10,7 @@ import EditProducts from '../views/Product/EditProduct';
 import ShowDetails from '../views/Product/ShowDetails';
 import WishList from '../views/Product/WishList';
 import CartPage from '../views/CartPage';
-import AdminPage from '../views/AdminPage'
+// import AdminPage from '../views/AdminPage'
 import SignIn from '../views/SignIn'
 import SignUp from '../views/SignUp'
 import HeheYes from '../views/HeheYes'
@@ -95,11 +95,11 @@ const routes = [
         component: CartPage
   
     },
-    {
-      path:'/admin',
-      name:'admin',
-      component: AdminPage
-    },
+    // {
+    //   path:'/admin',
+    //   name:'admin',
+    //   component: AdminPage
+    // },
     {
       path: '/signup',
       name: 'SignUp',
