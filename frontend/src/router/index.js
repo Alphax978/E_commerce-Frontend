@@ -13,6 +13,11 @@ import CartPage from '../views/CartPage';
 import AdminPage from '../views/AdminPage'
 import SignIn from '../views/SignIn'
 import SignUp from '../views/SignUp'
+import HeheYes from '../views/HeheYes'
+import FailedP from '../views/Payment/FailedP';
+import SuccessP from '../views/Payment/SuccessP';
+import CheckOut  from '../views/Checkout/CheckOut';
+
 
 
 
@@ -104,6 +109,26 @@ const routes = [
       path: '/signin',
       name: 'SignIn',
       component: SignIn,
+    },
+    {
+      path:'/hehe',
+      name:"HeheYes",
+      component: HeheYes
+    },
+    {
+      path:'/FailedP',
+      name:'FailedP',
+      component: FailedP
+    },
+    {
+      path:'/SuccessP',
+      name:'SuccessP',
+      component: SuccessP
+    },
+    {
+      path:'/checkout',
+      name:'CheckOut',
+      component: CheckOut
     },
 
 
