@@ -13,11 +13,9 @@ import CartPage from '../views/CartPage';
 // import AdminPage from '../views/AdminPage'
 import SignIn from '../views/SignIn'
 import SignUp from '../views/SignUp'
-import HeheYes from '../views/HeheYes'
 import FailedP from '../views/Payment/FailedP';
 import SuccessP from '../views/Payment/SuccessP';
 import CheckOut  from '../views/Checkout/CheckOut';
-
 
 
 
@@ -31,14 +29,6 @@ const routes = [
     path: '/',
     name: 'HomePage',
     component: HomePage
-  },
-  {
-    path: '/AboutPage',
-    name: 'AboutPage',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutPage.vue')
   },
   {
     path: '/admin/category/add',
@@ -90,9 +80,9 @@ const routes = [
 
     },
     {
-        path: '/cart',
-        name: 'Cart',
-        component: CartPage
+      path: '/cart',
+      name: 'Cart',
+      component: CartPage
   
     },
     // {
@@ -109,11 +99,6 @@ const routes = [
       path: '/signin',
       name: 'SignIn',
       component: SignIn,
-    },
-    {
-      path:'/hehe',
-      name:"HeheYes",
-      component: HeheYes
     },
     {
       path:'/FailedP',
