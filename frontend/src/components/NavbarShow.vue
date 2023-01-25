@@ -61,7 +61,7 @@
             <router-link class="dropdown-item" :to="{ name: 'HomePage' }"
               >Home
             </router-link>
-            <router-link class="dropdown-item" to="/admin/product"
+            <router-link class="dropdown-item" :to="{ name:'ProductMain'}"
               >Product
             </router-link>
             <router-link class="dropdown-item" :to="{ name: 'CategoryMain' }"
@@ -69,7 +69,7 @@
             </router-link>
           </div>
         </li>
-        <li class="nav-item dropdown">
+        <!-- <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle text-light"
             href="#"
@@ -101,7 +101,7 @@
               >Sign out
             </a>
           </div>
-        </li>
+        </li> -->
         <!-- <li class="nav-item">
           <div id="cart" style="position:relative">
             <span id="nav-cart-count">{{ cartCount }}</span>
@@ -116,30 +116,30 @@
   </nav>
 </template>
 <script>
-import swal from "sweetalert";
+// import swal from "sweetalert";
 export default {
   name: "NavbarShow",
-  props: ["cartCount"],
-  data() {
-    return {
-      token: null,
-    };
-  },
-  methods: {
-    signout() {
-      localStorage.removeItem("token");
-      this.token = null;
-      swal({
-        text: "Logged you out. Visit again",
-        icon: "success",
-      });
-      this.$emit("resetCartCount");
-      this.$router.push({ name: "HomePage" });
-    },
-  },
-  mounted() {
-    this.token = localStorage.getItem("token");
-  },
+//   props: ["cartCount"],
+//   data() {
+//     return {
+//       token: null,
+//     };
+//   },
+//   methods: {
+//     signout() {
+//       localStorage.removeItem("token");
+//       this.token = null;
+//       swal({
+//         text: "Logged you out. Visit again",
+//         icon: "success",
+//       });
+//       this.$emit("resetCartCount");
+//       this.$router.push({ name: "HomePage" });
+//     },
+//   },
+//   mounted() {
+//     this.token = localStorage.getItem("token");
+//   },
 };
 </script>
 <style scoped>
