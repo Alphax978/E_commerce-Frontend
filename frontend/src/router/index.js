@@ -25,86 +25,86 @@ const routes = [
   {
     path: '/',
     name: 'HomePage',
-    component: HomePage,
+    component: HomePage
   },
   {
     path: '/admin/category/add',
     name: 'AddCategory',
-    component: AddCategory,
+    component: AddCategory
   },
   {
     path: '/admin/category',
     name: 'CategoryMain',
-    component: CategoryMain,
+    component: CategoryMain
   },
   {
     path:'/admin/product/add',
     name:'AddProduct',
-    component: AddProduct,
+    component: AddProduct
   },
   {
     path:'/admin/product',
     name:'ProductMain',
-    component: ProductMain,
+    component: ProductMain
   },
   {
     path:'/admin/category/editcategory',
     name:'EditCategory',
-    component: EditCategory,
+    component: EditCategory
   },
   {
     path:'/admin/product/listproducts',
     name:'ListProducts',
-    component: listProducts,
+    component: listProducts
   },
     // edit product
   {
       path: '/admin/Product/editproduct',
       name: 'EditProducts',
-    component: EditProducts,
+    component: EditProducts
   },
   
     // show details of product
   {
     path: '/admin/Product/showdetails',
     name: 'ShowDetails',
-    component: ShowDetails,
+    component: ShowDetails
   },
   {
     path:'/admin/Product/wishlist',
     name:'WishList',
-    component: WishList,
+    component: WishList
 
   },
   {
     path: '/cart',
     name: 'Cart',
-    component: CartPage,
+    component: CartPage
   },
   {
     path: '/signup',
     name: 'SignUp',
-    component: SignUp,
+    component: SignUp
   },
   {
     path: '/signin',
     name: 'SignIn',
-    component: SignIn,
+    component: SignIn
   },
   {
     path:'/FailedP',
     name:'FailedP',
-    component: FailedP,
+    component: FailedP
   },
   {
     path:'/SuccessP',
     name:'SuccessP',
-    component: SuccessP,
+    component: SuccessP
   },
   {
     path:'/checkout',
     name:'CheckOut',
-    component: CheckOut,
+    component: CheckOut
   },
 
 
