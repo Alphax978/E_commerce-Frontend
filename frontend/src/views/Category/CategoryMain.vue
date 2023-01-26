@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
                 <div class="col-12 text-center">
-                    <h3 class="pt - 3">Category</h3>
+                    <h3 class="pt - 3">Our Categories</h3>
                     <router-link :to="{ name: 'AddCategory'}">
                         <button class="btn" style="float:right">Add Category </button>
                     </router-link>
