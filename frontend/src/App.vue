@@ -1,15 +1,8 @@
 <template>
 <div>
-    <!-- <NavbarShow  /> -->
-    <!-- <router-view
-      v-if="categories && products"
-      style="min-height: 60vh"
-      :baseURL="baseURL"
-      :categories="categories"
-      :products="products"
-      @fetchData="fetchData"
-    >
-    </router-view> -->
+    <NavbarShow  />
+    <router-view>
+    </router-view>
 
 </div>
 </template>
