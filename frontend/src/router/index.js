@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '../views/HomePage';
 import AddCategory from '../views/Category/AddCategory';
 import CategoryMain from '../views/Category/CategoryMain';
@@ -120,11 +120,11 @@ const routes = [
 
 
 
-]
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
-})
+});
 
-export default router
+export default router;

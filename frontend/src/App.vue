@@ -1,6 +1,6 @@
 <template>
 <div>
-    <!-- <NavbarShow  /> -->
+    <NavbarShow  />
     <!-- <router-view
       v-if="categories && products"
       style="min-height: 60vh"
@@ -15,11 +15,11 @@
 </template>
 
 <script>
-// import NavbarShow from './components/NavbarShow';
+import NavbarShow from './components/NavbarShow';
 // import FooterShow from './components/FooterShow';
 // import axios from 'axios';
 export default {
-  // components: { NavbarShow},
+  components: { NavbarShow},
 
 };
 </script>
