@@ -34,7 +34,12 @@
   </nav>
 </template>
 <script>
+import DropDown from "../../components/DropDown.vue"
 export default {
+  components:{
+    DropDown
+
+  },
   computed: {
     routeName() {
       const { name } = this.$route;

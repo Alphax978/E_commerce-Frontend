@@ -12,6 +12,3 @@ app.use(router)
   
 app.mount('#app')
 
-app.config.compilerOptions.isCustomElement = (tag) => {
-    return tag.startsWith('ion-')
-  }

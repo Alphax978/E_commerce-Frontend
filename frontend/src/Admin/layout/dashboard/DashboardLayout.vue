@@ -28,11 +28,21 @@
 <style lang="scss"></style>
 <script>
 import TopNavbar from "./TopNavbar.vue";
-// import DashboardContent from "./AdminContent.vue";
+import SideBar from "../../components/SidebarPlugin/SideBar.vue";
+import SidebarLink from "../../components/SidebarPlugin/SidebarLink.vue";
+// import Dropdown from "../../Dropdown.vue";
+
+
+
 
 export default {
   components: {
     TopNavbar,
+    SideBar,
+    SidebarLink,
+
+
+
     // DashboardContent,
    
   },
