@@ -119,12 +119,12 @@ const routes = [
     path: "/dashboardlayout",
     name:"admins",
     component: DashboardLayout,
-    redirect: "/DashboardShowsn",
+    redirect: "/dashboard",
     children: 
     [
       {
-        path: "dashboard",
-        name: "Welcome Admin",
+        path: "/dashboard",
+        name: "Admins all",
         component: DashboardShowsn,
       },
 

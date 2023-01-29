@@ -20,21 +20,20 @@
     <div class="main-panel">
       <top-navbar></top-navbar>
 
-      <dashboard-content v-on="toggleSidebar"> </dashboard-content>
+      <!-- <dashboard-content v-on="toggleSidebar"> </dashboard-content> -->
 
-      <content-footer></content-footer>
     </div>
   </div>
 </template>
 <style lang="scss"></style>
 <script>
 import TopNavbar from "./TopNavbar.vue";
-import DashboardContent from "./AdminContent.vue";
+// import DashboardContent from "./AdminContent.vue";
 
 export default {
   components: {
     TopNavbar,
-    DashboardContent,
+    // DashboardContent,
    
   },
   methods: {
