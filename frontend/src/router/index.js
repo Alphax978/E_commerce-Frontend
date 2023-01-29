@@ -15,6 +15,15 @@ import SignUp from '../views/SignUp'
 import FailedP from '../views/Payment/FailedP';
 import SuccessP from '../views/Payment/SuccessP';
 import CheckOut  from '../views/Checkout/CheckOut';
+import DashboardLayout from "../Admin/layout/dashboard/DashboardLayout";
+
+
+// Admin pages
+import DashboardShowsn from "../Admin/pages/DashboardShowsn";
+
+
+
+
 
 
 
@@ -59,8 +68,8 @@ const routes = [
   },
     // edit product
   {
-      path: '/admin/Product/editproduct',
-      name: 'EditProducts',
+    path: '/admin/Product/editproduct',
+    name: 'EditProducts',
     component: EditProducts
   },
   
@@ -106,6 +115,31 @@ const routes = [
     name:'CheckOut',
     component: CheckOut
   },
+  {
+    path: "/dashboardlayout",
+    name:"admins",
+    component: DashboardLayout,
+    redirect: "/DashboardShowsn",
+    children: 
+    [
+      {
+        path: "dashboard",
+        name: "Welcome Admin",
+        component: DashboardShowsn,
+      },
+
+ 
+
+
+
+      
+
+    
+    ],
+      
+  },
+
+
 
 
 

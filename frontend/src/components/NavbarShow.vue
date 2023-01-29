@@ -67,6 +67,10 @@
             <router-link class="dropdown-item" :to="{ name: 'CategoryMain' }"
               >Category
             </router-link>
+             <router-link class="dropdown-item" :to="{ name: 'admins' }"
+              >Admin
+            </router-link>
+
           </div>
         </li>
         <!-- <li class="nav-item dropdown">
