@@ -28,7 +28,7 @@
   </card>
 </template>
 <script>
-import Card from "./Card.vue";
+import Card from "./CardShows.vue";
 export default {
   name: "chart-card",
   components: {
@@ -92,15 +92,15 @@ export default {
       return Math.floor(Math.random() * (max - min + 1)) + min;
     },
   },
-  mounted() {
-    this.updateChartId();
-    import("chartist").then((Chartist) => {
-      let ChartistLib = Chartist.default || Chartist;
-      this.$nextTick(() => {
-        this.initChart(ChartistLib);
-      });
-    });
-  },
+  // mounted() {
+  //   this.updateChartId();
+  //   import("chartist").then((Chartist) => {
+  //     let ChartistLib = Chartist.default || Chartist;
+  //     this.$nextTick(() => {
+  //       this.initChart(ChartistLib);
+  //     });
+  //   });
+  // },
 };
 </script>
 <style></style>

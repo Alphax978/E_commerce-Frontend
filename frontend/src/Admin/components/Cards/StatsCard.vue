@@ -17,7 +17,7 @@
   </card>
 </template>
 <script>
-import Card from "./Card.vue";
+import Card from "./CardShows.vue";
 
 export default {
   name: "stats-card",
