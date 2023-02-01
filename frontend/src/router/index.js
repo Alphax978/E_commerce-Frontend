@@ -18,7 +18,7 @@ import CheckOut  from '../views/Checkout/CheckOut';
 
 
 
-// Admin pages
+
 
 
 
