@@ -67,13 +67,11 @@
             <router-link class="dropdown-item" :to="{ name: 'CategoryMain' }"
               >Category
             </router-link>
-             <router-link class="dropdown-item" :to="{ name: 'admins' }"
-              >Admin
-            </router-link>
+       
 
           </div>
         </li>
-        <!-- <li class="nav-item dropdown">
+        <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle text-light"
             href="#"
@@ -105,15 +103,15 @@
               >Sign out
             </a>
           </div>
-        </li> -->
-        <!-- <li class="nav-item">
+        </li> 
+        <li class="nav-item"> 
           <div id="cart" style="position:relative">
             <span id="nav-cart-count">{{ cartCount }}</span>
-            <router-link class="text-light" :to="{ name: 'CartPage' }">
+            <router-link class="text-light" :to="{ name: 'Cart' }">
               <i class="fa fa-shopping-cart" style="font-size:36px"></i>
             </router-link>
           </div>
-        </li> -->
+        </li>
       </ul>
       <!-- dropdown for account -->
     </div>
