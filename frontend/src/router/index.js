@@ -15,11 +15,10 @@ import SignUp from '../views/SignUp'
 import FailedP from '../views/Payment/FailedP';
 import SuccessP from '../views/Payment/SuccessP';
 import CheckOut  from '../views/Checkout/CheckOut';
-import DashboardLayout from "../Admin/layout/dashboard/DashboardLayout";
+
 
 
 // Admin pages
-import DashboardShowsn from "../Admin/pages/DashboardShowsn";
 
 
 
@@ -115,29 +114,13 @@ const routes = [
     name:'CheckOut',
     component: CheckOut
   },
-  {
-    path: "/dashboardlayout",
-    name:"admins",
-    component: DashboardLayout,
-    redirect: "/dashboard",
-    children: 
-    [
-      {
-        path: "/dashboard",
-        name: "Admins all",
-        component: DashboardShowsn,
-      },
-
+  
  
 
 
 
       
 
-    
-    ],
-      
-  },
 
 
 
