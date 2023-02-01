@@ -3,19 +3,11 @@ import App from './App.vue'
 import router from './router/index'
 
 
-import PaperDashboard from "./Admin/plugins/paperDashboard";
+
 import "vue-notifyjs/themes/default.css";
+import paperDashboard from './Admin/plugins/paperDashboard';
 
 
 
 
-
-
-const app = createApp(App)
-
-app.use(router)
-  
-app.mount('#app')
-
-app.use(PaperDashboard)
-
+createApp(App).use(router).mount('#app').use(paperDashboard)
