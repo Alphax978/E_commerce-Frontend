@@ -15,6 +15,8 @@ import SignUp from '../views/SignUp'
 import FailedP from '../views/Payment/FailedP';
 import SuccessP from '../views/Payment/SuccessP';
 import CheckOut  from '../views/Checkout/CheckOut';
+import MakeOrder from '../views/orders/MakeOrder';
+import OrderDetails from '../views/orders/OrderDetails';
 
 
 
@@ -114,6 +116,17 @@ const routes = [
     name:'CheckOut',
     component: CheckOut
   },
+  {
+    path:'/orders',
+    name:'MakeOrder',
+    component: MakeOrder
+  },
+  {
+    path:'/ordersDetails',
+    name:'OrderDetails',
+    component: OrderDetails
+  }
+ 
   
  
 

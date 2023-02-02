@@ -9,7 +9,7 @@
     <!-- header -->
 
     <div class="row">
-      <div class="col-12 justify-content-center d-flex pt-3">
+      <div class="col-12 justify-content-center d-flex pt-4">
         <div id="signup" class="flex-item border">
           <h2 class="pt-4 pl-4">Create Account</h2>
           <form @submit="signup" class="pt-4 pl-4 pr-4">
@@ -47,6 +47,17 @@
               </div>
             </div>
 
+            <!-- address -->
+            <div class="form-group">
+              <label for="Password">Address </label>
+              <input
+                type="password"
+                v-model="password"
+                class="form-control"
+                required
+              />
+            </div>
+
             <!-- password -->
             <div class="form-group">
               <label for="Password"> Password</label>
@@ -69,7 +80,7 @@
               />
             </div>
 
-            <button class="btn btn-primary mt-2">Create Account</button>
+            <button class="btn btn-primary mt-2 mb-4"  >Create Account</button>
           </form>
         </div>
       </div>
@@ -129,6 +140,7 @@ export default {
 .btn-primary {
   background-color: #f0c14b;
   color: #000;
+  
 }
 @media screen and (min-width: 992 px) {
   #signup {
