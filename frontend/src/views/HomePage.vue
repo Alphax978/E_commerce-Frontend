@@ -5,14 +5,14 @@
         <header class="text-left text-white py-5">
           <h3 class="mb-4 rounded" id="heading">
             <a href="#start-shopping" class="bg-white px-2 py-2 rounded"> Start shopping</a> </h3>
-            <p class="lead mb-0 bg-dark p-1 rounded"> Demo Ecommerce</p>
+            <p class="lead mb-0 bg-dark p-1 rounded"> Shop all you want</p>
         </header>
       </div>
       <hr />
     </div>
 
     <!--    display categories-->
-    <!-- <div class="container">
+    <div class="container">
       <div class="row">
         <div class="col-12 text-center">
           <h2 class="pt-3"> Top Categories</h2>
@@ -24,25 +24,25 @@
           <CategoryBox :category="categories[index-1]" />
         </div>
       </div>
-    </div> -->
+    </div>
 
-  <!--    display top products-->
-    <!-- <div class="container py-2">
+     <!-- display top products-->
+    <div class="container py-2">
       <div class="row">
         <div class="col-12 text-center">
           <h2 class="pt-3"> Top Products</h2>
         </div>
-      </div> -->
+      </div>
 
-      <!--      display products-->
-<!-- 
+           <!-- display products -->
+
       <div class="row">
         <div v-for="index in this.productSize" :key="index"
              class="col-md-6 col-xl-4 col-12 pt-3 justify-content-around d-flex">
           <ProductBox :product="products[index-1]" />
         </div>
       </div>
-    </div> -->
+    </div> 
 
   </div>
 </template>
