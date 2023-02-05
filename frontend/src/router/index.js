@@ -127,11 +127,11 @@ const routes = [
     name:'OrderDetails',
     component: OrderDetails
   },
-  {
-    path:'/def',
-    name:'DefaultLayout',
-    component: DefaultLayout
-  },
+  // {
+  //   path:'/',
+  //   name:'DefaultLayout',
+  //   component: DefaultLayout
+  // },
  
   
  
