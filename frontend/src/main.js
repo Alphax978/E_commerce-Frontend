@@ -8,11 +8,14 @@ import CIcon from '@coreui/icons-vue'
 import { iconsSet as icons } from './Admin/assets/icons'
 
 const app = createApp(App)
-app.use(store)
 app.use(router)
+app.use(store)
 app.use(CoreuiVue)
 app.provide('icons', icons)
 app.component('CIcon', CIcon)
+
+
+app.mount('#app')
 
 
 

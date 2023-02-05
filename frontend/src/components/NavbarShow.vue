@@ -87,12 +87,6 @@
               :to="{ name: 'WishList' }"
               >Wishlist
             </router-link>
-             <!-- <router-link
-              v-if="!token"
-              class="dropdown-item"
-              :to="{ name: 'DefaultLayout' }"
-              >Admin
-            </router-link> -->
             <router-link
               v-if="!token"
               class="dropdown-item"

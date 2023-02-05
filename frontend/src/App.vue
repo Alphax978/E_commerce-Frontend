@@ -2,8 +2,8 @@
 <div>
     <NavbarShow  />
     <router-view>
+      
     </router-view>
-
 </div>
 </template>
 
