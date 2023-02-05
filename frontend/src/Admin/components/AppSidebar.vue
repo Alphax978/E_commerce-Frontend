@@ -26,7 +26,7 @@
 import { computed } from 'vue'
 import { useStore } from 'vuex'
 import { AppSidebarNav } from './AppSidebarNav'
-import { sygnet } from '@/assets/brand/sygnet'
+import { sygnet } from '../assets/brand/sygnet'
 export default {
   name: 'AppSidebar',
   components: {

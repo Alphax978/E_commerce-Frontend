@@ -1001,6 +1001,11 @@
   resolved "https://registry.yarnpkg.com/@coreui/utils/-/utils-2.0.0.tgz#522c8c31b999e1c4a17aabb8e53273c16ffaf17c"
   integrity sha512-U2OvQv6xfP+l8Xbqzd/ZEatu5D68OTTxUkXBp7iqWxaWCKIO6J+hknJQoIl/XUJMa0Fsb5h/OIZ69smQv9DaCg==
 
+"@coreui/vue-chartjs@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@coreui/vue-chartjs/-/vue-chartjs-2.0.1.tgz#b1e892a072a0e489004117bec1c8523ca93c9b3e"
+  integrity sha512-HUMIO4YM8q63AgkbwxQG3TI+BlhzCTZKs/A+wG3FMLR8do5VPk5r3t1kaluV62reZP21jqXE0SPIU1if9a7YkQ==
+
 "@coreui/vue@^4.6.1":
   version "4.6.1"
   resolved "https://registry.yarnpkg.com/@coreui/vue/-/vue-4.6.1.tgz#f5d00abc4f38958da618d903b916ccfbf71c9cf7"

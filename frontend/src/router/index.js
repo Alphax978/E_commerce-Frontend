@@ -17,8 +17,8 @@ import SuccessP from '../views/Payment/SuccessP';
 import CheckOut  from '../views/Checkout/CheckOut';
 import MakeOrder from '../views/orders/MakeOrder';
 import OrderDetails from '../views/orders/OrderDetails';
-import DefaultLayout from '../Admin/layouts/DefaultLayout';
-import DashboardShows from '../Admin/views/DashboardShows';
+// import DefaultLayout from '../Admin/layouts/DefaultLayout';
+// import DashboardShows from '../Admin/views/DashboardShows.vue';
 
 
 
@@ -128,20 +128,20 @@ const routes = [
     name:'OrderDetails',
     component: OrderDetails
   },
-  {
-    path:'/Adminlayout',
-    name:'DefaultLayout',
-    component: DefaultLayout,
-    redirect: '/dashboard',
-    childern: [
-      {
-        path:'/dashboard',
-        name:'dashboard',
-        component:DashboardShows
-      }
-    ]
+  // {
+  //   path:'/Adminlayout',
+  //   name:'DefaultLayout',
+  //   component: DefaultLayout,
+  //   redirect: '/dashboard',
+  //   childern: [
+  //     {
+  //       path:'/dashboard',
+  //       name:'dashboard',
+  //       component:DashboardShows
+  //     }
+  //   ]
 
-  },
+  // },
  
   
  

@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import avatar from '@/assets/images/avatars/user.png'
+import avatar from '../assets/images/avatars/user.png'
 export default {
   name: 'AppHeaderDropdownAccnt',
   setup() {
