@@ -1,6 +1,5 @@
 <template>
 <div>
-    <NavbarShow  />
     <router-view>
       
     </router-view>
@@ -8,12 +7,12 @@
 </template>
 
 <script>
-import NavbarShow from './components/NavbarShow';
+// import NavbarShow from './components/NavbarShow';
 // import FooterShow from './components/FooterShow';
 // import axios from 'axios';
 
 export default {
-  components: { NavbarShow},
+  components: {},
 
 };
 </script>

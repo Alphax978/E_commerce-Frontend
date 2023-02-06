@@ -131,18 +131,7 @@ const routes = [
     name:'OrderDetails',
     component: OrderDetails
   },
-  {
-    path:'/Adminpannel',
-    name:'DashboardShows',
-    component: DashboardShows,
-    childern:[
-      {
-        path:"",
-        component: DashboardHome
-      }
 
-    ],
-  },
  
   
  

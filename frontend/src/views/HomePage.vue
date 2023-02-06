@@ -1,5 +1,6 @@
 <template>
   <div id="home">
+    <NavbarShow/>
     <div id="background-div" class="page-holder bg-cover">
       <div class="container py-5">
         <header class="text-left text-white py-5">
@@ -50,8 +51,10 @@
 <script>
 // import CategoryBox from "../components/Category/CategoryBox";
 // import ProductBox from "../components/ProductBox";
+import NavbarShow from '../components/NavbarShow';
 export default {
   name: "HomePage",
+  components:{NavbarShow}
   // components: {ProductBox, CategoryBox},
   // props: ["categories", "products"],
   // data() {
