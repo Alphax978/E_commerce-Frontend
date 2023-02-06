@@ -17,6 +17,10 @@ import SuccessP from '../views/Payment/SuccessP';
 import CheckOut  from '../views/Checkout/CheckOut';
 import MakeOrder from '../views/orders/MakeOrder';
 import OrderDetails from '../views/orders/OrderDetails';
+import DashboardShows from '../Admin/views/DashboardShows';
+import DashboardHome from '../Admin/views/dashboard/DashboardHome';
+
+
 
 
 
@@ -127,11 +131,18 @@ const routes = [
     name:'OrderDetails',
     component: OrderDetails
   },
-  // {
-  //   path:'/',
-  //   name:'DefaultLayout',
-  //   component: DefaultLayout
-  // },
+  {
+    path:'/Adminpannel',
+    name:'DashboardShows',
+    component: DashboardShows,
+    childern:[
+      {
+        path:"",
+        component: DashboardHome
+      }
+
+    ],
+  },
  
   
  
