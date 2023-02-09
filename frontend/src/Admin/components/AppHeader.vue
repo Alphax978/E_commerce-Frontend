@@ -26,7 +26,7 @@
 <script>
 import AppBreadcrumb from './AppBreadcrumb'
 import AppHeaderDropdownAccnt from './AppHeaderDropdownAccnt'
-import { logo } from '@/assets/brand/logo'
+import { logo } from '../assets/brand/logo'
 export default {
   name: 'AppHeader',
   components: {
