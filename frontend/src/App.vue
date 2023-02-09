@@ -17,8 +17,7 @@ export default {
 };
 </script>
 
-<style>
-html {
-  overflow-y: scroll;
-}
+<style lang="scss">
+// Import Main styles for this application
+@import './Admin/styles/style';
 </style>

@@ -4,8 +4,9 @@
     <div class="wrapper d-flex flex-column min-vh-100 bg-light">
       <AppHeader />
       <div class="body flex-grow-1 px-3">
-        <CContainer lg>
-            <WidgetsStatsA />
+        <CContainer >
+            <router-view />
+            <WidgetsStatsA/>
         </CContainer>
       </div>
       <AppFooter />
@@ -19,6 +20,7 @@ import AppHeader from '../components/AppHeader.vue'
 import AppSidebar from '../components/AppSidebar.vue'
 import WidgetsStatsA from '../views/widgets/WidgetsStatsTypeA.vue'
 
+
 export default {
   name: 'DefaultLayout',
   components: {
@@ -27,6 +29,9 @@ export default {
     AppSidebar,
     CContainer,
     WidgetsStatsA,
+   
   },
 }
 </script>
+
+

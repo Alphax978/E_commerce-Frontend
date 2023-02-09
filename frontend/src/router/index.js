@@ -137,8 +137,10 @@ const routes = [
     path:'/Adminpannel',
     name:'DefaultLayout',
     component: DefaultLayout,
-   
+ 
+  
   },
+
 
 
  
