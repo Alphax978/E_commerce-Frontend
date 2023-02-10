@@ -1,8 +1,11 @@
 <template>
 <div>
+ 
     <router-view>
       
     </router-view>
+   
+
 </div>
 </template>
 
@@ -12,12 +15,14 @@
 // import axios from 'axios';
 
 export default {
-  components: {},
+  // components: {NavbarShow,FooterShow},
 
 };
 </script>
 
-<style lang="scss">
-// Import Main styles for this application
-@import './Admin/styles/style';
+<style>
+html {
+  overflow-y: scroll;
+}
 </style>
+

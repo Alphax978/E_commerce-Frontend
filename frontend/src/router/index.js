@@ -18,6 +18,10 @@ import CheckOut  from '../views/Checkout/CheckOut';
 import MakeOrder from '../views/orders/MakeOrder';
 import OrderDetails from '../views/orders/OrderDetails';
 import DefaultLayout from '../Admin/layouts/DefaultLayout';
+import AdminaddProduct from '../Admin/views/Product/AdminaddProduct';
+import AdminaddCategory from '../Admin/views/Category/AdminaddCategory';
+import AdmincategoryMain from '../Admin/views/Category/AdmincategoryMain';
+import AdminproductMain from '../Admin/views/Product/AdminproductMain';
 
 
 
@@ -140,6 +144,44 @@ const routes = [
  
   
   },
+
+  {
+    path:'/Adproduct',
+    name:'Add product',
+    component: AdminaddProduct,
+ 
+  
+  },
+
+  {
+    path:'/Adcategory',
+    name:'Add Category',
+    component: AdminaddCategory,
+ 
+  
+  },
+
+  {
+    path:'/vproduct',
+    name:'view products',
+    component: AdminproductMain,
+ 
+  
+  },
+
+  {
+    path:'/vcategory',
+    name:'View Categories',
+    component: AdmincategoryMain,
+ 
+  
+  },
+
+  
+
+
+  
+
 
 
 

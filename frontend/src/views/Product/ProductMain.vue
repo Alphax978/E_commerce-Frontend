@@ -1,12 +1,10 @@
 <template>
+<div>
+    <NavbarShow/>
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
                 <h4> Our Products</h4>
-                <!-- <router-link :to="{name: 'AddProduct'}" style="float: right">
-                    <button class="btn" >
-                        Add Product
-                    </button> </router-link> -->
             </div>
         </div>
         <div class="row">
@@ -17,11 +15,15 @@
             </div>
         </div>
     </div>
+    <FooterShow/>
+</div>
 </template>
 <script>
     import ProductBox from "../../components/ProductBox";
+    import NavbarShow from '../../components/NavbarShow';
+    import FooterShow from '../../components/FooterShow';
     export default {
-        components: {ProductBox},
+        components: {ProductBox,NavbarShow,FooterShow},
         props:["products"]
     }
 </script>

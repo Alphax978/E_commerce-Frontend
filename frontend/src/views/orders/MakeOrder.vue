@@ -1,4 +1,6 @@
 <template>
+<div>
+  <NavbarShow/>
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
@@ -26,12 +28,17 @@
       <div class="col-12"><hr></div>
     </div>
   </div>
+  <FooterShow/>
+</div>
 
 </template>
 
 <script>
+  import NavbarShow from '../../components/NavbarShow';
+  import FooterShow from '../../components/FooterShow';
   const axios = require('axios')
   export default {
+    components: {NavbarShow, FooterShow},
     data() {
       return {
         token: null,

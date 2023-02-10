@@ -7,13 +7,13 @@
       <CDropdownHeader component="h6" class="bg-light fw-semibold py-2">
         Account
       </CDropdownHeader>
-      <CDropdownItem> <CIcon icon="cil-lock-locked" /> Logout </CDropdownItem>
+      <CDropdownItem to='/signin'> <CIcon icon="cil-lock-locked" />  Logout </CDropdownItem>
     </CDropdownMenu>
   </CDropdown>
 </template>
 
 <script>
-import avatar from '../assets/images/avatars/8.jpg'
+import avatar from '../assets/images/avatars/user1.png'
 export default {
   name: 'AppHeaderDropdownAccnt',
   setup() {

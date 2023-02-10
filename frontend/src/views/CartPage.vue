@@ -1,4 +1,6 @@
 <template>
+<div>
+  <NavbarShow />
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
@@ -66,10 +68,15 @@
       </button>
     </div>
   </div>
+  <FooterShow />
+</div>
 </template>
 <script>
 import axios from 'axios';
+import NavbarShow from '../components/NavbarShow';
+import FooterShow from '../components/FooterShow';
 export default {
+  components:{NavbarShow,FooterShow},
   data() {
     return {
       cartItems: [],

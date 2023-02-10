@@ -1,6 +1,4 @@
 <template>
-<div>
-  <NavbarShow/>
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
@@ -20,17 +18,12 @@
       </div>
     </div>
   </div>
-  <FooterShow/>
-
-</div>
 </template>
 <script>
 import axios from "axios";
 import ProductBox from "../../components/ProductBox.vue";
-import NavbarShow from '../../components/NavbarShow';
-import FooterShow from '../../components/FooterShow';
 export default {
-  components: { ProductBox,NavbarShow,FooterShow },
+  components: { ProductBox },
   data() {
     return {
       token: null,

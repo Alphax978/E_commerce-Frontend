@@ -9,7 +9,7 @@
       </CHeaderBrand>
       <CHeaderNav class="d-none d-md-flex me-auto">
         <CNavItem>
-          <CNavLink > Dashboard </CNavLink>
+          <CNavLink to='/DefaultLayout' > Dashboard </CNavLink>
         </CNavItem>
       </CHeaderNav>
       <CHeaderNav>

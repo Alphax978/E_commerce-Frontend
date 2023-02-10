@@ -1,11 +1,11 @@
 <template>
+<div>
+    <NavbarShow/>
+
     <div class="container">
         <div class="row">
                 <div class="col-12 text-center">
                     <h3 class="pt - 3">Our Categories</h3>
-                    <!-- <router-link :to="{ name: 'AddCategory'}">
-                        <button class="btn" style="float:right">Add Category </button>
-                    </router-link> -->
                 </div>
         </div>
         <div class="row">
@@ -15,6 +15,8 @@
         </div>
 
     </div>
+    <FooterShow/>
+</div>
        
 </template>
 
@@ -23,10 +25,14 @@
 
 const axios = require("axios");
 import CategoryBox from "../../components/Category/CategoryBox.vue";
+import NavbarShow from '../../components/NavbarShow';
+import FooterShow from '../../components/FooterShow';
+
+
 
 export default {
   name: "CategoryMain",
-  components: { CategoryBox },
+  components: { CategoryBox,NavbarShow,FooterShow },
 
     data() {
         return {
