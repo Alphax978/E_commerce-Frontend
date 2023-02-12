@@ -2,15 +2,14 @@
   <div id="home">
     <NavbarShow/>
     <div id="background-div" class="page-holder bg-cover">
-      <div class="container py-5">
-        <header class="text-left text-white py-5">
-          <h3 class="mb-4 rounded" id="heading">
-            <a href="#start-shopping" class="bg-white px-2 py-2 rounded"> Start shopping</a> </h3>
-            <p class="lead mb-0 bg-dark p-1 rounded"> Shop all you want</p>
-        </header>
-      </div>
-      <hr />
-    </div>
+
+      <SliderSlide />
+
+  
+    </div> 
+
+
+    
 
     <!--    display categories-->
     <div class="container">
@@ -52,9 +51,10 @@
 // import CategoryBox from "../components/Category/CategoryBox";
 // import ProductBox from "../components/ProductBox";
 import NavbarShow from '../components/NavbarShow';
+import SliderSlide from '../views/SliderSlide';
 export default {
   name: "HomePage",
-  components:{NavbarShow}
+  components:{NavbarShow,SliderSlide}
   // components: {ProductBox, CategoryBox},
   // props: ["categories", "products"],
   // data() {
@@ -82,4 +82,9 @@ export default {
   #heading {
     font-weight: 400;
   }
+
+  .bg-dark{
+    background-color: #343a40!important;
+  }
+
 </style>

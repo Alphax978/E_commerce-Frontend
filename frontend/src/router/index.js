@@ -17,7 +17,7 @@ import SuccessP from '../views/Payment/SuccessP';
 import CheckOut  from '../views/Checkout/CheckOut';
 import MakeOrder from '../views/orders/MakeOrder';
 import OrderDetails from '../views/orders/OrderDetails';
-import DefaultLayout from '../Admin/layouts/DefaultLayout';
+import AdminLayout from '../Admin/layouts/AdminLayout';
 import AdminaddProduct from '../Admin/views/Product/AdminaddProduct';
 import AdminaddCategory from '../Admin/views/Category/AdminaddCategory';
 import AdmincategoryMain from '../Admin/views/Category/AdmincategoryMain';
@@ -139,8 +139,7 @@ const routes = [
 
   {
     path:'/Adminpannel',
-    name:'DefaultLayout',
-    component: DefaultLayout,
+    component: AdminLayout,
  
   
   },

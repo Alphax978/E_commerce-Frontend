@@ -182,4 +182,8 @@ export default {
   position: absolute;
   margin-left: 10px;
 }
+
+.bg-dark{
+  background-color: #343a40!important;
+}
 </style>
