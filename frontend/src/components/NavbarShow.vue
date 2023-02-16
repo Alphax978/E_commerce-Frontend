@@ -3,6 +3,7 @@
     <!-- Navbar content -->
     <!--    Logo-->
     <router-link class="navbar-brand" :to="{ name: 'HomePage' }">
+         <h4  id="logs">Easy Shop</h4>
     </router-link>
     <!--    Burger Button-->
     <button
@@ -151,10 +152,27 @@ export default {
 };
 </script>
 <style scoped>
-#logo {
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+#logs {
   width: 150px;
   margin-left: 20px;
-  margin-right: 20px;
+  margin-right: 27px;
+}
+
+h4{
+  color: #febd69;
+  word-spacing: 4px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 30px;
+  padding-left: 30px;
+  padding-top: 6px;
+ 
+}
+.png{
+    color: #343a40!important;
+
 }
 .nav-link {
   color: rgba(255, 255, 255);
@@ -186,4 +204,5 @@ export default {
 .bg-dark{
   background-color: #343a40!important;
 }
+
 </style>

@@ -44,7 +44,7 @@
 
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h3>Add Category</h3>
+                        <h2>Add Category</h2>
                     </div>
                 </div>
 

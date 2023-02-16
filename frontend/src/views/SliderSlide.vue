@@ -1,7 +1,7 @@
 <template>
   <div class="slider">
     <img :src="currentImage" />
-    <h3 >{{ currentText }}</h3>
+    <h3  class="txt">{{ currentText }}</h3>
     <p>{{nxt}}</p>
     <a class="prev" @click="prevImage" href="#">&#10094; Previous</a>
     <a class="next" @click="nextImage" href="#">&#10095; Next</a>
@@ -10,13 +10,14 @@
 
 <script>
 
+
 export default {
   data() {
     return {
       images: [
-        { src: 'https://cdn.pixabay.com/photo/2015/12/12/15/24/amsterdam-1089646_1280.jpg', text: 'Start Shopping',nxt:'High Quality Goods and Services at your door step' },
-        { src: 'image2.jpg', text: 'Start Shopping' , nxt:'High Quality Goods and Services at your door step'},
-        { src: 'image3.jpg', text: 'Start Shopping',nxt:'High Quality Goods and Services at your door step' }
+        { src: 'https://cdn.pixabay.com/photo/2020/10/01/17/11/store-5619201_960_720.jpg', text: 'Start Shopping' , nxt:'We Offer you with High Quality Goods and Services. All the products listed on this website are legit and the owners are legit too.'},
+        { src: 'https://cdn.pixabay.com/photo/2017/03/13/17/26/ecommerce-2140604_960_720.jpg', text: 'Start Shopping',nxt:'We Offer you with High Quality Goods and Services. All the products listed on this website are legit and the owners are legit too.' },
+        { src: 'https://cdn.pixabay.com/photo/2017/03/21/20/47/shopping-2163323__340.jpg', text: 'Start Shopping',nxt:'We Offer you with High Quality Goods and Services. All the products listed on this website are legit and the owners are legit too.' }
       ],
       currentIndex: 0
     }
@@ -67,22 +68,20 @@ export default {
 }
 
 img {
-  height:600px;
+  height:550px;
   width:100%;
   object-fit: cover;
   transition: all 0.5s ease;
 }
-
 h3 {
   position: absolute;
   top: 15%;
-  left: 15%;
+  left:32%;
   transform: translate(-50%, -50%);
   margin: 0;
   font-size: 20px;
   font-weight: bold;
   text-align: center;
-  background-color: White;
   padding: 8px 8px;
   border-radius: 6px;
   color: #febd69 !important;
@@ -91,17 +90,17 @@ h3 {
 
 p {
   position: absolute;
-  top: 40%;
-  left: 30%;
+  top: 30%;
+  left: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
   font-size: 20px;
   font-weight: bold;
-  text-align: center;
-  background-color: black;
+  text-align: left;
   padding: 8px 8px;
   border-radius: 6px;
-  color: #febd69 !important;
+  background-color: #343a40!important;
+  color: #fff!important
   
 }
 

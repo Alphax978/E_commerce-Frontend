@@ -4,9 +4,9 @@
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h3 class="pt-3">
+        <h4 class="pt-3">
           Shopping cart
-        </h3>
+        </h4>
       </div>
     </div>
 
