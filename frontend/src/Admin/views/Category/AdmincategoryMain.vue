@@ -48,7 +48,7 @@ export default {
 
     data() {
         return {
-            baseURL: "https://limitless-lake-55070.herokuapp.com",
+            baseURL: "",
             categories: [],
            
         };

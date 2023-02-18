@@ -36,7 +36,7 @@ export default {
 
     data() {
         return {
-            baseURL: "https://limitless-lake-55070.herokuapp.com",
+            baseURL: "https://stellular-crepe-392d97.netlify.app",
             categories: [],
            
         };
