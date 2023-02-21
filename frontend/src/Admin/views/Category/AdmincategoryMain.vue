@@ -48,7 +48,7 @@ export default {
 
     data() {
         return {
-            baseURL: "",
+            baseURL: "http://localhost:8084/backend/category",
             categories: [],
            
         };
@@ -57,7 +57,7 @@ export default {
     methods: {
         async getCategories(){
             await axios
-                .get(`${this.baseURL}/category/`)
+                .get(`${this.baseURL}/show`)
                 .then((res) => (this.categories = res.data ))
                 .catch((err) => console.log(err));
         },
