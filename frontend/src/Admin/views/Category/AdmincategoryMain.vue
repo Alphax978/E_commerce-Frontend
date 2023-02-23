@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <h2>Our Category</h2>
-                    <router-link :to="{ name: 'AddCategory'}">
+                    <router-link :to="{ name: 'Add Category'}">
                         <button class="btn" style="float:right">Add Category </button>
                     </router-link>
                 </div>
