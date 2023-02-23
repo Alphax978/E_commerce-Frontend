@@ -95,9 +95,8 @@
                     imageURL: this.imageURL,
                     price: this.price
                 };
-                axios.post(this.baseURL+"product/add", newProduct)
+                axios.post(this.baseURL+"/backend/product/add", newProduct)
                 .then(() => {
-                    this.$router.push({name: 'AdminProduct'});
                     swal({
                         text: "Product added",
                         icon: "success"
@@ -107,5 +106,11 @@
                 })
             }
         }
+
+
+
+
+
+        
     }
 </script>

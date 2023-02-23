@@ -20,7 +20,7 @@
       </div>
 
       <div class="row">
-        <div v-for="index in this.categorySize" :key="index"
+        <div v-for="index in this.category_size" :key="index"
              class="col-md-6 col-xl-4 col-12 pt-3 justify-content-around d-flex">
           <CategoryBox :category="categories[index-1]" />
         </div>
@@ -39,7 +39,7 @@
            <!-- display products -->
 
       <div class="row">
-        <div v-for="index in this.productSize" :key="index"
+        <div v-for="index in this.product_size" :key="index"
              class="col-md-6 col-xl-4 col-12 pt-3 justify-content-around d-flex">
           <ProductBox :product="products[index-1]" />
         </div>
@@ -56,18 +56,24 @@ import NavbarShow from '../components/NavbarShow';
 import SliderSlide from '../views/SliderSlide';
 export default {
   name: "HomePage",
-  components:{NavbarShow,SliderSlide,ProductBox, CategoryBox},
-  props: ["categories", "products"],
+  components:{NavbarShow,SliderSlide, CategoryBox,ProductBox},
+  props: ["baseURL","categories", "products"],
   data() {
     return {
-      categorySize: 0,
-      productSize: 0
+         category_size:0,
+         product_size:0
+      
     }
   },
-  // mounted() {
-  //   this.categorySize = Math.min(6, this.categories.length );
-  //   this.productSize = Math.min(8, this.products.length);
-  // }
+
+  mounted(){
+     this.category_size = this.categories.length;
+      this.category_size = Math.min(6, this.category_size);
+
+      this.product_size = this.products.length;
+      this.product_size = Math.min(1, this.product_size)
+  }
+
 };
 </script>
 <style>

@@ -11,9 +11,9 @@
       <router-link :to="{name: 'ListProducts', params: {id: category.id} }">
         <h5 class="card-title">{{ category.categoryName }}</h5>
       </router-link>
-      <p class="card-text">
-        {{ category.description }}
-      </p>
+      <h1 class="card-text font-italic">
+        {{ category.description.substring(0, 65) }}...
+      </h1>
       <router-link :to="{name: 'EditCategory', params: {id: category.id}}"
                    v-show="$route.name == 'Category'">
         <button class="btn btn-primary">Edit</button>
@@ -48,10 +48,11 @@ a {
 .card-title:hover {
   font-weight: bold;
 }
-.card-text {
-  font-size: 0.9rem;
-}
+
 #edit-category {
   float: right;
+}
+.card-text{
+  font-size: 1.1rem;
 }
 </style>

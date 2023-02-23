@@ -19,36 +19,18 @@
 </div>
 </template>
 <script>
-    const axios = require("axios");
     import ProductBox from "../../components/ProductBox";
     import NavbarShow from '../../components/NavbarShow';
     import FooterShow from '../../components/FooterShow';
 
 
     export default {
-    name: "ProductMainMain",
+    name: "ProductMain",
+    props:["baseURL","products"],
     components: {ProductBox,NavbarShow,FooterShow },
-
-    data() {
-        return {
-            baseURL: "",
-            Product: [],
-           
-        };
-
-    },
-    methods: {
-        async getProduct(){
-            await axios
-                .get(`${this.baseURL}/products/`)
-                .then((res) => (this.Product = res.data ))
-                .catch((err) => console.log(err));
-        },
-      
-    },
     mounted()
     {
-        this.getProduct();
+        
     },
   
 

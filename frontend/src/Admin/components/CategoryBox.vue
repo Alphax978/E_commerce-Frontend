@@ -11,9 +11,9 @@
       <router-link :to="{name: 'ListProducts', params: {id: category.id} }">
         <h5 class="card-title">{{ category.categoryName }}</h5>
       </router-link>
-      <p class="card-text">
-        {{ category.description }}
-      </p>
+      <!-- <p class="card-text font-italic">
+        {{ category.description.substring(0, 65)  }}
+      </p> -->
       <router-link :to="{name: 'EditCategory', params: {id: category.id}}"
                    v-show="$route.name == 'Category'">
         <button class="btn btn-primary">Edit</button>
@@ -30,10 +30,6 @@ export default {
 </script>
 
 <style scoped>
-.card{
-  width : 20rem;
-  height : 24rem;
-}
 .embed-responsive .card-img-top {
   object-fit: cover;
 }
@@ -48,10 +44,10 @@ a {
 .card-title:hover {
   font-weight: bold;
 }
-.card-text {
-  font-size: 0.9rem;
-}
+
 #edit-category {
   float: right;
 }
+
+
 </style>

@@ -14,7 +14,7 @@
             <p class="card-text">
                 {{ product.description.substring(0, 65) }}...
             </p>
-            <router-link :to="{name: 'EditProduct', params: {id: product.id}}"
+            <router-link :to="{name: 'EditProducts', params: {id: product.id}}"
             v-show="$route.name == 'AdminProduct'">
                 <button class="btn btn-primary">Edit</button>
             </router-link>
@@ -37,4 +37,4 @@
     .card-title {
         color: #484848;
     }
-</style>
+</style>ss
