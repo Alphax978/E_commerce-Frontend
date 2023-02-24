@@ -68,12 +68,12 @@ const routes = [
     component: ProductMain
   },
   {
-    path:'/admin/category/editcategory',
+    path:'/category/editcategory/:id',
     name:'EditCategory',
     component: EditCategory
   },
   {
-    path:'/admin/product/listproducts',
+    path:'/product/listproducts/:id',
     name:'ListProducts',
     component: listProducts
   },
@@ -86,7 +86,7 @@ const routes = [
   
     // show details of product
   {
-    path: '/admin/Product/showdetails',
+    path: '/Product/showdetails/:id',
     name: 'ShowDetails',
     component: ShowDetails
   },

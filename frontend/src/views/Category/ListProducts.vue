@@ -19,22 +19,18 @@
     import ProductBox from "../../components/ProductBox";
     export default {
         components: {ProductBox},
-        props:["baseURL","categories"],
-        data()
-
-        {
+        data(){
             return {
                 id : null,
                 categoryIndex : null,
                 category : {},
                 len : 0,
                 msg : null
-            
             }
         },
-
-        mounted() 
-        {
+   
+        props:["baseURL","categories"],
+          mounted() {
             this.id = this.$route.params.id;
             this.categoryIndex = this.categories.findIndex(category => category.id == this.id);
             this.category = this.categories[this.categoryIndex];
@@ -47,6 +43,12 @@
                 this.msg = this.len + " products found";
             }
         }
+
+
+   
+
+
+      
 
         
      
