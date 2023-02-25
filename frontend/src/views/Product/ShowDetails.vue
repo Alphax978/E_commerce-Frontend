@@ -11,9 +11,9 @@
         <h4>{{ product.name }}</h4>
         <h6 class="category font-italic">{{ category.categoryName }}</h6>
         <h6 class="font-weight-bold">$ {{ product.price }}</h6>
-        <h1>
+        <h5>
           {{ product.description }}
-        </h1>
+        </h5>
 
         <div class="d-flex flex-row justify-content-between">
           <div class="input-group col-md-3 col-4 p-0">

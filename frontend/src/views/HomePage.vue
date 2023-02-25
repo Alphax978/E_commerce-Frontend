@@ -2,14 +2,9 @@
   <div id="home">
     <NavbarShow />
     <div id="background-div" class="page-holder bg-cover">
-
       <SliderSlide />
-
-  
+      
     </div> 
-
-
-    
 
     <!--    display categories-->
     <div class="container">
@@ -71,7 +66,7 @@ export default {
       this.category_size = Math.min(6, this.category_size);
 
       this.product_size = this.products.length;
-      this.product_size = Math.min(1, this.product_size)
+      this.product_size = Math.min(5, this.product_size)
   }
 
 };
@@ -85,6 +80,7 @@ export default {
   }
   #background-div {
     /* background: url("../assets/home.png"); */
+    
   }
   #heading {
     font-weight: 400;
@@ -93,5 +89,7 @@ export default {
   .bg-dark{
     background-color: #343a40!important;
   }
+
+
 
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="slider">
     <img :src="currentImage" />
-    <h3  class="txt">{{ currentText }}</h3>
+    <h3>{{ currentText }}</h3>
     <p>{{nxt}}</p>
     <a class="prev" @click="prevImage" href="#">&#10094; Previous</a>
     <a class="next" @click="nextImage" href="#">&#10095; Next</a>
@@ -15,8 +15,8 @@ export default {
   data() {
     return {
       images: [
-        { src: 'https://cdn.pixabay.com/photo/2020/10/01/17/11/store-5619201_960_720.jpg', text: 'Start Shopping' , nxt:'We Offer you with High Quality Goods and Services. All the products listed on this website are legit and the owners are legit too.'},
-        { src: 'https://cdn.pixabay.com/photo/2017/03/13/17/26/ecommerce-2140604_960_720.jpg', text: 'Start Shopping',nxt:'We Offer you with High Quality Goods and Services. All the products listed on this website are legit and the owners are legit too.' },
+        { src: 'https://cdn.pixabay.com/photo/2017/03/13/17/26/ecommerce-2140604_960_720.jpg', text: 'Start Shopping' , nxt:'We Offer you with High Quality Goods and Services. All the products listed on this website are legit and the owners are legit too.'},
+        { src: 'https://cdn.pixabay.com/photo/2020/10/01/17/11/store-5619201_960_720.jpg', text: 'Start Shopping',nxt:'We Offer you with High Quality Goods and Services. All the products listed on this website are legit and the owners are legit too.' },
         { src: 'https://cdn.pixabay.com/photo/2017/03/21/20/47/shopping-2163323__340.jpg', text: 'Start Shopping',nxt:'We Offer you with High Quality Goods and Services. All the products listed on this website are legit and the owners are legit too.' }
       ],
       currentIndex: 0
@@ -55,7 +55,6 @@ export default {
   }
 }
 </script>
-
 <style>
 .slider {
   display: flex;
@@ -68,7 +67,7 @@ export default {
 }
 
 img {
-  height:550px;
+  height:665px;
   width:100%;
   object-fit: cover;
   transition: all 0.5s ease;
@@ -79,7 +78,7 @@ h3 {
   left:32%;
   transform: translate(-50%, -50%);
   margin: 0;
-  font-size: 20px;
+  font-size: 50px;
   font-weight: bold;
   text-align: center;
   padding: 8px 8px;
