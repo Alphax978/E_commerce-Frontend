@@ -5,7 +5,7 @@
     <CCol :xs="3">
       <CWidgetStatsA class="mb-4" color="primary">
         <template #value
-          >26K
+          >{{category_size}}
           <span class="fs-6 fw-normal">
             (-12.4% <CIcon icon="cil-arrow-bottom" />)
           </span>
@@ -70,7 +70,7 @@
        <CCol :xs="3">
       <CWidgetStatsA class="mb-4" color="info">
         <template #value
-          >26K
+          >{{category}}
           <span class="fs-6 fw-normal">
             (-12.4% <CIcon icon="cil-arrow-bottom" />)
           </span>
@@ -133,7 +133,7 @@
         <CCol :xs="3">
       <CWidgetStatsA class="mb-4" color="warning">
         <template #value
-          >26K
+          >{{users}}
           <span class="fs-6 fw-normal">
             (-12.4% <CIcon icon="cil-arrow-bottom" />)
           </span>
@@ -255,148 +255,6 @@
       </CWidgetStatsA>
     </CCol>
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
   </CRow>
 </template>
 
@@ -407,6 +265,20 @@ export default {
   components: {
     CChart,
   },
+  props:["baseURL","categories","products"],
+  data(){
+    return{
+        category_size:'',
+        product_size:'',
+    }
+
+  },
+  mounted()
+  {
+    this.categorySize = Math.min(6, this.categories.length );
+    this.productSize = Math.min(5, this.products.length);
+
+  }
 }
 //primary,info,warning,danger
 </script>
