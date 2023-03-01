@@ -100,7 +100,7 @@ export default [
       {
         component: 'CNavItem',
         name: 'Logout',
-        to: '/signin',
+        to: '/',
       },
     ],
   },

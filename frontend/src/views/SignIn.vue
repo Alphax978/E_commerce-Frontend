@@ -39,17 +39,25 @@ export default {
         password: this.password,
       };
       await axios
-        .post(`${this.baseURL}user/signin`, body)
-        .then((res) => {
-          localStorage.setItem('token', res.data.token);
-          swal({
-            text: 'Login successful',
-            icon: 'success',
-          });
-          this.$emit('fetchData');
-          this.$router.push({ name: 'Home' });
+          .post(`${this.baseURL}/backend/user/signIn`, body)
+          .then((res) => {
+            localStorage.setItem('token', res.data.token);
+              swal({
+              text: 'Login successful',
+              icon: 'success',
+            });
+            this.$emit('fetchData');
+            if (this.email == "Admin@gmail.com" && this.password == "Admin")
+            {
+              this.$router.replace({name: "Adminpannel"})
+            }
+            else
+            {
+              this.$router.push({ name: 'HomePage' });
+            }
         })
         .catch((err) => console.log('err', err));
+   
     },
   },
 };

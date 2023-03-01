@@ -7,7 +7,7 @@
       <CDropdownHeader component="h6" class="bg-light fw-semibold py-2">
         Account
       </CDropdownHeader>
-      <CDropdownItem to='/signin'> <CIcon icon="cil-lock-locked" />  Logout </CDropdownItem>
+      <CDropdownItem > <CNavLink href="/" /> <CIcon icon="cil-lock-locked" />  Logout </CDropdownItem>
     </CDropdownMenu>
   </CDropdown>
 </template>

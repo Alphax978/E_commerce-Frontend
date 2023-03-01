@@ -51,8 +51,7 @@
             <div class="form-group">
               <label for="Password">Address </label>
               <input
-                type="password"
-                v-model="password"
+                type="text"
                 class="form-control"
                 required
               />
@@ -116,7 +115,7 @@ export default {
         };
         console.log("user", user);
         await axios
-          .post(`${this.baseURL}user/signup`, user)
+          .post(`${this.baseURL}/backend/user/signup`, user)
           .then(() => {
             this.$router.replace("/");
             swal({
