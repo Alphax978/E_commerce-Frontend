@@ -23,6 +23,7 @@ import AdminaddCategory from '../Admin/views/Category/AdminaddCategory';
 import AdmincategoryMain from '../Admin/views/Category/AdmincategoryMain';
 import AdminproductMain from '../Admin/views/Product/AdminproductMain';
 import SellerSign from '../views/SellerSign';
+import SellerLogin from '../views/SellerLogin';
 
 
 
@@ -182,6 +183,13 @@ const routes = [
     path:'/vsells',
     name:'SellerSign',
     component: SellerSign,
+ 
+  
+  },
+  {
+    path:'/vlogsin',
+    name:'SellerLogin',
+    component: SellerLogin,
  
   
   },

@@ -78,7 +78,8 @@
                 required
               />
             </div>
-            <div class="text-center"><button class="btn btn-primary mt-2 mb-4 "  >Create Account</button></div>          </form>
+            <div class="text-center"><button class="btn btn-primary mt-2 mb-4 "  >Create Account</button></div>
+            </form>
             <div class="text-center"><button class="btn btn-secondary mt-2 mb-4" @click="nextportal" >Create Sellers Account</button></div>
         </div>
       </div>
