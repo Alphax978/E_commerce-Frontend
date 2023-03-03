@@ -24,6 +24,10 @@ import AdmincategoryMain from '../Admin/views/Category/AdmincategoryMain';
 import AdminproductMain from '../Admin/views/Product/AdminproductMain';
 import SellerSign from '../views/SellerSign';
 import SellerLogin from '../views/SellerLogin';
+import VendorLayout from '../aVendor/layouts/VendorLayout';
+import VendorproductMain from '../aVendor/views/Product/VendorproductMain';
+import VendoraddProduct from '../aVendor/views/Product/VendoraddProduct';
+
 
 
 
@@ -193,6 +197,31 @@ const routes = [
  
   
   },
+  {
+    path:'/vendorpannel',
+    name:'VendorLayout',
+    component: VendorLayout,
+ 
+  
+  },
+
+  {
+    path:'/vendoradds',
+    name:'Add Product',
+    component: VendoraddProduct,
+ 
+  
+  },
+
+  {
+    path:'/vendorsees',
+    name:'View Products',
+    component: VendorproductMain,
+ 
+  
+  },
+
+
 
 
   

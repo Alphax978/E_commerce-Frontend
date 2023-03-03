@@ -2,7 +2,7 @@ export default [
   {
     component: 'CNavItem',
     name: 'Dashboard',
-    to: '/Adminpannel',
+    to: '/vendorpannel',
     icon: 'cil-speedometer',
   },
   // {
@@ -23,36 +23,18 @@ export default [
   // },
   {
     component: 'CNavGroup',
-    name: 'Manage Categories',
-    icon: 'cil-check',
-    items: [
-      {
-        component: 'CNavItem',
-        name: 'Add Category',
-        to: '/Adcategory',
-        icons: 'cil-puzzle'
-      },
-      {
-        component: 'CNavItem',
-        name: 'View Categories',
-        to: '/vcategory',
-      },
-    ],
-  },
-  {
-    component: 'CNavGroup',
     name: 'Manage Products',
     icon: 'cil-Task',
     items: [
       {
         component: 'CNavItem',
         name: 'Add product',
-        to: '/Adproduct',
+        to: '/vendoradds',
       },
       {
         component: 'CNavItem',
         name: 'View Products',
-        to: '/vproduct',
+        to: '/vendorsees',
       },
     ],
   },
@@ -75,15 +57,6 @@ export default [
     to: '/icons',
     icon: 'cil-Grid',
     items: [
-      {
-        component: 'CNavItem',
-        name: 'Category Image',
-        to: '/icons/coreui-icons',
-        badge: {
-          color: 'info',
-          text: 'NEW',
-        },
-      },
       {
         component: 'CNavItem',
         name: 'Product Image',

@@ -22,7 +22,7 @@ import WidgetsStatsA from '../views/widgets/WidgetsStatsTypeA.vue'
 
 
 export default {
-  name: 'DefaultLayout',
+  name: 'vendorLayout',
   components: {
     AppFooter,
     AppHeader,

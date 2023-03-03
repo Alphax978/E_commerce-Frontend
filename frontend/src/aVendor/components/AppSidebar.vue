@@ -12,7 +12,7 @@
     "
   >
     <CSidebarBrand>
-      <h1 class="lead"> Admin</h1>
+      <h1 class="lead"> Sellers </h1>
     </CSidebarBrand>
     <AppSidebarNav />
     <CSidebarToggler

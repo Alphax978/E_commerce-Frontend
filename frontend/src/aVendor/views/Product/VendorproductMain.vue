@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                 <h4> Our Products</h4>
-                <router-link :to="{name: 'AddProduct'}" style="float: right">
+                <router-link :to="{path: 'vendoradds'}" style="float: right">
                     <button class="btn" >
                         Add Product
                     </button> 
