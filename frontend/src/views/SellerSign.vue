@@ -11,7 +11,7 @@
     <div class="row">
       <div class="col-12 justify-content-center d-flex pt-4">
         <div id="signup" class="flex-item border">
-          <h2 class="pt-4 pl-4">Create Account</h2>
+          <h2 class="pt-4 pl-4">Create Sellers Account</h2>
           <form @submit="signup" class="pt-4 pl-4 pr-4">
             <div class="form-group">
               <label for="Email">Email</label>
@@ -78,8 +78,9 @@
                 required
               />
             </div>
-            <div class="text-center"><button class="btn btn-primary mt-2 mb-4 "  >Create Account</button></div>          </form>
-            <div class="text-center"><button class="btn btn-secondary mt-2 mb-4" @click="nextportal" >Create Sellers Account</button></div>
+
+            <button class="btn btn-primary mt-2 mb-4"  >Create Account</button>
+          </form>
         </div>
       </div>
     </div>
@@ -87,65 +88,22 @@
     <!-- form -->
   </div>
 </template>
-<script>
-import axios from "axios";
-import swal from "sweetalert";
-export default {
-  props: ["baseURL"],
-  data() {
-    return {
-      email: null,
-      firstName: null,
-      lastName: null,
-      password: null,
-      confirmPassword: null,
-    };
-  },
-  methods: {
-    async signup(e) {
-      e.preventDefault();
-      if (this.password === this.confirmPassword) {
-        // call signup api
-        const user = {
-          email: this.email,
-          firstName: this.firstName,
-          lastName: this.lastName,
-          password: this.password,
-        };
-        console.log("user", user);
-        await axios
-          .post(`${this.baseURL}/backend/user/signup`, user)
-          .then(() => {
-            this.$router.replace("/");
-            swal({
-              text: "User signup successful, please login",
-              icon: "success",
-            });
-          })
-          .catch((err) => console.log("err", err));
-      } else {
-        // show some error
-        swal({
-          text: "passwords dont match",
-          icon: "error",
-        });
-      }
-    },
 
-    nextportal(){
-      this.$router.replace("/vsells")
-    }
-  },
-};
+
+<script>
+export default {
+    name:'SellerSignIn'
+    
+}
 </script>
+
 <style scoped>
 .btn-primary {
   background-color: #f0c14b;
-  color: #000;
-  
+  color: black;
 }
-@media screen and (min-width: 992 px) {
-  #signup {
+@media screen and (min-width: 992px) {
+  #signin {
     width: 40%;
   }
 }

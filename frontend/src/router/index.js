@@ -22,6 +22,7 @@ import AdminaddProduct from '../Admin/views/Product/AdminaddProduct';
 import AdminaddCategory from '../Admin/views/Category/AdminaddCategory';
 import AdmincategoryMain from '../Admin/views/Category/AdmincategoryMain';
 import AdminproductMain from '../Admin/views/Product/AdminproductMain';
+import SellerSign from '../views/SellerSign';
 
 
 
@@ -176,6 +177,15 @@ const routes = [
  
   
   },
+
+  {
+    path:'/vsells',
+    name:'SellerSign',
+    component: SellerSign,
+ 
+  
+  },
+
 
   
 
