@@ -265,20 +265,20 @@ export default {
   components: {
     CChart,
   },
-  props:["baseURL","categories","products"],
-  data(){
-    return{
-        category_size:'',
-        product_size:'',
-    }
+  // props:["baseURL","categories","products"],
+  // data(){
+  //   return{
+  //       category_size:'',
+  //       product_size:'',
+  //   }
 
-  },
-  mounted()
-  {
-    this.categorySize = Math.min(6, this.categories.length );
-    this.productSize = Math.min(5, this.products.length);
+  // },
+  // mounted()
+  // {
+  //   this.categorySize = Math.min(6, this.categories.length );
+  //   this.productSize = Math.min(5, this.products.length);
 
-  }
+  // }
 }
 //primary,info,warning,danger
 </script>

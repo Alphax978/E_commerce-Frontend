@@ -11,11 +11,10 @@
             <router-link :to="{name: 'ShowDetails', params: {id : product.id}}">
                 <h5 class="card-title">{{ product.name }}</h5>
             </router-link>
-            <p class="card-text">
+            <h1 class="card-text">
                 {{ product.description.substring(0, 65) }}...
-            </p>
-            <router-link :to="{name: 'EditProducts', params: {id: product.id}}"
-            v-show="$route.name == 'AdminProduct'">
+            </h1>
+            <router-link :to="{name: 'EditProducts', params: {id: product.id}}">
                 <button class="btn btn-primary">Edit</button>
             </router-link>
         </div>
@@ -36,5 +35,9 @@
     }
     .card-title {
         color: #484848;
+    }
+
+    .card-text{
+        font-size: 1.1rem;
     }
 </style>ss

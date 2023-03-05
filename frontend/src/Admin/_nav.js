@@ -37,23 +37,11 @@ export default [
         name: 'View Categories',
         to: '/vcategory',
       },
-    ],
-  },
-  {
-    component: 'CNavGroup',
-    name: 'Manage Products',
-    icon: 'cil-Task',
-    items: [
-      {
-        component: 'CNavItem',
-        name: 'Add product',
-        to: '/Adproduct',
-      },
-      {
-        component: 'CNavItem',
-        name: 'View Products',
-        to: '/vproduct',
-      },
+      // {
+      //   component: 'CNavItem',
+      //   name: 'Edit Category',
+      //   to: '/edcategory',
+      // },
     ],
   },
   {

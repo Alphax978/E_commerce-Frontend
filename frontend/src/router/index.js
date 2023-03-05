@@ -22,6 +22,7 @@ import AdminaddProduct from '../Admin/views/Product/AdminaddProduct';
 import AdminaddCategory from '../Admin/views/Category/AdminaddCategory';
 import AdmincategoryMain from '../Admin/views/Category/AdmincategoryMain';
 import AdminproductMain from '../Admin/views/Product/AdminproductMain';
+import AdmineditCategory from '../Admin/views/Category/AdmineditCategory';
 import SellerSign from '../views/SellerSign';
 import SellerLogin from '../views/SellerLogin';
 import VendorLayout from '../aVendor/layouts/VendorLayout';
@@ -173,6 +174,13 @@ const routes = [
     component: AdminproductMain,
  
   
+  },
+
+  {
+    path:'/edcategory',
+    name:'editscategory',
+    component: AdmineditCategory,
+ 
   },
 
   {
