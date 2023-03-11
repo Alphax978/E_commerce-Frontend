@@ -56,11 +56,11 @@
         methods: {
             async editProduct() {
                 console.log('product', this.product)
-                await axios.post(`${this.baseURL}product/update/${this.id}`,
+                await axios.post(`${this.baseURL}/backend/product/update/${this.id}`,
                     this.product)
                     .then(() => {
                         this.$emit("fetchData");
-                        this.$router.push({name: 'AdminProduct'})
+                        this.$router.push({name: 'VendorLayout'})
                         swal({
                             text: "product has been updated successfully",
                             icon: "success"

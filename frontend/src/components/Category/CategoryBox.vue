@@ -14,10 +14,6 @@
       <h1 class="card-text font-italic">
         {{ category.description.substring(0, 65) }}...
       </h1>
-      <router-link :to="{name: 'EditCategory', params: {id: category.id}}"
-                   v-show="$route.name == 'Category'">
-        <button class="btn btn-primary">Edit</button>
-      </router-link>
     </div>
   </div>
 </template>

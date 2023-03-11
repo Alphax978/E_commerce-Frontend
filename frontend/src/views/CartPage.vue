@@ -39,7 +39,7 @@
           </h6>
 
           <p class="mb-0 font-weight-bold" id="item-price">
-            $ {{ cartItem.product.price }} per unit
+            Rs. {{ cartItem.product.price }} per unit
           </p>
           <p class="mb-0" style="float:left">
             Quantity:{{ cartItem.quantity }}

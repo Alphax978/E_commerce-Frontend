@@ -5,7 +5,6 @@ import CategoryMain from '../views/Category/CategoryMain';
 import ProductMain from '../views/Product/ProductMain';
 import AddProduct from '../views/Product/AddProduct';
 import listProducts from '../views/Category/ListProducts';
-import EditCategory from '../views/Category/EditCategory';
 import EditProducts from '../views/Product/EditProduct';
 import ShowDetails from '../views/Product/ShowDetails';
 import WishList from '../views/Product/WishList';
@@ -75,18 +74,13 @@ const routes = [
     component: ProductMain
   },
   {
-    path:'/category/editcategory/:id',
-    name:'EditCategory',
-    component: EditCategory
-  },
-  {
     path:'/product/listproducts/:id',
     name:'ListProducts',
     component: listProducts
   },
     // edit product
   {
-    path: '/admin/Product/editproduct',
+    path: '/admin/Product/editproduct/:id',
     name: 'EditProducts',
     component: EditProducts
   },
@@ -178,7 +172,7 @@ const routes = [
 
   {
     path:'/edcategory',
-    name:'editscategory',
+    name:'categoryedit',
     component: AdmineditCategory,
  
   },

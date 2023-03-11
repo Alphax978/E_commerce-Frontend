@@ -46,11 +46,11 @@
             async editCategory() {
                 delete this.category["products"]
                 console.log('category', this.category)
-                await axios.post(`${this.baseURL}category/update/${this.id}`,
+                await axios.post(`${this.baseURL}/backend/category/update/${this.id}`,
                     this.category)
                 .then(() => {
                     this.$emit("fetchData");
-                    this.$router.push({name: 'Category'})
+                    this.$router.push({name: 'AdmincategoryMain'})
                     swal({
                         text: "category has been updated successfully",
                         icon: "success"
