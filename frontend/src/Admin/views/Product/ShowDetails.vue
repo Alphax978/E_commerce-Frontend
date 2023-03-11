@@ -109,7 +109,7 @@ export default {
       }
       // add to cart
       axios
-        .post(`${this.baseURL}/cart/add?token=${this.token}`, {
+        .post(`${this.baseURL}/backend/cart/add?token=${this.token}`, {
           productId: this.id,
           quantity: this.quantity,
         })
