@@ -14,7 +14,7 @@
       <h1 class="card-text font-italic">
         {{ category.description.substring(0, 65)  }}
       </h1>
-      <router-link :to="{name: 'categoryedit'}" >
+      <router-link :to="{name: 'Adminedits'}" >
         <button class="btn btn-primary" type="button" >Edit</button> 
       </router-link>
     </div>

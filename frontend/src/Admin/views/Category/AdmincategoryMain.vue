@@ -34,7 +34,6 @@ import AppSidebar from '../../components/AppSidebar.vue'
 
 
 
-const axios = require("axios");
 import CategoryBox from "../../components/CategoryBox.vue";
 
 export default {
@@ -45,30 +44,7 @@ export default {
         AppSidebar,
         // CContainer, 
     },
-
-    data() {
-        return {
-            baseURL: "http://localhost:8084/backend/category",
-            categories: [],
-           
-        };
-
-    },
-    methods: {
-        async getCategories(){
-            await axios
-                .get(`${this.baseURL}/show`)
-                .then((res) => (this.categories = res.data ))
-                .catch((err) => console.log(err));
-        },
-      
-    },
-    mounted()
-    {
-        this.getCategories();
-    },
-  
-
+    props:["categories"],
 };
 </script>
 

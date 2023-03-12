@@ -97,7 +97,7 @@ export default {
   methods: {
     addToWishList(productId) {
       axios
-        .post(`${this.baseURL}wishlist/add?token=${this.token}`, {
+        .post(`${this.baseURL}/backend/wishlist/add?token=${this.token}`, {
           id: productId,
         })
         .then(
@@ -121,7 +121,7 @@ export default {
         return;
       }
       axios
-        .post(`${this.baseURL}cart/add?token=${this.token}`, {
+        .post(`${this.baseURL}/backend/cart/add?token=${this.token}`, {
           productId: productId,
           quantity: this.quantity,
         })
@@ -143,7 +143,7 @@ export default {
         );
     },
     listCartItems() {
-      axios.get(`${this.baseURL}cart/?token=${this.token}`).then(
+      axios.get(`${this.baseURL}/backend/cart/?token=${this.token}`).then(
         (response) => {
           if (response.status === 200) {
             this.$router.push("/cart");

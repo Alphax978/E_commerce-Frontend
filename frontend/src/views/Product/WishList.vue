@@ -41,7 +41,7 @@ export default {
   methods: {
     fetchWishList() {
       axios
-        .get(`${this.baseURL}wishlist/${this.token}`)
+        .get(`${this.baseURL}/backend/wishlist/${this.token}`)
         .then((data) => {
           this.products = data.data;
         })

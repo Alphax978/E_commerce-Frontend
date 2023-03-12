@@ -89,7 +89,7 @@ export default {
     // fetch All items in cart
     listCartItems() {
       axios
-        .get(`${this.baseURL}cart/?token=${this.token}`)
+        .get(`${this.baseURL}/backend/cart/?token=${this.token}`)
         .then((res) => {
           const result = res.data;
           this.cartItems = result.cartItems;
@@ -99,7 +99,7 @@ export default {
     },
     deleteItem(itemId) {
       axios
-        .delete(`${this.baseURL}cart/delete/${itemId}/?token=${this.token}`)
+        .delete(`${this.baseURL}/backend/cart/delete/${itemId}/?token=${this.token}`)
         .then((res) => {
           if (res.status == 200) {
             this.$router.go(0);
@@ -108,7 +108,7 @@ export default {
         .catch((err) => console.log('err', err));
     },
     checkout() {
-      this.$router.push({ name: 'Checkout' });
+      this.$router.push({ name: 'CheckOut' });
     },
   },
   mounted() {

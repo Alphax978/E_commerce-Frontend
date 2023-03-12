@@ -41,7 +41,7 @@
                 id: null
             }
         },
-        props: ["baseURL", "categories"],
+        props: ["baseURL", "categories","products"],
         methods: {
             async editCategory() {
                 delete this.category["products"]
@@ -50,7 +50,7 @@
                     this.category)
                 .then(() => {
                     this.$emit("fetchData");
-                    this.$router.push({name: 'AdmincategoryMain'})
+                    this.$router.push({name: 'View categories'})
                     swal({
                         text: "category has been updated successfully",
                         icon: "success"

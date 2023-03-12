@@ -5,7 +5,7 @@ import CategoryMain from '../views/Category/CategoryMain';
 import ProductMain from '../views/Product/ProductMain';
 import AddProduct from '../views/Product/AddProduct';
 import listProducts from '../views/Category/ListProducts';
-import EditProducts from '../views/Product/EditProduct';
+import VendoreditProduct from '../aVendor/views/Product/VendoreditProduct';
 import ShowDetails from '../views/Product/ShowDetails';
 import WishList from '../views/Product/WishList';
 import CartPage from '../views/CartPage';
@@ -80,9 +80,9 @@ const routes = [
   },
     // edit product
   {
-    path: '/admin/Product/editproduct/:id',
+    path: '/avendor/Product/editproduct/:id',
     name: 'EditProducts',
-    component: EditProducts
+    component: VendoreditProduct
   },
   
     // show details of product
@@ -171,8 +171,8 @@ const routes = [
   },
 
   {
-    path:'/edcategory',
-    name:'categoryedit',
+    path:'/Admin/categpry/AdmineditCategory',
+    name:'Adminedits',
     component: AdmineditCategory,
  
   },
