@@ -55,7 +55,7 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
 .slider {
   display: flex;
   flex-direction: column;
@@ -90,7 +90,7 @@ h3 {
 p {
   position: absolute;
   top: 30%;
-  left: 50%;
+  left: 47%;
   transform: translate(-50%, -50%);
   margin: 0;
   font-size: 20px;

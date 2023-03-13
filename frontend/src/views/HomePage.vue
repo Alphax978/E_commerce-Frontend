@@ -71,7 +71,7 @@ export default {
 
 };
 </script>
-<style>
+<style scoped>
   .page-holder {
     min-height: 100vh;
   }
