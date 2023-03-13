@@ -81,6 +81,17 @@
 
             <button class="btn btn-primary mt-2 mb-4"  >Create Account</button>
           </form>
+          <hr />
+          <small class="form-text text-muted pt-2 pl-4 text-center"
+              >Already Have an Sellers Account?</small
+            >
+          <p class="text-center">
+            <router-link
+              class="btn btn-dark text-center mx-auto px-5 py-1 mb-2"
+              :to="{ name: 'SellerLogin' }"
+              >Signin Here</router-link
+            >
+          </p>
         </div>
       </div>
     </div>
@@ -140,12 +151,22 @@ export default {
 </script>
 
 <style scoped>
+.btn-dark {
+  background-color: #e7e9ec;
+  color: #000;
+  font-size: smaller;
+  border-radius: 0;
+  border-color: #adb1b8 #a2a6ac #a2a6ac;
+}
 .btn-primary {
   background-color: #f0c14b;
   color: black;
+  border-color: #a88734 #9c7e31 #846a29;
+  border-radius: 0;
 }
-@media screen and (min-width: 992px) {
-  #signin {
+
+@media only screen and (min-width: 992px) {
+  #signup-div {
     width: 40%;
   }
 }

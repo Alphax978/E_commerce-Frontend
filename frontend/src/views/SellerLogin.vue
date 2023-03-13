@@ -1,20 +1,51 @@
 <template>
-  <div class="conatiner">
+  <div class="container">
+
     <div class="row">
       <div class="col-12 justify-content-center d-flex flex-row pt-5">
-        <div id="signin" class="flext-item border">
-          <h2 class="pt-4">Sign-In as Seller</h2>
-          <form @submit="signin" class="form-group pt-4 pl-4 pr-4">
+        <div id="signin-div" class="flex-item border">
+          <h2 class="pt-4 pl-4">Sign-In as Seller</h2>
+          <form  @submit="signin" class = "pt-4 pl-4 pr-4">
             <div class="form-group">
-              <label>Email </label>
-              <input v-model="email" type="email" class="form-control" />
+              <label>Email</label>
+              <input
+                type="email"
+                class="form-control"
+                v-model="email"
+                required
+            
+              />
             </div>
             <div class="form-group">
-              <label>Password </label>
-              <input v-model="password" type="password" class="form-control" />
+              <label>Password</label>
+              <input
+                type="password"
+                class="form-control"
+                v-model="password"
+                required
+              
+              />
             </div>
-            <button class="btn btn-primary mt-2 py-0">Continue</button>
+            <small class="form-text text-muted"
+              >By continuing, you agree to Easy Shop Conditions of Use and
+              Privacy Notice.</small
+            >
+            <button  class="btn btn-primary mt-2 py-0">
+              Continue
+            </button>
+            <br/>
           </form>
+          <hr />
+          <small class="form-text text-muted pt-2 pl-2 pb-2 text-center"
+            >New to Easyshop Sellers?</small
+          >
+          <p class="text-center">
+            <router-link
+              :to="{ name: 'SellerSign' }"
+              class="btn btn-dark text-center mx-auto px-5 py-1 mb-2"
+              >Create Your Easy Shop sellers  Account</router-link
+            >
+          </p>
         </div>
       </div>
     </div>
@@ -58,12 +89,29 @@ export default {
 </script>
 
 <style scoped>
+.btn-dark {
+  background-color: #e7e9ec;
+  color: #000;
+  font-size: smaller;
+  border-radius: 0;
+  border-color: #adb1b8 #a2a6ac #a2a6ac;
+}
 .btn-primary {
   background-color: #f0c14b;
   color: black;
+  border-color: #a88734 #9c7e31 #846a29;
+  border-radius: 0;
 }
-@media screen and (min-width: 992px) {
-  #signin {
+
+.btn-secondary {
+  background-color: #f0c14b;
+  color: black;
+  border-color: #a88734 #9c7e31 #846a29;
+  border-radius: 0;
+}
+
+@media only screen and (min-width: 992px) {
+  #signin-div {
     width: 40%;
   }
 }

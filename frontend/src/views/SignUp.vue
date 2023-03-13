@@ -80,7 +80,18 @@
             </div>
             <div class="text-center"><button class="btn btn-primary mt-2 mb-4 "  >Create Account</button></div>
             </form>
-            <div class="text-center"><button class="btn btn-secondary mt-2 mb-4" @click="nextportal" >Create Sellers Account</button></div>
+            <div class="text-center"><button class="btn btn-dark btn-lg mt-2 py-1" @click="nextportal" >Create Sellers Account</button></div>
+            <hr />
+            <small class="form-text text-muted pt-2 pl-4 text-center"
+              >Already Have an Account?</small
+            >
+          <p class="text-center">
+            <router-link
+              class="btn btn-dark text-center mx-auto px-5 py-1 mb-2"
+              :to="{ name: 'SignIn' }"
+              >Signin Here</router-link
+            >
+          </p>
         </div>
       </div>
     </div>
