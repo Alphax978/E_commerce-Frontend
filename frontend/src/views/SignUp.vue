@@ -140,13 +140,22 @@ export default {
 };
 </script>
 <style scoped>
+.btn-dark {
+  background-color: #e7e9ec;
+  color: #000;
+  font-size: smaller;
+  border-radius: 0;
+  border-color: #adb1b8 #a2a6ac #a2a6ac;
+}
 .btn-primary {
   background-color: #f0c14b;
-  color: #000;
-  
+  color: black;
+  border-color: #a88734 #9c7e31 #846a29;
+  border-radius: 0;
 }
-@media screen and (min-width: 992 px) {
-  #signup {
+
+@media only screen and (min-width: 992px) {
+  #signup-div {
     width: 40%;
   }
 }
