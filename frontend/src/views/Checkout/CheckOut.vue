@@ -1,11 +1,7 @@
 <template>
   <div class="div_class">
     <h3>You will be redirected to payment page</h3>
-    <div class="alert alert-primary">
-      While making payment use card number 4242 4242 4242 4242 and enter random
-      date and cvv (3 digit)
-    </div>
-
+    <br>
     <button class="btn btn-primary" @click="goToCheckout">Make Payment</button>
   </div>
 </template>
@@ -27,7 +23,7 @@ export default {
   methods: {
     getAllItems() {
       axios
-        .get(`${this.baseURL}cart/?token=${this.token}`)
+        .get(`${this.baseURL}/backend/cart/?token=${this.token}`)
         .then((response) => {
           if (response.status == 200) {
             let products = response.data;
@@ -47,7 +43,7 @@ export default {
       console.log('checkoutBodyArray', this.checkoutBodyArray);
       axios
         .post(
-          `${this.baseURL}order/create-checkout-session`,
+          `${this.baseURL}/backend/order/create-checkout-session`,
           this.checkoutBodyArray
         )
         .then((response) => {

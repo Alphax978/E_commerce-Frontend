@@ -50,7 +50,7 @@
     methods: {
       // list of order histories
       listOrders(){
-        axios.get(`${this.baseURL}order/?token=${this.token}`)
+        axios.get(`${this.baseURL}/backend/order/?token=${this.token}`)
           .then((response) => {
               if(response.status==200){
                 this.orders = response.data

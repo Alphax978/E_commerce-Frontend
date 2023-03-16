@@ -125,30 +125,30 @@
   </nav>
 </template>
 <script>
-// import swal from "sweetalert";
+import swal from "sweetalert";
 export default {
   name: "NavbarShow",
-//   props: ["cartCount"],
-//   data() {
-//     return {
-//       token: null,
-//     };
-//   },
-//   methods: {
-//     signout() {
-//       localStorage.removeItem("token");
-//       this.token = null;
-//       swal({
-//         text: "Logged you out. Visit again",
-//         icon: "success",
-//       });
-//       this.$emit("resetCartCount");
-//       this.$router.push({ name: "HomePage" });
-//     },
-//   },
-//   mounted() {
-//     this.token = localStorage.getItem("token");
-//   },
+  props: ["cartCount"],
+  data() {
+    return {
+      token: null,
+    };
+  },
+  methods: {
+    signout() {
+      localStorage.removeItem("token");
+      this.token = null;
+      swal({
+        text: "Logged you out. Visit again",
+        icon: "success",
+      });
+      this.$emit("resetCartCount");
+      this.$router.push({ name: "HomePage" });
+    },
+  },
+  mounted() {
+    this.token = localStorage.getItem("token");
+  },
 };
 </script>
 <style scoped>
