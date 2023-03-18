@@ -110,7 +110,7 @@ export default {
         .catch((err) => console.log('err', err));
     },
     checkout() {
-      this.$router.push({ name: 'CheckOut' });
+      this.$router.push({ name: 'Payment' });
     },
   },
   mounted() {

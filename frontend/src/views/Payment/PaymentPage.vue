@@ -1,88 +1,340 @@
 <template>
-<div class="row">
-
-    <div class="container mb-4">
-        <div class="row">
-            <div class="col-12">
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <!-- <th scope="col">Image </th> -->
-                                <th scope="col">Product</th>
-                                <!-- <th scope="col">Available</th> -->
-
-                                <th scope="col" class="text-center">Quantity</th>
-                                <th>Unit Price</th>
-                                <th scope="col" class="text-right">Price</th>
-                                <th> </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% with carts=cart.list  %}
-                            {% for cart in carts %}
-
-                            <tr>
-                                <!-- <td> <img src="{{cart.obj.image.url}}" alt="" height="35px" /> </td> -->
-                                <td>{{cart.obj.name}}</td>
-                                <!-- <td>In stock</td> -->
-                                <td>
-                                    <form action="{% url 'update_cart' cart.id %}" method="post"
-                                        style="margin-left: -24px; margin-right: -24px;">
-                                        {% csrf_token %}
-                                        {{form}}
-                                        <input type="number" name="quantity" placeholder="1" style="width: 68px;"
-                                            value="{{cart.quantity}}" />
-                                        <button class="btn btn-primary btn-sm" type="submit">
-                                            <i class="fa fa-refresh" aria-hidden="true"></i>
-                                            Update
-                                        </button>
-                                    </form>
-
-                                </td>
-                                <td>Rs.{{cart.obj.price}}</td>
-                                <td class="text-right">Rs. {{cart.price}}</td>
-                                <td class="text-right">
-
-                                    <form action="{% url 'delete_cart' cart.id %} " method="POST">
-                                        {% csrf_token %}
-                                        <button class="btn btn-sm btn-danger" type="submit"><i class="fa fa-trash"></i>
-                                        </button>
-
-                                    </form>
-                                </td>
-                            </tr>
-
-                            {% endfor %}
-
-
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><strong>Total</strong></td>
-                                <td class="text-right"><strong>Rs {{ cart.get_total_amount }}</strong></td>
-                            </tr>
-                            {% endwith %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="col mb-2">
-                <div class="row">
-                    <div class="col-sm-12  col-md-6">
-                        <a class="btn btn-outline-info" id="payAmount" href="#">Continue Shopping</a>
-                    </div>
-                    <div class="col-sm-12 col-md-6 text-right">
-                        {# <a class="btn  btn-outline-success " href="{% url 'orders:order' %}">Checkout</a> #}
-                        <button id="payment-button" class="btn btn-outline-success">Pay with Khalti</button>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
+<div>
+<NavbarShow/>
+    <div class="container">
+        <h3 class="p-3 text-center">Vue.js - Display a list of items with v-for</h3>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for= "carts of cartPiece" :key="carts.product.id">
+                    <td>{{carts.product.name}} </td>
+                    <td>{{carts.product.price}}</td>
+                    <td>{{carts.quantity}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>    
 </div>
 </template>
+
+
+
+<script>
+import axios from 'axios';
+import NavbarShow from '../../components/NavbarShow';
+export default {
+  components:{NavbarShow},
+  data() {
+    return {
+      cartPiece: [],
+      token: null,
+      totalCost: 0,
+    };
+  },
+  props: ['baseURL'],
+  methods: {
+    // fetch All items in cart
+    Items() {
+      axios
+        .get(`${this.baseURL}/backend/cart/?token=${this.token}`)
+        .then((res) => {
+          const result = res.data;
+          this.cart = result.cart;
+          this.totalCost = result.totalCost;
+        })
+        .catch((err) => console.log('err', err));
+    },
+  },
+  mounted() {
+    this.token = localStorage.getItem('token');
+    this.Items();
+  },
+};
+</script>
+
+<style scoped>
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
+body,html {
+  height:100%;
+  margin:0;
+  font-family:lato;
+}
+
+h2 {
+  margin-bottom:0px;
+  margin-top:25px;
+  text-align:center;
+  font-weight:200;
+  font-size:19px;
+  font-size:1.2rem;
+  
+}
+.container {
+  margin-top:40px;
+  height:100%;
+  -webkit-box-pack:center;
+  -webkit-justify-content:center;
+      -ms-flex-pack:center;
+          justify-content:center;
+  -webkit-box-align:center;
+  -webkit-align-items:center;
+      -ms-flex-align:center;
+          align-items:center;
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  /* background:-webkit-linear-gradient(#c5e5e5, #ccddf9); */
+  /* background:linear-gradient(#c9e5e9,#ccddf9); */
+}
+.dropdown-select.visible {
+  display:block;
+}
+.dropdown {
+  position:relative;
+}
+ul {
+  margin:0;
+  padding:0;
+}
+ul li {
+  list-style:none;
+  padding-left:10px;
+  cursor:pointer;
+}
+ul li:hover {
+  background:rgba(255,255,255,0.1);
+}
+.dropdown-select {
+  position:absolute;
+  background:#77aaee;
+  text-align:left;
+  box-shadow:0px 3px 5px 0px rgba(0,0,0,0.1);
+  border-bottom-right-radius:5px;
+  border-bottom-left-radius:5px;
+  width:90%;
+  left:2px;
+  line-height:2em;
+  margin-top:2px;
+  box-sizing:border-box;
+}
+.thin {
+  font-weight:400;
+}
+.small {
+  font-size:12px;
+  font-size:.8rem;
+}
+.half-input-table {
+  border-collapse:collapse;
+  width:100%;
+}
+.half-input-table td:first-of-type {
+  border-right:10px solid #4488dd;
+  width:50%;
+}
+.window {
+  height:600px;
+  width:800px;
+  background:#fff;
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 0.2);
+  border-radius:30px;
+  z-index:10;
+}
+.order-info {
+  height:100%;
+  width:50%;
+  padding-left:25px;
+  padding-right:25px;
+  box-sizing:border-box;
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-pack:center;
+  -webkit-justify-content:center;
+      -ms-flex-pack:center;
+          justify-content:center;
+  position:relative;
+}
+.price {
+  bottom:0px;
+  position:absolute;
+  right:0px;
+  color:#4488dd;
+}
+.order-table td:first-of-type {
+  width:25%;
+}
+.order-table {
+    position:relative;
+}
+.line {
+  height:1px;
+  width:100%;
+  margin-top:10px;
+  margin-bottom:10px;
+  background:#ddd;
+}
+.order-table td:last-of-type {
+  vertical-align:top;
+  padding-left:25px;
+}
+.order-info-content {
+  table-layout:fixed;
+
+}
+
+.full-width {
+  width:100%;
+}
+.pay-btn {
+  border:none;
+  background:#22b877;
+  line-height:2em;
+  border-radius:10px;
+  font-size:19px;
+  font-size:1.2rem;
+  color:#fff;
+  cursor:pointer;
+  position:absolute;
+  bottom:25px;
+  width:calc(100% - 50px);
+  -webkit-transition:all .2s ease;
+          transition:all .2s ease;
+}
+.pay-btn:hover {
+  background:#22a877;
+    color:#eee;
+  -webkit-transition:all .2s ease;
+          transition:all .2s ease;
+}
+
+.total {
+  margin-top:25px;
+  font-size:20px;
+  font-size:1.3rem;
+  position:absolute;
+  bottom:30px;
+  right:27px;
+  left:35px;
+}
+.dense {
+  line-height:1.2em;
+  font-size:16px;
+  font-size:1rem;
+}
+.input-field {
+  background:rgba(255,255,255,0.1);
+  margin-bottom:10px;
+  margin-top:3px;
+  line-height:1.5em;
+  font-size:20px;
+  font-size:1.3rem;
+  border:none;
+  padding:5px 10px 5px 10px;
+  color:#fff;
+  box-sizing:border-box;
+  width:100%;
+  margin-left:auto;
+  margin-right:auto;
+}
+.credit-info {
+  background:#343a40!important;
+  height:100%;
+  width:50%;
+  color:#eee;
+  -webkit-box-pack:center;
+  -webkit-justify-content:center;
+      -ms-flex-pack:center;
+          justify-content:center;
+  font-size:14px;
+  font-size:.9rem;
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  box-sizing:border-box;
+  padding-left:25px;
+  padding-right:25px;
+  border-top-right-radius:30px;
+  border-bottom-right-radius:30px;
+  position:relative;
+}
+.dropdown-btn {
+  background:rgba(255,255,255,0.1);
+  width:100%;
+  border-radius:5px;
+  text-align:center;
+  line-height:1.5em;
+  cursor:pointer;
+  position:relative;
+  -webkit-transition:background .2s ease;
+          transition:background .2s ease;
+}
+.dropdown-btn:after {
+  content: '\25BE';
+  right:8px;
+  position:absolute;
+}
+.dropdown-btn:hover {
+  background:rgba(255,255,255,0.2);
+  -webkit-transition:background .2s ease;
+          transition:background .2s ease;
+}
+.dropdown-select {
+  display:none;
+}
+.credit-card-image {
+  display:block;
+  max-height:80px;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:35px;
+  margin-bottom:15px;
+}
+.credit-info-content {
+  margin-top:25px;
+  -webkit-flex-flow:column;
+      -ms-flex-flow:column;
+          flex-flow:column;
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  width:100%;
+}
+@media (max-width: 600px) {
+  .window {
+    width: 100%;
+    height: 100%;
+    display:block;
+    border-radius:0px;
+  }
+  .order-info {
+    width:100%;
+    height:auto;
+    padding-bottom:100px;
+    border-radius:0px;
+  }
+  .credit-info {
+    width:100%;
+    height:auto;
+    padding-bottom:100px;
+    border-radius:0px;
+  }
+  .pay-btn {
+    border-radius:0px;
+  }
+}
+</style>

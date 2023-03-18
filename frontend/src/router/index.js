@@ -11,6 +11,7 @@ import WishList from '../views/Product/WishList';
 import CartPage from '../views/CartPage';
 import SignIn from '../views/SignIn'
 import SignUp from '../views/SignUp'
+import PaymentPage from '../views/Payment/PaymentPage'
 import FailedP from '../views/Payment/FailedP';
 import SuccessP from '../views/Payment/SuccessP';
 import CheckOut  from '../views/Checkout/CheckOut';
@@ -106,6 +107,11 @@ const routes = [
     path: '/signup',
     name: 'SignUp',
     component: SignUp
+  },
+  {
+    path: '/Payment',
+    name: 'Payment',
+    component: PaymentPage
   },
   {
     path: '/signin',

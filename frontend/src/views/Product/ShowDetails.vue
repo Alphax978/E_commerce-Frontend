@@ -91,6 +91,8 @@ export default {
       isAddedToWishlist: false,
       wishlistString: "Add to wishlist",
       quantity: 1,
+      // pname:this.product.name,
+      // imageurl:this.product.imageurl
     };
   },
   props: ["baseURL", "products", "categories"],
@@ -124,6 +126,8 @@ export default {
         .post(`${this.baseURL}/backend/cart/add?token=${this.token}`, {
           productId: productId,
           quantity: this.quantity,
+          pname:this.product.name,
+          imageurl:this.product.imageURL
         })
         .then(
           (response) => {
