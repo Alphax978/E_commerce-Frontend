@@ -69,6 +69,8 @@
         Confirm order
       </button>
     </div>
+
+    
   </div>
   <FooterShow />
 </div>
