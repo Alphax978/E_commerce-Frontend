@@ -32,7 +32,7 @@
             <button  type="button" class="btn btn-dark confirm mr-3 " @click="cart">
                 Back to Cart
             </button>
-            <button type="button" class="btn btn-success confirm" @click="checkout">
+            <button type="button" class="btn btn-success confirm" @click="pay">
                 Pay With Khalti
             </button>
         </div>
@@ -47,6 +47,9 @@
 <script>
 import axios from 'axios';
 import NavbarShow from '../../components/NavbarShow'
+// import KhaltiCheckout from "khalti-checkout-web";
+
+
 export default {
     components:{NavbarShow},
     data() 
@@ -54,7 +57,12 @@ export default {
         return {   
             token: null,
             cartItems: [],
-            totalCost:0
+            totalCost:0,
+            returnUrl: 'http://localhost:8080/cart',
+            websiteUrl: 'http://localhost:8080',
+            amount: 100,
+            purchaseOrderId: 'test12',
+            purchaseOrderName: 'test',
         };
     },
   name: 'PaymentPage',
@@ -73,8 +81,17 @@ export default {
 
     cart(){
         this.$router.push({name: "Cart"})
+    },
+    
+    pay()
+    {
+  
+   
+    
+    
     }
-
+  
+   
 
   },
   mounted(){

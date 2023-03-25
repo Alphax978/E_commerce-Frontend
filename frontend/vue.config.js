@@ -1,10 +1,17 @@
-const { defineConfig } = require('@vue/cli-service')
-module.exports = defineConfig({
-  transpileDependencies: true
-})
+// const { defineConfig } = require('@vue/cli-service')
+// module.exports = defineConfig({
+//   transpileDependencies: true
+// })
 
-// module.exports = {
-//   devServer: {
-//     proxy: '';
-//   }
-// }
+// vue.config.js
+
+module.exports = {
+  devServer: {
+    proxy: {
+      '/epayment': {
+        target: 'https://a.khalti.com',
+        changeOrigin: true
+      }
+    }
+  }
+}

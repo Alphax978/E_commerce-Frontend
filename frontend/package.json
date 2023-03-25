@@ -19,6 +19,7 @@
     "bootstrap": "^5.2.3",
     "core-js": "^3.8.3",
     "cors": "^2.8.5",
+    "khalti-checkout-web": "^2.2.0",
     "sweetalert": "^2.1.2",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
