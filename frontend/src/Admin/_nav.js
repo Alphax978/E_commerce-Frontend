@@ -53,7 +53,7 @@ export default [
       {
         component: 'CNavItem',
         name: 'View Users',
-        to: '/forms/form-control',
+        to: '/admin/view/users',
       },
     ],
   },

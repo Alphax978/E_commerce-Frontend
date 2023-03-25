@@ -20,6 +20,7 @@ import MakeOrder from '../views/orders/MakeOrder';
 import OrderDetails from '../views/orders/OrderDetails';
 import AdminLayout from '../Admin/layouts/AdminLayout';
 import AdminaddProduct from '../Admin/views/Product/AdminaddProduct';
+import ViewUser from '../Admin/views/User/ViewUser';
 import AdminaddCategory from '../Admin/views/Category/AdminaddCategory';
 import AdmincategoryMain from '../Admin/views/Category/AdmincategoryMain';
 import AdminproductMain from '../Admin/views/Product/AdminproductMain';
@@ -79,6 +80,11 @@ const routes = [
     path:'/admin/product',
     name:'ProductMain',
     component: ProductMain
+  },
+  {
+    path:'/admin/view/users',
+    name:'View Users',
+    component: ViewUser
   },
   {
     path:'/product/listproducts/:id',
