@@ -22,8 +22,8 @@
             </thead>
             <tbody>
                 <tr v-for="totalUser in totalUsers" :key="totalUser.id">
-                    <td>{{totalUser.first_name}}</td>
-                    <td>{{totalUser.last_name}}</td>
+                    <td>{{totalUser.firstName}}</td>
+                    <td>{{totalUser.lastName}}</td>
                     <td>{{totalUser.email}}</td>
                 </tr>
             </tbody>

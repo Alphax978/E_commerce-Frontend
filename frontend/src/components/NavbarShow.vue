@@ -83,7 +83,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarAccount">
             <router-link
-              v-if="!token"
+              v-if="token"
               class="dropdown-item"
               :to="{ name: 'WishList' }"
               >Wishlist
@@ -93,6 +93,12 @@
               class="dropdown-item"
               :to="{ name: 'SignUp' }"
               >Sign up
+            </router-link>
+            <router-link
+              v-if="!token"
+              class="dropdown-item"
+              :to="{ name: 'AdminLogin' }"
+              >Admin
             </router-link>
             <router-link
               v-if="!token"

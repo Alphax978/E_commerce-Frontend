@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-12 justify-content-center d-flex flex-row pt-5">
         <div id="signin-div" class="flex-item border">
-          <h2 class="pt-4 pl-4">Sign-In as Seller</h2>
+          <h2 class="pt-4 pl-4">Admin</h2>
           <form  @submit="signin" class = "pt-4 pl-4 pr-4">
             <div class="form-group">
               <label>Email</label>
@@ -70,15 +70,15 @@ export default {
         password: this.password,
       };
       await axios
-          .post(`${this.baseURL}/backend/Vendor/signIn`, body)
+          .post(`${this.baseURL}/backend/Admin/signIn`, body)
           .then((res) => {
             localStorage.setItem('token', res.data.token);
               swal({
-              text: 'Seller Login successful',
+              text: 'Admin Login successful',
               icon: 'success',
             });
             this.$emit('fetchData');
-            this.$router.push({ name: 'VendorLayout' });
+            this.$router.push({ name: 'Adminpannel' });
             
         })
         .catch((err) => console.log('err', err));

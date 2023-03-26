@@ -27,6 +27,8 @@ import AdminproductMain from '../Admin/views/Product/AdminproductMain';
 import AdmineditCategory from '../Admin/views/Category/AdmineditCategory';
 import SellerSign from '../views/SellerSign';
 import SellerLogin from '../views/SellerLogin';
+import AdminLogin from '../views/AdminLogin';
+import AdminsignUp from '../views/AdminsignUp';
 import VendorLayout from '../aVendor/layouts/VendorLayout';
 import VendorproductMain from '../aVendor/views/Product/VendorproductMain';
 import VendoraddProduct from '../aVendor/views/Product/VendoraddProduct';
@@ -214,6 +216,20 @@ const routes = [
     path:'/vlogsin',
     name:'SellerLogin',
     component: SellerLogin,
+ 
+  
+  },
+  {
+    path:'/adminlogin',
+    name:'AdminLogin',
+    component: AdminLogin,
+ 
+  
+  },
+  {
+    path:'/adminsignup',
+    name:'Adminsignup',
+    component: AdminsignUp,
  
   
   },

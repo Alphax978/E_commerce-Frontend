@@ -64,19 +64,7 @@ export default [
       },
     ],
   },
-  {
-    component: 'CNavGroup',
-    name: 'Profile',
-    to: '/notifications',
-    icon: 'cil-User',
-    items: [
-      {
-        component: 'CNavItem',
-        name: 'Logout',
-        to: '/',
-      },
-    ],
-  },
+ 
 
 
 

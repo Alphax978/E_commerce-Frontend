@@ -11,7 +11,7 @@
     <div class="row">
       <div class="col-12 justify-content-center d-flex pt-4">
         <div id="signup" class="flex-item border">
-          <h2 class="pt-4 pl-4">Create Sellers Account</h2>
+          <h2 class="pt-4 pl-4">Create Admin Account</h2>
           <form @submit="signup" class="pt-4 pl-4 pr-4">
             <div class="form-group">
               <label for="Email">Email</label>
@@ -129,11 +129,11 @@ export default {
         };
         console.log("user", user);
         await axios
-          .post(`${this.baseURL}/backend/Vendor/signup`, user)
+          .post(`${this.baseURL}/backend/Admin/signup`, user)
           .then(() => {
             this.$router.replace("/");
             swal({
-              text: "Seller signup successful, please login",
+              text: "Admin signup successful, please login",
               icon: "success",
             });
           })
