@@ -7,7 +7,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h2>Users</h2>
+                        <h2>Total Users</h2>
                     </div>
                 </div>
 
@@ -15,13 +15,16 @@
             <table class="table table-striped table-bordered">
             <thead class="thead-dark">
                 <tr>
+                    <th>Id</th>
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>email</th>
+                    <th>length</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="totalUser in totalUsers" :key="totalUser.id">
+                     <td>{{totalUser.id}}</td>
                     <td>{{totalUser.firstName}}</td>
                     <td>{{totalUser.lastName}}</td>
                     <td>{{totalUser.email}}</td>
@@ -58,17 +61,15 @@ export default {
     data(){
        return{
         totalUsers:[],
+        userlength:"",
        };
     },
     props:["baseURL"],
     methods:{
-        getUsers(){
-            axios
+        async getUsers(){
+            await axios
                 .get(`${this.baseURL}/backend/user/reflect`)
-                .then((res) => {
-                    const result = res.data;
-                    this.totalUsers = result.totalUsers;
-                })
+                .then((res) => (this.totalUsers = res.data ))
                 .catch((err) => console.log('err', err));
 
         }
@@ -76,6 +77,7 @@ export default {
     },
     mounted(){
         this.getUsers();
+        this.userlength = this.totalUsers;
     }
 
 };

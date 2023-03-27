@@ -79,14 +79,7 @@ export default {
               icon: 'success',
             });
             this.$emit('fetchData');
-            if (this.email == "Admin@gmail.com" && this.password == "Admin")
-            {
-              this.$router.replace({name: "Adminpannel"})
-            }
-            else
-            {
-              this.$router.push({ name: 'HomePage' });
-            }
+            this.$router.push({ name: 'HomePage' });
         })
         .catch((err) => console.log('err', err));
    

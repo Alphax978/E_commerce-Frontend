@@ -78,7 +78,7 @@ export default {
               icon: 'success',
             });
             this.$emit('fetchData');
-            this.$router.push({ name: 'Adminpannel' });
+            this.$router.push({ name: 'Welcome' });
             
         })
         .catch((err) => console.log('err', err));

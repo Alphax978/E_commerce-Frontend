@@ -160,7 +160,7 @@ const routes = [
 
   {
     path:'/Adminpannel',
-    name:'Adminpannel',
+    name:'Welcome',
     component: AdminLayout,
  
   
@@ -235,7 +235,7 @@ const routes = [
   },
   {
     path:'/vendorpannel',
-    name:'VendorLayout',
+    name:'Welcome seller',
     component: VendorLayout,
  
   

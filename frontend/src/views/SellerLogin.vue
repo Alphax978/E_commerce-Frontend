@@ -78,7 +78,7 @@ export default {
               icon: 'success',
             });
             this.$emit('fetchData');
-            this.$router.push({ name: 'VendorLayout' });
+            this.$router.push({ name: 'Welcome Seller' });
             
         })
         .catch((err) => console.log('err', err));

@@ -7,10 +7,10 @@
         <template #value
           >{{category_size}}
           <span class="fs-6 fw-normal">
-            (-12.4% <CIcon icon="cil-arrow-bottom" />)
+            (Present <CIcon icon="cil-arrow-bottom" />)
           </span>
         </template>
-        <template #title>Users</template>
+        <template #title>Total Users</template>
         <template #action>
         </template>
         <template #chart>
@@ -72,10 +72,10 @@
         <template #value
           >{{category}}
           <span class="fs-6 fw-normal">
-            (-12.4% <CIcon icon="cil-arrow-bottom" />)
+            (Present <CIcon icon="cil-arrow-bottom" />)
           </span>
         </template>
-        <template #title>Users</template>
+        <template #title>Total Products</template>
         <template #action>
         </template>
         <template #chart>
@@ -135,10 +135,10 @@
         <template #value
           >{{users}}
           <span class="fs-6 fw-normal">
-            (-12.4% <CIcon icon="cil-arrow-bottom" />)
+            (Present <CIcon icon="cil-arrow-bottom" />)
           </span>
         </template>
-        <template #title>Users</template>
+        <template #title>Total Categories</template>
         <template #action>
         </template>
         <template #chart>
@@ -198,7 +198,7 @@
         <template #value
           >26K
           <span class="fs-6 fw-normal">
-            (-12.4% <CIcon icon="cil-arrow-bottom" />)
+            (Present <CIcon icon="cil-arrow-bottom" />)
           </span>
         </template>
         <template #title>Users</template>
