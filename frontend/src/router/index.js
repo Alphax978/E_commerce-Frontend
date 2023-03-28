@@ -235,7 +235,7 @@ const routes = [
   },
   {
     path:'/vendorpannel',
-    name:'Welcome seller',
+    name:'Welcome Seller',
     component: VendorLayout,
  
   

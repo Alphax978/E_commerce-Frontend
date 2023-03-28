@@ -71,16 +71,34 @@
        
 
           </div>
+
         </li>
-        <li class="nav-item dropdown">
+        <div class="nav-link  text-light" v-if="token"> <CAvatar :src="avatar"  /> </div>
+
+        <li class="nav-item dropdown" >
           <a
             class="nav-link dropdown-toggle text-light"
             href="#"
             id="navbarAccount"
             data-toggle="dropdown"
+            v-if="!token"
+            
           >
             Accounts
           </a>
+          <a
+            class="nav-link dropdown-toggle text-light"
+            href="#"
+            id="navbarAccount"
+            data-toggle="dropdown"
+            v-if="token"
+  
+          
+
+          >
+          Profile
+          </a>
+
           <div class="dropdown-menu" aria-labelledby="navbarAccount">
             <router-link
               v-if="token"
@@ -106,6 +124,7 @@
               :to="{ name: 'SignIn' }"
               >Sign in
             </router-link>
+  
             <a class="dropdown-item" v-if="token" href="#" @click="signout"
               >Sign out
             </a>
@@ -113,9 +132,8 @@
         </li> 
 
         <li class="nav-item">
-          <router-link class="nav-link text-light" :to="{ name: 'MakeOrder' }"
-            >Orders</router-link
-          >
+          <router-link class="nav-link text-light" v-if="token" :to="{ name: 'MakeOrder' }"
+            >Orders</router-link>
         </li>
         <li class="nav-item"> 
           <div id="cart" style="position:relative">
@@ -132,11 +150,14 @@
 </template>
 <script>
 import swal from "sweetalert";
+import avatar from '../Admin/assets/images/avatars/user1.png'
+
 export default {
   name: "NavbarShow",
   props: ["cartCount"],
   data() {
     return {
+      avatar:avatar,
       token: null,
     };
   },
@@ -151,6 +172,7 @@ export default {
       this.$emit("resetCartCount");
       this.$router.push({ name: "HomePage" });
     },
+  
   },
   mounted() {
     this.token = localStorage.getItem("token");

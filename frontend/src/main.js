@@ -13,7 +13,9 @@ import { iconsSet as icons } from './Admin/assets/icons'
 
 
 
+
 const app = createApp(App)
+
 app.use(store)
 app.use(router)
 app.use(CoreuiVue)

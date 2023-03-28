@@ -17,6 +17,7 @@
     "@coreui/vue-chartjs": "^2.0.1",
     "axios": "^1.2.0",
     "bootstrap": "^5.2.3",
+    "bootstrap-vue": "^2.23.1",
     "core-js": "^3.8.3",
     "cors": "^2.8.5",
     "khalti-checkout-web": "^2.2.0",
