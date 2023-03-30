@@ -81,11 +81,22 @@ export default {
             this.$router.push({ name: 'Welcome Seller' });
             
         })
-        .catch((err) => console.log('err', err));
+        .catch((err) => {
+          swal({
+            text: "Please check your sign in credentials and try again!!",
+            icon: "error",
+            closeOnClickOutside: false,
+          });
+          console.log(err);
+        })
+      
       
    
     },
   },
+  mounted(){
+    window.history.forwad();
+  }
 };
 </script>
 

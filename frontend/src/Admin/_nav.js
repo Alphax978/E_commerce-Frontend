@@ -57,28 +57,7 @@ export default [
       },
     ],
   },
-  {
-    component: 'CNavGroup',
-    name: 'Gallery',
-    to: '/icons',
-    icon: 'cil-Grid',
-    items: [
-      {
-        component: 'CNavItem',
-        name: 'Category Image',
-        to: '/icons/coreui-icons',
-        badge: {
-          color: 'info',
-          text: 'NEW',
-        },
-      },
-      {
-        component: 'CNavItem',
-        name: 'Product Image',
-        to: '/icons/brands',
-      },
-    ],
-  },
+
 
 
 

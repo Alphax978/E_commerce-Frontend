@@ -81,12 +81,21 @@ export default {
             this.$emit('fetchData');
             this.$router.push({ name: 'HomePage' });
         })
-        .catch((err) => console.log('err', err));
+        .catch((err) => {
+          swal({
+            text: "Please check your sign in credentials and try again!!",
+            icon: "error",
+            closeOnClickOutside: false,
+          });
+          console.log(err);
+        })
+      
    
     },
 
     next(){
       this.$router.replace("/vlogsin")
+      
     }
   },
 };

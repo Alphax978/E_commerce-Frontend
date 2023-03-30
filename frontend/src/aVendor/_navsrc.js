@@ -38,33 +38,8 @@ export default [
       },
     ],
   },
-  {
-    component: 'CNavGroup',
-    name: 'Users',
-    to: '/forms',
-    icon: 'cil-UserFollow',
-    items: [
-      {
-        component: 'CNavItem',
-        name: 'View Users',
-        to: '/forms/form-control',
-      },
-    ],
-  },
-  {
-    component: 'CNavGroup',
-    name: 'Gallery',
-    to: '/icons',
-    icon: 'cil-Grid',
-    items: [
-      {
-        component: 'CNavItem',
-        name: 'Product Image',
-        to: '/icons/brands',
-      },
-    ],
-  },
- 
+
+
 
 
 

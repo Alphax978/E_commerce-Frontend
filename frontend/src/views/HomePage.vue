@@ -27,7 +27,7 @@
     <div class="container py-2">
       <div class="row">
         <div class="col-12 text-center">
-          <h2 class="pt-3"> Top Products</h2>
+          <h2 class="pt-3">Featured Products</h2>
         </div>
       </div>
 

@@ -51,7 +51,7 @@
     </div>
   </div>
 </template>
-<script>
+<script type="text/javascript">
 import axios from 'axios';
 import swal from 'sweetalert';
 export default {
@@ -81,11 +81,22 @@ export default {
             this.$router.push({ name: 'Welcome' });
             
         })
-        .catch((err) => console.log('err', err));
+        .catch((err) => {
+          swal({
+            text: "Please check your sign in credentials and try again!!",
+            icon: "error",
+            closeOnClickOutside: false,
+          });
+          console.log(err);
+        })
+        
       
    
     },
   },
+  mounted(){
+    window.history.forward();
+  }
 };
 </script>
 

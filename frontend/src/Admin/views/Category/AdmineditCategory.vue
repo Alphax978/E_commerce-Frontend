@@ -46,8 +46,7 @@
             async editCategory() {
                 delete this.category["products"]
                 console.log('category', this.category)
-                await axios.post(`${this.baseURL}/backend/category/update/${this.id}`,
-                    this.category)
+                await axios.post(`${this.baseURL}/backend/category/update/${this.id}`,this.category)
                 .then(() => {
                     this.$emit("fetchData");
                     this.$router.push({name: 'View categories'})

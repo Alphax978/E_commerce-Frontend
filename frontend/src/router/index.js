@@ -191,7 +191,7 @@ const routes = [
   },
 
   {
-    path:'/Admin/categpry/AdmineditCategory',
+    path:'/Admin/categpry/AdmineditCategory/:id',
     name:'Adminedits',
     component: AdmineditCategory,
  
