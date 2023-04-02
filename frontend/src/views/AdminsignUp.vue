@@ -135,6 +135,7 @@ export default {
             swal({
               text: "Admin signup successful, please login",
               icon: "success",
+              closeOnClickOutside: false,
             });
           })
           .catch((err) => console.log("err", err));
@@ -143,6 +144,7 @@ export default {
         swal({
           text: "passwords dont match",
           icon: "error",
+          closeOnClickOutside: false,
         });
       }
     },

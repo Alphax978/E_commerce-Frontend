@@ -5,7 +5,7 @@
       <div class="col-12 justify-content-center d-flex flex-row pt-5">
         <div id="signin-div" class="flex-item border">
           <h2 class="pt-4 pl-4">Sign-In</h2>
-          <form  @submit="signin" class = "pt-4 pl-4 pr-4">
+          <form  @submit="signin" class = "pt-4 pl-4 pr-4 pb-4">
             <div class="form-group">
               <label>Email</label>
               <input
@@ -36,7 +36,7 @@
             <br/>
             <button class="btn btn-dark btn-lg mt-2 py-1" @click="next">Continue as Seller </button>
           </form>
-          <hr />
+          <!-- <hr />
           <small class="form-text text-muted pt-2 pl-2 pb-2 text-center"
             >New to Easyshop?</small
           >
@@ -46,7 +46,7 @@
               class="btn btn-dark text-center mx-auto px-5 py-1 mb-2"
               >Create Your Simplecoding Account</router-link
             >
-          </p>
+          </p> -->
         </div>
       </div>
     </div>
@@ -77,6 +77,7 @@ export default {
               swal({
               text: 'Login successful',
               icon: 'success',
+              closeOnClickOutside: false,
             });
             this.$emit('fetchData');
             this.$router.push({ name: 'HomePage' });
@@ -98,6 +99,9 @@ export default {
       
     }
   },
+    mounted(){
+      window.history.forward();
+    }
 };
 </script>
 
@@ -126,6 +130,7 @@ export default {
 @media only screen and (min-width: 992px) {
   #signin-div {
     width: 40%;
+    
   }
 }
 </style>

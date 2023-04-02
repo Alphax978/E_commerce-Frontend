@@ -12,7 +12,7 @@
       <div class="col-12 justify-content-center d-flex pt-4">
         <div id="signup" class="flex-item border">
           <h2 class="pt-4 pl-4">Create Account</h2>
-          <form @submit="signup" class="pt-4 pl-4 pr-4">
+          <form @submit="signup" class="pt-4 pl-4 pr-4 pb-4">
             <div class="form-group">
               <label for="Email">Email</label>
               <input
@@ -80,8 +80,8 @@
             </div>
             <div class="text-center"><button class="btn btn-primary mt-2 mb-4 "  >Create Account</button></div>
             </form>
-            <div class="text-center"><button class="btn btn-dark btn-lg mt-2 py-1" @click="nextportal" >Create Sellers Account</button></div>
-            <hr />
+            <div class="text-center pb-4"><button class="btn btn-dark btn-lg mt-2 py-1" @click="nextportal" >Create Sellers Account</button></div>
+            <!-- <hr />
             <small class="form-text text-muted pt-2 pl-4 text-center"
               >Already Have an Account?</small
             >
@@ -91,7 +91,7 @@
               :to="{ name: 'SignIn' }"
               >Signin Here</router-link
             >
-          </p>
+          </p> -->
         </div>
       </div>
     </div>
@@ -132,6 +132,7 @@ export default {
             swal({
               text: "User signup successful, please login",
               icon: "success",
+              closeOnClickOutside: false,
             });
           })
           .catch((err) => console.log("err", err));
@@ -140,6 +141,7 @@ export default {
         swal({
           text: "passwords dont match",
           icon: "error",
+          closeOnClickOutside: false,
         });
       }
     },

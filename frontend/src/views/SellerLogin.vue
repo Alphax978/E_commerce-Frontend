@@ -5,7 +5,7 @@
       <div class="col-12 justify-content-center d-flex flex-row pt-5">
         <div id="signin-div" class="flex-item border">
           <h2 class="pt-4 pl-4">Sign-In as Seller</h2>
-          <form  @submit="signin" class = "pt-4 pl-4 pr-4">
+          <form  @submit="signin" class = "pt-4 pl-4 pr-4 pb-4">
             <div class="form-group">
               <label>Email</label>
               <input
@@ -35,7 +35,7 @@
             </button>
             <br/>
           </form>
-          <hr />
+          <!-- <hr />
           <small class="form-text text-muted pt-2 pl-2 pb-2 text-center"
             >New to Easyshop Sellers?</small
           >
@@ -45,7 +45,7 @@
               class="btn btn-dark text-center mx-auto px-5 py-1 mb-2"
               >Create Your Easy Shop sellers  Account</router-link
             >
-          </p>
+          </p> -->
         </div>
       </div>
     </div>
@@ -76,6 +76,7 @@ export default {
               swal({
               text: 'Seller Login successful',
               icon: 'success',
+              closeOnClickOutside: false,
             });
             this.$emit('fetchData');
             this.$router.push({ name: 'Welcome Seller' });
@@ -95,7 +96,7 @@ export default {
     },
   },
   mounted(){
-    window.history.forwad();
+    window.history.forward();
   }
 };
 </script>

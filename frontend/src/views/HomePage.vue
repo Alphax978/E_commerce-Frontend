@@ -40,7 +40,7 @@
         </div>
       </div>
     </div> 
-
+    <FooterShow/>
   </div>
 </template>
 
@@ -48,10 +48,11 @@
 import CategoryBox from "../components/Category/CategoryBox";
 import ProductBox from "../components/ProductBox";
 import NavbarShow from '../components/NavbarShow';
+import FooterShow from '../components/FooterShow';
 import SliderSlide from '../views/SliderSlide';
 export default {
   name: "HomePage",
-  components:{NavbarShow,SliderSlide, CategoryBox,ProductBox},
+  components:{NavbarShow,SliderSlide, CategoryBox,ProductBox,FooterShow},
   props: ["baseURL","categories", "products"],
   data() {
     return {

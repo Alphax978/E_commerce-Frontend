@@ -12,7 +12,7 @@
       <div class="col-12 justify-content-center d-flex pt-4">
         <div id="signup" class="flex-item border">
           <h2 class="pt-4 pl-4">Create Sellers Account</h2>
-          <form @submit="signup" class="pt-4 pl-4 pr-4">
+          <form @submit="signup" class="pt-4 pl-4 pr-4 pb-4">
             <div class="form-group">
               <label for="Email">Email</label>
               <input
@@ -81,7 +81,7 @@
 
             <button class="btn btn-primary mt-2 mb-4"  >Create Account</button>
           </form>
-          <hr />
+          <!-- <hr />
           <small class="form-text text-muted pt-2 pl-4 text-center"
               >Already Have an Sellers Account?</small
             >
@@ -91,7 +91,7 @@
               :to="{ name: 'SellerLogin' }"
               >Signin Here</router-link
             >
-          </p>
+          </p> -->
         </div>
       </div>
     </div>
@@ -135,6 +135,7 @@ export default {
             swal({
               text: "Seller signup successful, please login",
               icon: "success",
+              closeOnClickOutside: false,
             });
           })
           .catch((err) => console.log("err", err));
@@ -143,6 +144,7 @@ export default {
         swal({
           text: "passwords dont match",
           icon: "error",
+          closeOnClickOutside: false,
         });
       }
     },
