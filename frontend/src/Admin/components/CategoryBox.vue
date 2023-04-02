@@ -17,14 +17,33 @@
       <router-link :to="{name: 'Adminedits', params: { id: category.id } }">
         <button class="btn btn-primary" type="button" >Edit</button> 
       </router-link>
+     <button class="btn btn-danger ml-1" type="button" @click="del(category.id)" >Delete</button>
     </div>
   </div>
 </template>
 <script>
+import axios from 'axios';
 export default {
+  data(){
+    return{
+      categoryList:[],
+    };
+  },
   name: "CategoryBox",
-  props: ["category"],
-  methods: {},
+  props: ['category','baseURL','categories'],
+  methods: {
+    del(catId) {
+      axios
+        .delete(`${this.baseURL}/backend/category/delete/${catId}`)
+        .then((res) => {
+          if (res.status == 200) {
+            this.$router.go(0);
+          }
+        })
+        .catch((err) => console.log('err', err));
+    },
+    
+  },
 };
 </script>
 
