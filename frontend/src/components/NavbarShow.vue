@@ -162,6 +162,9 @@ export default {
     };
   },
   methods: {
+    beforeUnload(){
+      this.browserLogout();
+    },
     signout() {
       localStorage.removeItem("token");
       this.token = null;
@@ -172,10 +175,18 @@ export default {
       this.$emit("resetCartCount");
       this.$router.push({ name: "HomePage" });
     },
-  
+    browserLogout(){
+      localStorage.removeItem("token");
+      this.token = null;
+      this.$emit("resetCartCount");
+    },
   },
   mounted() {
+    window.addEventListener('beforeunload', this.beforeUnload);
     this.token = localStorage.getItem("token");
+  },
+  beforeUnmount() {
+    window.removeEventListener('beforeunload', this.beforeUnload);
   },
 };
 </script>

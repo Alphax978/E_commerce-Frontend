@@ -19,7 +19,7 @@
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>email</th>
-                    <th>length</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,6 +28,7 @@
                     <td>{{totalUser.firstName}}</td>
                     <td>{{totalUser.lastName}}</td>
                     <td>{{totalUser.email}}</td>
+                    <!-- <td><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td> -->
                 </tr>
             </tbody>
             </table>

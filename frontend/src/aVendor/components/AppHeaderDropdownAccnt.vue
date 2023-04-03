@@ -27,6 +27,9 @@ export default {
     };
   },
   methods: {
+    beforeUnload(){
+      this.browserLogout();
+    },
     signout() {
       localStorage.removeItem("token");
       this.token = null;
@@ -36,9 +39,17 @@ export default {
       });
       this.$router.push({ name: "HomePage" });
     },
+    browserLogout(){
+      localStorage.removeItem("token");
+      this.token = null;
+    },
   },
   mounted() {
+    window.addEventListener('beforeunload', this.beforeUnload);
     this.token = localStorage.getItem("token");
+  },
+  beforeUnmount() {
+    window.removeEventListener('beforeunload', this.beforeUnload);
   },
 }
 </script>
