@@ -19,7 +19,7 @@
 
             <div class="row">
          
-                <div v-for="product of products" :key="product.id"
+                <div v-for= " product of products " :key="product.id"
                     class="col-md-6 col-xl-4 col-12 pt-3 d-flex">
                     <ProductBox :product="product"/>
                 </div>
@@ -42,6 +42,7 @@
 
 
 <script>
+    const axios = require("axios");
     import AppFooter from '../../components/AppFooter.vue'
     import AppHeader from '../../components/AppHeader.vue'
     import AppSidebar from '../../components/AppSidebar.vue'
@@ -53,6 +54,25 @@
             AppHeader,
             AppSidebar,
         },
-        props:["products"],
-    }
+        props:["baseURL"],
+        data(){
+      return{
+        products:[],
+      }
+    },
+    methods:{
+       async getProducts(){
+            await axios
+                .get(`${this.baseURL}/backend/product/vendorshow/?token=${this.token}`)
+                .then((res) => (this.products = res.data ))
+                .catch((err) => console.log(err));
+        },
+    },
+    mounted()
+    {
+        this.token = localStorage.getItem("token");
+        this.getProducts();
+    },
+  
+}
 </script>

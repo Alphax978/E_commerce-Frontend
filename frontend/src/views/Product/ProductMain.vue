@@ -9,7 +9,7 @@
         </div>
         <div class="row">
 <!--            display all the products in productbox component-->
-            <div v-for="product of products" :key="product.id"
+            <div v-for= " product of products " :key="product.id"
                  class="col-md-6 col-xl-4 col-12 pt-3 d-flex justify-content-around d-flex">
                 <ProductBox :product="product"/>
             </div>
@@ -19,6 +19,7 @@
 </div>
 </template>
 <script>
+    const axios = require("axios");
     import ProductBox from "../../components/ProductBox";
     import NavbarShow from '../../components/NavbarShow';
     import FooterShow from '../../components/FooterShow';
@@ -26,11 +27,26 @@
 
     export default {
     name: "ProductMain",
-    props:["baseURL","products"],
+    props:["baseURL"],
     components: {ProductBox,NavbarShow,FooterShow },
+
+    data(){
+      return{
+        products:[],
+      }
+    },
+    methods:{
+       async getProducts(){
+            await axios
+                .get(`${this.baseURL}/backend/product/vendorshow/?token=${this.token}`)
+                .then((res) => (this.products = res.data ))
+                .catch((err) => console.log(err));
+        },
+    },
     mounted()
     {
-        
+        this.token = localStorage.getItem("token");
+        this.getProducts();
     },
   
 

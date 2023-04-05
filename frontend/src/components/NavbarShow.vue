@@ -162,9 +162,9 @@ export default {
     };
   },
   methods: {
-    beforeUnload(){
-      this.browserLogout();
-    },
+    // beforeUnload(){
+    //   this.browserLogout();
+    // },
     signout() {
       localStorage.removeItem("token");
       this.token = null;
@@ -182,12 +182,12 @@ export default {
     },
   },
   mounted() {
-    window.addEventListener('beforeunload', this.beforeUnload);
+    // window.addEventListener('beforeunload', this.beforeUnload);
     this.token = localStorage.getItem("token");
   },
-  beforeUnmount() {
-    window.removeEventListener('beforeunload', this.beforeUnload);
-  },
+  // beforeUnmount() {
+  //   window.removeEventListener('beforeunload', this.beforeUnload);
+  // },
 };
 </script>
 <style scoped>

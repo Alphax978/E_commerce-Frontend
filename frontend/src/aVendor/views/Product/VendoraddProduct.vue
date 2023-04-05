@@ -95,7 +95,7 @@
                     imageURL: this.imageURL,
                     price: this.price
                 };
-                axios.post(this.baseURL+"/backend/product/add", newProduct)
+                axios.post(`${this.baseURL}/backend/product/add?token=${this.token}`, newProduct)
                 .then(() => {
                     swal({
                         text: "Product added",
@@ -105,6 +105,9 @@
                     console.log("err", err);
                 })
             }
+        },
+        mounted(){
+            this.token = localStorage.getItem("token");
         }
 
 

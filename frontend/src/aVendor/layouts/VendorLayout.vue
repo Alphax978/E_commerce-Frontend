@@ -31,6 +31,10 @@ export default {
     WidgetsStatsA,
    
   },
+  mounted(){
+    this.token = localStorage.getItem("token");
+  }
+  
 }
 </script>
 

@@ -43,7 +43,7 @@ export default {
         .catch((err) => console.log('err', err));
       // api call to get the products
       await axios
-        .get(this.baseURL + '/backend/product/showun')
+        .get(`${this.baseURL}/backend/product/showun/?token=${this.token}`)
         .then((res) => {
           this.products = res.data;
         })
