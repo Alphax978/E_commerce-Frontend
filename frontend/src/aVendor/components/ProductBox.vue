@@ -12,7 +12,7 @@
                 <h5 class="card-title">{{ product.name }}</h5>
             </router-link>
             <h1 class="card-text">
-                {{ product.description.substring(0, 65) }}...
+                {{ product.description}}...
             </h1>
             <router-link :to="{name: 'EditProducts', params: {id: product.id}}" >
                 <button class="btn btn-primary">Edit</button>
@@ -23,7 +23,7 @@
 <script>
     export default {
         name: "ProductBox",
-        props: ["product"]
+        props: ["product"],
     }
 </script>
 <style scoped>

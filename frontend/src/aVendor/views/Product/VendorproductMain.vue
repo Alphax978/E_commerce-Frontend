@@ -11,7 +11,7 @@
                 <h4> Our Products</h4>
                 <router-link :to="{path: 'vendoradds'}" style="float: right">
                     <button class="btn" >
-                        Add Product
+                        Addd Product
                     </button> 
                 </router-link>
                 </div>
@@ -19,7 +19,7 @@
 
             <div class="row">
          
-                <div v-for= " product of products " :key="product.id"
+                <div v-for="product in products" :key="product.id"
                     class="col-md-6 col-xl-4 col-12 pt-3 d-flex">
                     <ProductBox :product="product"/>
                 </div>
@@ -56,23 +56,23 @@
         },
         props:["baseURL"],
         data(){
-      return{
-        products:[],
-      }
-    },
-    methods:{
-       async getProducts(){
+          return{
+            products:[],
+          }
+        },
+         methods:{
+          async getProducts(){
             await axios
                 .get(`${this.baseURL}/backend/product/vendorshow/?token=${this.token}`)
                 .then((res) => (this.products = res.data ))
                 .catch((err) => console.log(err));
-        },
-    },
-    mounted()
-    {
-        this.token = localStorage.getItem("token");
-        this.getProducts();
-    },
+              },
+          },
+          mounted()
+          {
+            this.token = localStorage.getItem("token");
+            this.getProducts();
+          },
   
 }
 </script>
