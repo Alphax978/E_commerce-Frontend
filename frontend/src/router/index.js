@@ -103,7 +103,7 @@ const routes = [
     // edit product
   {
     path: '/avendor/Product/editproduct/:id',
-    name: 'EditProducts',
+    name: 'Edit Products',
     component: VendoreditProduct
   },
   
