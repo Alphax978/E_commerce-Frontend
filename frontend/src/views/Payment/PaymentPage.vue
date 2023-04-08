@@ -15,14 +15,16 @@
                     <th>Description</th>
                     <th>Quantity</th>
                     <th>Price</th>
+                    <th>heeh</th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="cartItem in cartItems" :key="cartItem.product.id">
+                <tr v-for="cartItem in cartItems" :key="cartItem.product.id" >
                     <td>{{cartItem.product.name}}</td>
                     <td>{{cartItem.product.description}}</td>
                     <td>{{cartItem.quantity}}</td>
                     <td>{{cartItem.product.price}}</td>
+                    <td>{{cartItem.product.stock}}</td>
                 </tr>
             </tbody>
         </table>
@@ -32,7 +34,7 @@
             <button  type="button" class="btn btn-dark confirm mr-3 " @click="cart">
                 Back to Cart
             </button>
-            <button type="button" class="btn btn-success confirm" @click="pay">
+            <button type="button" class="btn btn-success confirm" @click="placeOrder">
                 Pay With Khalti
             </button>
         </div>
@@ -50,6 +52,7 @@ import NavbarShow from '../../components/NavbarShow'
 // import KhaltiCheckout from "khalti-checkout-web";
 
 
+
 export default {
     components:{NavbarShow},
     data() 
@@ -63,10 +66,12 @@ export default {
             amount: 100,
             purchaseOrderId: 'test12',
             purchaseOrderName: 'test',
+            quantity:null,
+            productquantity:[],
         };
     },
   name: 'PaymentPage',
-  props: ['baseURL'],
+  props: ['baseURL','products'],
   methods: {
     getAllItems() {
       axios
@@ -85,11 +90,29 @@ export default {
     
     pay()
     {
-  
-   
+       
+
     
-    
+    },
+    placeOrder() {
+      // make an API call to update the stock levels of the products
+      this.cartItems.forEach(item => {
+        axios.put(`${this.baseURL}/backend/product/order`, { 
+          stock: item.product.stock - item.quantity 
+        })
+        .then(response => {
+          console.log(response.data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+      });
     }
+
+  
+
+
+   
   
    
 
@@ -97,7 +120,7 @@ export default {
   mounted(){
     this.token = localStorage.getItem('token');
     this.getAllItems();
-
+   
   }
     
 }
