@@ -12,6 +12,9 @@
             <h1 class="card-text">
                 {{ product.description}}...
             </h1>
+             <h3 class="card-text">
+                Stock: {{ product.stock}}
+            </h3>
             <router-link :to="{name: 'Edit Products', params: {id: product.id}}" >
                 <button class="btn btn-primary">Edit</button>
             </router-link>

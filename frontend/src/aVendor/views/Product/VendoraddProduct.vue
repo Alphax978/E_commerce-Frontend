@@ -42,6 +42,10 @@
                         <label>Price</label>
                         <input type="number" v-model="price" class="form-control" >
                     </div>
+                    <div class="form-group">
+                        <label>Stock</label>
+                        <input type="number" v-model="stock" class="form-control" >
+                    </div>
                     <button type="button" class="btn btn-primary" @click="addProduct">Add Product</button>
                 </form>
                 </div>
@@ -83,7 +87,8 @@
                 name: null,
                 description: null,
                 imageURL: null,
-                price: null
+                price: null,
+                stock:null,
             }
         },
         methods: {
@@ -93,7 +98,8 @@
                     description: this.description,
                     name: this.name,
                     imageURL: this.imageURL,
-                    price: this.price
+                    price: this.price,
+                    stock: this.stock
                 };
                 axios.post(`${this.baseURL}/backend/product/add?token=${this.token}`, newProduct)
                 .then(() => {

@@ -11,16 +11,17 @@
         <h4>{{ product.name }}</h4>
         <h6 class="category font-italic">{{ category.categoryName }}</h6>
         <h6 class="font-weight-bold">$ {{ product.price }}</h6>
+        <h6 class="font-weight-bold">Total Available: {{ product.stock }}</h6>
         <h5>
           {{ product.description }}
         </h5>
 
         <div class="d-flex flex-row justify-content-between">
           <div class="input-group col-md-3 col-4 p-0">
-            <div class="input-group-prepend">
+            <div class="input-group-prepend" >
               <span class="input-group-text" id="basic-addon1">Quantity</span>
             </div>
-            <input class="form-control" type="number" v-bind:value="quantity" />
+            <input class="form-control" type="number"  v-model="quantity" />
           </div>
 
           <div class="input-group col-md-3 col-4 p-0">
@@ -90,7 +91,7 @@ export default {
       token: null,
       isAddedToWishlist: false,
       wishlistString: "Add to wishlist",
-      quantity: 1,
+      quantity:null,
       // pname:this.product.name,
       // imageurl:this.product.imageurl
     };
@@ -122,7 +123,15 @@ export default {
         });
         return;
       }
-      axios
+      if (this.quantity > this.product.stock){
+        swal({
+                text: "Please Select Appropriate quantity",
+                icon: "error",
+                closeOnClickOutside: false,
+              });
+      }
+      else{
+         axios
         .post(`${this.baseURL}/backend/cart/add?token=${this.token}`, {
           productId: productId,
           quantity: this.quantity,
@@ -145,6 +154,8 @@ export default {
             console.log(error);
           }
         );
+
+      }
     },
     listCartItems() {
       axios.get(`${this.baseURL}/backend/cart/?token=${this.token}`).then(
@@ -158,7 +169,9 @@ export default {
         }
       );
     },
+   
   },
+ 
   mounted() {
     this.id = this.$route.params.id;
     this.product = this.products.find((product) => product.id == this.id);
