@@ -20,7 +20,9 @@ import MakeOrder from '../views/orders/MakeOrder';
 import OrderDetails from '../views/orders/OrderDetails';
 import AdminLayout from '../Admin/layouts/AdminLayout';
 import AdminaddProduct from '../Admin/views/Product/AdminaddProduct';
+import AdminListProducts from '../Admin/views/Category/AdminListProducts';
 import ViewUser from '../Admin/views/User/ViewUser';
+import ViewVendors from '../Admin/views/Vendors/ViewVendor';
 import AdminaddCategory from '../Admin/views/Category/AdminaddCategory';
 import AdmincategoryMain from '../Admin/views/Category/AdmincategoryMain';
 import AdminproductMain from '../Admin/views/Product/AdminproductMain';
@@ -87,6 +89,11 @@ const routes = [
     path:'/admin/view/users',
     name:'View Users',
     component: ViewUser
+  },
+  {
+    path:'/admin/view/vendors',
+    name:'View Vendors',
+    component: ViewVendors
   },
   {
     path:'/product/listproducts/:id',
@@ -194,6 +201,13 @@ const routes = [
     path:'/Admin/categpry/AdmineditCategory/:id',
     name:'Adminedits',
     component: AdmineditCategory,
+ 
+  },
+
+  {
+    path:'/Admin/lists/:id',
+    name:'View Listed Products',
+    component: AdminListProducts,
  
   },
 

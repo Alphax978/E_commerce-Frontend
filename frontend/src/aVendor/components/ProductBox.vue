@@ -8,15 +8,15 @@
             />
         </div>
         <div class="card-body">
-            <router-link :to="{name: 'ShowDetails', params: {id : product.id}}">
+            <!-- <router-link :to="{name: 'ShowDetails', params: {id : product.vendor.id}}"> -->
                 <h5 class="card-title">{{ product.name }}</h5>
-            </router-link>
+            <!-- </router-link> -->
             <h1 class="card-text">
                 {{ product.description}}...
             </h1>
-            <router-link :to="{name: 'EditProducts', params: {id: product.id}}" >
+            <!-- <router-link :to="{name: 'EditProducts', params: {id: product.vendor.id}}" > -->
                 <button class="btn btn-primary">Edit</button>
-            </router-link>
+            <!-- </router-link> -->
         </div>
     </div>
 </template>

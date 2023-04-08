@@ -57,6 +57,19 @@ export default [
       },
     ],
   },
+  {
+    component: 'CNavGroup',
+    name: 'Vendors',
+    to: '/forms',
+    icon: 'cil-UserFollow',
+    items: [
+      {
+        component: 'CNavItem',
+        name: 'View Vendors',
+        to: '/admin/view/vendors',
+      },
+    ],
+  },
 
 
 

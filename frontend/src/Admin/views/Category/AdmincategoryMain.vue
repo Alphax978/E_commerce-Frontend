@@ -9,7 +9,7 @@
                 <div class="col-12 text-center">
                     <h2>Our Category</h2>
                     <router-link :to="{ name: 'Add Category'}">
-                        <button class="btn" style="float:right">Add Category </button>
+                        <button type="button" class="btn btn-primary"  style="float:right">Add Category </button>
                     </router-link>
                 </div>
             </div>
@@ -25,6 +25,19 @@
     </div>
   </div>
 </template>
+
+
+  <!-- <div>
+    <AppSidebar />
+    <div class="wrapper d-flex flex-column min-vh-100 bg-light">
+      <AppHeader />
+      <div class="body flex-grow-1 px-3">
+           
+      </div>
+      <AppFooter />
+    </div>
+  </div> -->
+
        
 
 <script>

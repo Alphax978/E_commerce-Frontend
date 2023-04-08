@@ -7,7 +7,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h2>Total Users</h2>
+                        <h2>Total Vendors</h2>
                     </div>
                 </div>
 
@@ -61,14 +61,14 @@ export default {
     data(){
        return{
         totalUsers:[],
-        userlength:"",
+   
        };
     },
     props:["baseURL"],
     methods:{
-        async getUsers(){
+        async getVendors(){
             await axios
-                .get(`${this.baseURL}/backend/user/reflect`)
+                .get(`${this.baseURL}/backend/Vendor/vreflect`)
                 .then((res) => (this.totalUsers = res.data ))
                 .catch((err) => console.log('err', err));
 
@@ -76,8 +76,7 @@ export default {
 
     },
     mounted(){
-        this.getUsers();
-        this.userlength = this.totalUsers;
+        this.getVendors();
     }
 
 };

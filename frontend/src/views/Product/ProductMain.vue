@@ -38,7 +38,7 @@
     methods:{
        async getProducts(){
             await axios
-                .get(`${this.baseURL}/backend/product/vendorshow/?token=${this.token}`)
+                .get(`${this.baseURL}/backend/product/showun`)
                 .then((res) => (this.products = res.data ))
                 .catch((err) => console.log(err));
         },
