@@ -13,27 +13,47 @@
                     <button type = "button" class="btn btn-primary" >
                         Add Product
                     </button> 
+                    <br/>
+                    <br/>
                 </router-link>
                 </div>
             </div>
 
             <div class="row">
+                 <table class="table table-striped table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>Product Image</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>In Stock</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody v-for="all in productItems" :key="all.id">
+                        <tr v-for="product in all" :key="product.id">
+                            <td>{{product.id}}</td>
+                            <td>{{product.imageURL }}</td>
+                            <td>{{product.name}}</td>
+                            <td>{{product.description}}</td>
+                            <td>{{product.price}}</td>
+                            <td>{{product.stock}}</td>
+                            <td> <router-link :to="{name: 'Edit Products', params: {id: product.id}}" ><button type="button" class="btn btn-info"><i class="far fa-edit"></i></button></router-link></td>
+                        </tr>
+                    </tbody>
+                  </table>
+
          
-                <div v-for= "product of products" :key="product.id" class="col-md-6 col-xl-4 col-12 pt-3 d-flex">
-                    <ProductBox :product="product"/>
-                </div>
+                
            </div>
-
-
-
-
-
-
        
       </div>
       <AppFooter />
     </div>
   </div>
+  
 </template>
 
 
@@ -45,10 +65,10 @@
     import AppFooter from '../../components/AppFooter.vue'
     import AppHeader from '../../components/AppHeader.vue'
     import AppSidebar from '../../components/AppSidebar.vue'
-    import ProductBox from "../../components/ProductBox";
+    // import ProductBox from "../../components/ProductBox";
     export default {
         components: {
-            ProductBox,
+            // ProductBox,
             AppFooter,
             AppHeader,
             AppSidebar,
@@ -56,15 +76,15 @@
         props:["baseURL"],
         data(){
           return{
-            products:[],
+            productItems:[],
           };
         },
         methods:{
           async getProducts(){
             await axios
-                // .get(`${this.baseURL}/backend/product/vendorshow/?token=${this.token}`)
-                .get(`${this.baseURL}/backend/product/showun`)
-                .then((res) => (this.products = res.data ))
+                .get(`${this.baseURL}/backend/product/vendorshow/?token=${this.token}`)
+                // .get(`${this.baseURL}/backend/product/showun`)
+                .then((res) => (this.productItems = res.data ))
                 .catch((err) => console.log(err));
               },
         },

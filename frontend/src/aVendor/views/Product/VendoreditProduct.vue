@@ -77,11 +77,11 @@
         methods: {
             async editProduct() {
                 console.log('product', this.product)
-                await axios.post(`${this.baseURL}/backend/product/update/${this.id}`,
+                await axios.post(`${this.baseURL}/backend/product/update/${this.id}/?token=${this.token}`,
                     this.product)
                     .then(() => {
                         this.$emit("fetchData");
-                        this.$router.push({name: 'VendorLayout'})
+                        this.$router.push({name: 'View Products'})
                         swal({
                             text: "product has been updated successfully",
                             icon: "success"
@@ -90,6 +90,7 @@
             }
         },
         mounted() {
+            this.token = localStorage.getItem("token");
             this.id = this.$route.params.id;
             this.product = this.products.find(product => product.id == this.id)
         }
