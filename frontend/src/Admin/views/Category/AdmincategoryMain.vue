@@ -11,13 +11,33 @@
                     <router-link :to="{ name: 'Add Category'}">
                         <button type="button" class="btn btn-primary"  style="float:right">Add Category </button>
                     </router-link>
+                    <br/>
+                    <br/>
                 </div>
             </div>
 
             <div class="row">
-                <div v-for = "category of categories" :key="category.id" class="col-xl=4 col-md-6 col-12 pt-3 d-flex" >
-                    <category-box :category="category" />
-                </div>
+                  <table class="table table-striped table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>Category Image</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="category in categories" :key="category.id">
+                            <td>{{category.id}}</td>
+                            <td>{{category.imageUrl }}</td>
+                            <td>{{category.categoryName}}</td>
+                            <td>{{category.description}}</td>
+                            <td> <router-link :to="{name: 'Adminedits', params: {id: category.id}}" ><button type="button" class="btn btn-info"><i class="far fa-edit"></i></button></router-link></td>
+                        </tr>
+                    </tbody>
+                  </table>
+               
             </div>
             </div>
       </div>
@@ -47,11 +67,11 @@ import AppSidebar from '../../components/AppSidebar.vue'
 
 
 
-import CategoryBox from "../../components/CategoryBox.vue";
+// import CategoryBox from "../../components/CategoryBox.vue";
 
 export default {
   name: "AdmincategoryMain",
-  components: { CategoryBox,  
+  components: { 
         AppFooter,
         AppHeader,
         AppSidebar,

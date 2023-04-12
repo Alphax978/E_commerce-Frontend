@@ -34,8 +34,8 @@
             <button  type="button" class="btn btn-dark confirm mr-3 " @click="cart">
                 Back to Cart
             </button>
-            <button type="button" class="btn btn-success confirm" @click="placeOrder">
-                Pay With Khalti
+            <button type="button" id="cla" class="btn btn" @click="placeOrder"> <img :src="paypal" width="27"/>
+                Pay with PayPal
             </button>
         </div>
 
@@ -49,12 +49,18 @@
 <script>
 import axios from 'axios';
 import NavbarShow from '../../components/NavbarShow'
+import paypal from '../../assets/paypal.png'
 // import KhaltiCheckout from "khalti-checkout-web";
 
 
 
 export default {
     components:{NavbarShow},
+    setup(){
+      return{
+        paypal:paypal,
+      }
+    },
     data() 
     {
         return {   
@@ -68,6 +74,7 @@ export default {
             purchaseOrderName: 'test',
             quantity:null,
             productquantity:[],
+
         };
     },
   name: 'PaymentPage',
@@ -136,6 +143,15 @@ a:active { text-decoration: none; }
 
 }
 
+
+#cla{
+  background-color: #253B80;
+  color: whitesmoke;
+}
+
+#cla:hover{
+  background-color: #169BD7;
+}
 
 
 

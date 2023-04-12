@@ -67,7 +67,7 @@
                 await axios.post(`${this.baseURL}/backend/category/update/${this.id}`,this.category)
                 .then(() => {
                     this.$emit("fetchData");
-                    this.$router.push({name: 'View categories'})
+                    this.$router.push({name: 'View Categories'})
                     swal({
                         text: "category has been updated successfully",
                         icon: "success"

@@ -39,6 +39,10 @@
                                     <label>Price</label>
                                     <input type="number" class="form-control" v-model="product.price" required/>
                                 </div>
+                                 <div class="form-group">
+                                    <label>Stock</label>
+                                    <input type="number" class="form-control" v-model="product.stock" required/>
+                                </div>
                                 <button type="button" class="btn btn-primary"
                                         @click="editProduct" >Submit</button>
                             </form>
