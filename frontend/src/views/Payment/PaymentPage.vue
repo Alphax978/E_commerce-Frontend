@@ -46,7 +46,7 @@
 
     <div class="col-75">
         <div class="container">
-            <form>
+            <form >
                 <div class="col-50">
                     <h3>Payment</h3>
                     <label>Accepted Cards</label>
@@ -57,19 +57,19 @@
                         <i class="fa fa-cc-discover" style="color:orange;"></i>
                     </div>
                     <label for="price">Total</label>
-                    <input type="text" id="price" name="price" value="10">
+                    <input type="text" id="price" name="price" v-model="totalCost"  required>
                     <label for="currency">Currency</label>
-                    <input type="text" id="currency" name="currency" placeholder="Enter Currency" value="USD">
+                    <input type="text" id="currency" name="currency" placeholder="USD"  v-model="USD" required>
                     <label for="method">Payment Method</label>
-                    <input type="text" id="method" name="method" placeholder="Payment Method" value="PayPal">
+                    <input type="text" id="method" name="method" placeholder="PayPal" v-model="paymentmethod" required >
                     <label for="intent">Intent</label>
-                    <input type="text" id="intent" name="intent" value="Buy">
+                    <input type="text" id="intent" name="intent" placeholder="buy" v-model="intent" required>
                     <label for="description">Payment Description</label>
-                    <input type="text" id="description" name="description" placeholder="Payment Description">
+                    <input type="text" id="description" name="description" placeholder="Payment Description" v-model="paymentdescription" required>
 
                 </div>
 
-                <input type="submit" value="Continue to checkout" class="btn">
+                <input type="submit" value="Continue to checkout" class="btn" @click="pays">
             </form>
         </div>
     </div>
@@ -98,6 +98,8 @@ import FooterShow from '../../components/FooterShow'
 
 import paypal from '../../assets/paypal.png'
 // import KhaltiCheckout from "khalti-checkout-web";
+// import swal from 'sweetalert'
+
 
 
 
@@ -114,13 +116,16 @@ export default {
             token: null,
             cartItems: [],
             totalCost:0,
-            returnUrl: 'http://localhost:8080/cart',
-            websiteUrl: 'http://localhost:8080',
-            amount: 100,
-            purchaseOrderId: 'test12',
-            purchaseOrderName: 'test',
             quantity:null,
             productquantity:[],
+            USD:null,
+            paymentmethod:null,
+            intent:null,
+            paymentdescription:null,
+
+
+
+
 
         };
     },
@@ -138,6 +143,50 @@ export default {
         .catch((err) => console.log('err', err));
     },
 
+    Pays(){
+      const newPayment = {
+                    price: this.totalCost,
+                    currency: this.USD,
+                    intent: this.intent,
+                    method: this.paymentmethod,
+                    description: this.paymentdescription,
+                };
+      axios
+        .post(`${this.baseURL}/backend/pays/pay`, newPayment)
+        .then(response => {
+        // Redirect the user to the PayPal portal
+          window.location.href = response.data.approvalUrl;
+        })
+        .catch(error => {
+        // Handle the error
+          console.error(error);
+        });
+    },
+
+    postItems() {
+      axios.get(`${this.baseURL}/backend/cart/?token=${this.token}`).then(
+        (response) => {
+          if (response.status == 200) {
+            let products = response.data;
+            let len = Object.keys(products.cartItems).length;
+            for (let i = 0; i < len; i++)
+              this.checkoutBodyArray.push({
+                imageUrl: products.cartItems[i].product.imageURL,
+                productName: products.cartItems[i].product.name,
+                quantity: products.cartItems[i].quantity,
+                price: products.cartItems[i].product.price,
+                productId: products.cartItems[i].product.id,
+                userId: products.cartItems[i].userId,
+                stock: products.cartItems[i].stock,
+              });
+          }
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    },
+
     cart(){
         this.$router.push({name: "Cart"})
     },
@@ -148,20 +197,7 @@ export default {
 
     
     },
-    placeOrder() {
-      // make an API call to update the stock levels of the products
-      this.cartItems.forEach(item => {
-        axios.put(`${this.baseURL}/backend/product/order`, { 
-          stock: item.product.stock - item.quantity 
-        })
-        .then(response => {
-          console.log(response.data);
-        })
-        .catch(error => {
-          console.error(error);
-        });
-      });
-    }
+ 
 
   
 
