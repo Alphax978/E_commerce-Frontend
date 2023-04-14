@@ -86,6 +86,7 @@
      
     </div>
 </div>
+<FooterShow />
 </div>
 
 </template>
@@ -93,6 +94,7 @@
 <script>
 import axios from 'axios';
 import NavbarShow from '../../components/NavbarShow'
+import FooterShow from '../../components/FooterShow'
 
 import paypal from '../../assets/paypal.png'
 // import KhaltiCheckout from "khalti-checkout-web";
@@ -100,7 +102,7 @@ import paypal from '../../assets/paypal.png'
 
 
 export default {
-    components:{NavbarShow},
+    components:{NavbarShow, FooterShow},
     setup(){
       return{
         paypal:paypal,

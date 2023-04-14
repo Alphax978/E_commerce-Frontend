@@ -136,10 +136,10 @@
             >Orders</router-link>
         </li>
         <li class="nav-item"> 
-          <div id="cart" style="position:relative">
-            <span id="nav-cart-count">{{ cartCount }}</span>
+          <div id="cart" style="position:relative" v-if="token">
+            <!-- <span id="nav-cart-count">{{ cartCount }}</span> -->
             <router-link class="text-light" :to="{ name: 'Cart' }">
-              <i class="fa fa-shopping-cart" style="font-size:36px"></i>
+              <i class="fa fa-shopping-cart" style="font-size:36px" aria-hidden="true"> </i>
             </router-link>
           </div>
         </li>

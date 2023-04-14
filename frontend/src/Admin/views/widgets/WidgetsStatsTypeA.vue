@@ -5,12 +5,12 @@
     <CCol :xs="3">
       <CWidgetStatsA class="mb-4" color="primary">
         <template #value
-          >{{category_size}}
+          >{{category.length}}
           <span class="fs-6 fw-normal">
-            (Present <CIcon icon="cil-arrow-bottom" />)
+            (Present)
           </span>
         </template>
-        <template #title>Total Users</template>
+        <template #title>Total Categories</template>
         <template #action>
         </template>
         <template #chart>
@@ -70,9 +70,9 @@
        <CCol :xs="3">
       <CWidgetStatsA class="mb-4" color="info">
         <template #value
-          >{{category}}
+          >{{product.length}}
           <span class="fs-6 fw-normal">
-            (Present <CIcon icon="cil-arrow-bottom" />)
+            (Present )
           </span>
         </template>
         <template #title>Total Products</template>
@@ -133,12 +133,12 @@
         <CCol :xs="3">
       <CWidgetStatsA class="mb-4" color="warning">
         <template #value
-          >{{users}}
+          >{{users.length}}
           <span class="fs-6 fw-normal">
-            (Present <CIcon icon="cil-arrow-bottom" />)
+            (Present )
           </span>
         </template>
-        <template #title>Total Categories</template>
+        <template #title>Total Users</template>
         <template #action>
         </template>
         <template #chart>
@@ -196,12 +196,12 @@
         <CCol :xs="3">
       <CWidgetStatsA class="mb-4" color="danger">
         <template #value
-          >26K
+          >{{vendor.length}}
           <span class="fs-6 fw-normal">
-            (Present <CIcon icon="cil-arrow-bottom" />)
+            (Present )
           </span>
         </template>
-        <template #title>Users</template>
+        <template #title>Total Vendors</template>
         <template #action>
         </template>
         <template #chart>
@@ -259,26 +259,64 @@
 </template>
 
 <script>
+const axios = require("axios");
 import { CChart } from '@coreui/vue-chartjs'
 export default {
   name: 'WidgetsStatsA',
   components: {
     CChart,
   },
-  // props:["baseURL","categories","products"],
-  // data(){
-  //   return{
-  //       category_size:'',
-  //       product_size:'',
-  //   }
+  data(){
+    return{
+        category: [],
+        product:[],
+        users:[],
+        vendor:[],
+        baseURL: 'http://localhost:8084',
+    };
 
-  // },
-  // mounted()
-  // {
-  //   this.categorySize = Math.min(6, this.categories.length );
-  //   this.productSize = Math.min(5, this.products.length);
+  },
+  methods:{
 
-  // }
+  
+      async getCategories(){
+            await axios
+                .get(`${this.baseURL}/backend/category/show`)
+                .then((res) => (this.category = res.data ))
+                .catch((err) => console.log(err))
+        },
+        async getProducts(){
+            await axios
+                .get(`${this.baseURL}/backend/product/showun`)
+                .then((res) => (this.product = res.data ))
+                .catch((err) => console.log(err))
+        },
+        async getUsers(){
+            await axios
+                .get(`${this.baseURL}/backend/user/reflect`)
+                .then((res) => (this.users = res.data ))
+                .catch((err) => console.log(err))
+        },
+        async getVendors(){
+            await axios
+                .get(`${this.baseURL}/backend/Vendor/vreflect`)
+                .then((res) => (this.vendor = res.data ))
+                .catch((err) => console.log(err))
+        },
+      
+      
+      
+      
+  },
+
+ 
+  mounted()
+  {
+    this.getCategories();
+    this.getProducts();
+    this.getUsers();
+    this.getVendors();
+  }
 }
 //primary,info,warning,danger
 </script>
