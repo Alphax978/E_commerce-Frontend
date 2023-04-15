@@ -31,7 +31,12 @@
                             <td>{{category.id}}</td>
                             <td>{{category.categoryName}}</td>
                             <td>{{category.description}}</td>
-                            <td> <router-link :to="{name: 'Adminedits', params: {id: category.id}}" ><button type="button" class="btn btn-info"><i class="far fa-edit"></i></button></router-link></td>
+                            <td> 
+                              <router-link :to="{name: 'Adminedits', params: {id: category.id}}" >
+                                <button type="button" class="btn btn-info"><i class="far fa-edit"></i></button>
+                              </router-link>
+                              <button type="button" class="btn btn-danger" @click="deleteItem(category.categoryName)"><i class="bi bi-trash"></i></button>
+                            </td>
                         </tr>
                     </tbody>
                   </table>
@@ -59,6 +64,7 @@
        
 
 <script>
+import axios from 'axios'
 import AppFooter from '../../components/AppFooter.vue'
 import AppHeader from '../../components/AppHeader.vue'
 import AppSidebar from '../../components/AppSidebar.vue'
@@ -75,7 +81,20 @@ export default {
         AppSidebar,
         // CContainer, 
     },
-    props:["categories"],
+    props:["categories","baseURL"],
+    methods:{
+         deleteItem(name) {
+                  axios
+                    .delete(`${this.baseURL}/backend/category/delete/${name}`)
+                    .then((res) => {
+                      if (res.status == 200) {
+                        this.$router.go(0);
+                        
+                      }
+                    })
+                    .catch((err) => console.log('err', err));
+            },
+    }
 };
 </script>
 

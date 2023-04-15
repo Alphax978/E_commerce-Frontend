@@ -15,21 +15,36 @@
       <h1 class="card-text font-italic">
         {{ product.description.substring(0, 65) }}...
       </h1>
+      <a href="#" class="text-right" >
+              Remove From WishList
+        </a>
       
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: "ProductBox",
   props: ["product"],
+  data(){
+    return{
+        wishItems:[],
+    }
+  },
   methods: {
     showDetails() {
       this.$router.push({
         name: "ShowDetails",
         params: { id: this.product.id },
       });
+    },
+    getWish() {
+      axios
+        .get(`${this.baseURL}/backend/wishlist/gets/${this.token}`)
+        .then((res) => (this.wishItems = res.data))
+        console.log(this.wishItems)
     },
   },
 };

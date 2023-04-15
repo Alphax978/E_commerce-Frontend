@@ -16,7 +16,7 @@
         :key="product.id"
         class="col-md-6 col-xl-4 col-12 pt-3 justify-content-around d-flex"
       >
-        <ProductBox :product="product"> </ProductBox>
+        <Box :product="product"> </Box>
       </div>
     </div>
   </div>
@@ -26,15 +26,16 @@
 </template>
 <script>
 import axios from "axios";
-import ProductBox from "../../components/ProductBox.vue";
+import Box from "../../components/WishListBox.vue";
 import NavbarShow from '../../components/NavbarShow';
 import FooterShow from '../../components/FooterShow';
 export default {
-  components: { ProductBox,NavbarShow,FooterShow },
+  components: {NavbarShow,FooterShow,Box},
   data() {
     return {
       token: null,
       products: null,
+      wishItems:[],
     };
   },
   props: ["baseURL"],
@@ -49,6 +50,14 @@ export default {
           console.log("err", err);
         });
     },
+    getWish() {
+      axios
+        .get(`${this.baseURL}/backend/wishlist/gets/${this.token}`)
+        .then((res) => (this.wishItems = res.data))
+        console.log(this.wishItems)
+    },
+
+  
   },
   mounted() {
     this.token = localStorage.getItem("token");
