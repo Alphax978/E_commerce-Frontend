@@ -50,13 +50,8 @@ export default {
           console.log("err", err);
         });
     },
-    getWish() {
-      axios
-        .get(`${this.baseURL}/backend/wishlist/gets/${this.token}`)
-        .then((res) => (this.wishItems = res.data))
-        console.log(this.wishItems)
-    },
-
+ 
+ 
   
   },
   mounted() {

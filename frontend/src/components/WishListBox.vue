@@ -15,9 +15,11 @@
       <h1 class="card-text font-italic">
         {{ product.description.substring(0, 65) }}...
       </h1>
-      <a href="#" class="text-right" >
+      <div v-for="wishItem in wishItems" :key="wishItem.id">
+        <a href="#" class="text-right" @click="deleteWish(wishItem.id)" >
               Remove From WishList
         </a>
+      </div>
       
     </div>
   </div>
@@ -30,7 +32,10 @@ export default {
   props: ["product"],
   data(){
     return{
+        baseURL: "http://localhost:8084/backend/wishlist",
         wishItems:[],
+
+
     }
   },
   methods: {
@@ -42,11 +47,28 @@ export default {
     },
     getWish() {
       axios
-        .get(`${this.baseURL}/backend/wishlist/gets/${this.token}`)
+        .get(`${this.baseURL}/gets/${this.token}`)
         .then((res) => (this.wishItems = res.data))
-        console.log(this.wishItems)
+        .catch((err) => console.log(err))
+        console.log(this.wishItems);
     },
+
+    deleteWish(wishid){
+      axios
+        .delete(`${this.baseURL}/delete/${wishid}/?token=${this.token}`)
+        .then((res) => {
+          if (res.status == 200) {
+            this.$router.go(0);
+          }
+        })
+        .catch((err) => console.log('err', err));
+        
+    }
   },
+  mounted(){
+    this.token = localStorage.getItem("token");
+    this.getWish();
+  }
 };
 </script>
 
