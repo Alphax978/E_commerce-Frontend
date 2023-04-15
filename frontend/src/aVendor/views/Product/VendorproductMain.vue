@@ -8,7 +8,7 @@
 
             <div class="row">
                 <div class="col-12 text-center">
-                <h4> Our Products</h4>
+                <h4>Your  Products</h4>
                 <router-link :to="{path: 'vendoradds'}" style="float: right">
                     <button type = "button" class="btn btn-primary" >
                         Add Product
@@ -24,7 +24,6 @@
                     <thead class="thead-dark">
                         <tr>
                             <th>#</th>
-                            <th>Product Image</th>
                             <th>Name</th>
                             <th>Description</th>
                             <th>Price</th>
@@ -35,7 +34,6 @@
                     <tbody v-for="all in productItems" :key="all.id">
                         <tr v-for="product in all" :key="product.id">
                             <td>{{product.id}}</td>
-                            <td>{{product.imageURL }}</td>
                             <td>{{product.name}}</td>
                             <td>{{product.description}}</td>
                             <td>{{product.price}}</td>

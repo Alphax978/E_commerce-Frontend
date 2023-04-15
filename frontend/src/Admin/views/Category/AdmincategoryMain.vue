@@ -21,7 +21,6 @@
                     <thead class="thead-dark">
                         <tr>
                             <th>#</th>
-                            <th>Category Image</th>
                             <th>Name</th>
                             <th>Description</th>
                             <th>Actions</th>
@@ -30,7 +29,6 @@
                     <tbody>
                         <tr v-for="category in categories" :key="category.id">
                             <td>{{category.id}}</td>
-                            <td>{{category.imageUrl }}</td>
                             <td>{{category.categoryName}}</td>
                             <td>{{category.description}}</td>
                             <td> <router-link :to="{name: 'Adminedits', params: {id: category.id}}" ><button type="button" class="btn btn-info"><i class="far fa-edit"></i></button></router-link></td>
