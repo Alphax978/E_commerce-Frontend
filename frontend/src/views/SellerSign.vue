@@ -12,6 +12,7 @@
       <div class="col-12 justify-content-center d-flex pt-4">
         <div id="signup" class="flex-item border">
           <h2 class="pt-4 pl-4">Create Sellers Account</h2>
+          <div class="alert alert-danger" v-if="error"><h4>User Already Exist</h4></div>
           <form @submit="signup" class="pt-4 pl-4 pr-4 pb-4">
             <div class="form-group">
               <label for="Email">Email</label>
@@ -114,6 +115,7 @@ export default {
       lastName: null,
       password: null,
       confirmPassword: null,
+      error:"",
     };
   },
     methods: {
@@ -138,7 +140,7 @@ export default {
               closeOnClickOutside: false,
             });
           })
-          .catch((err) => console.log("err", err));
+          .catch((error) => {this.error = error});
       } else {
         // show some error
         swal({

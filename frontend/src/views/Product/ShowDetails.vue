@@ -94,6 +94,7 @@ export default {
       quantity:null,
       // pname:this.product.name,
       // imageurl:this.product.imageurl
+      error:"",
     };
   },
   props: ["baseURL", "products", "categories"],
@@ -149,11 +150,18 @@ export default {
               // refresh nav bar
               this.$emit("fetchData");
             }
-          },
-          (error) => {
-            console.log(error);
-          }
-        );
+          },          
+        )
+        .catch((error) => 
+        {
+          this.error = error
+            if (this.error){
+              swal({
+                text:"Please select the quantity",
+                icon:"error"
+              })
+            }
+        })
 
       }
     },
