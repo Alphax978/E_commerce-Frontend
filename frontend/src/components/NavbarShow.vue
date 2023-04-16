@@ -21,15 +21,15 @@
       <!--      Search Bar-->
       <form class="form-inline ml-auto mr-auto">
         <div class="input-group">
-          <input
+          <!-- <input
             size="100"
             type="text"
             class="form-control"
             placeholder="Search Items"
             aria-label="Username"
             aria-describedby="basic-addon1"
-          />
-          <div class="input-group-prepend">
+          /> -->
+          <!-- <div class="input-group-prepend">
             <span class="input-group-text" id="search-button-navbar">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +44,7 @@
                 />
               </svg>
             </span>
-          </div>
+          </div> -->
         </div>
       </form>
       <!-- dropdown for browse -->

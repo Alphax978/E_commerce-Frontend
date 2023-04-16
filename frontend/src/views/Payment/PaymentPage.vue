@@ -49,7 +49,6 @@
             <form >
                 <div class="col-50">
                     <h3>Payment</h3>
-                    <label>Accepted Cards</label>
                     <div class="icon-container">
                         <i class="fa fa-cc-visa" style="color:navy;"></i>
                         <i class="fa fa-cc-amex" style="color:blue;"></i>
