@@ -11,7 +11,7 @@
       <router-link :to="{ name: 'ShowDetails', params: { id: product.id } }"
         ><h5 class="card-title">{{ product.name }}</h5></router-link
       >
-      <h1 class="card-text"><sup>Rs.</sup>{{ product.price }}</h1>
+      <h1 class="card-text"><sup>$</sup>{{ product.price }}</h1>
       <h1 class="card-text font-italic">
         {{ product.description.substring(0, 65) }}...
       </h1>

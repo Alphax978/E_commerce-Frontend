@@ -36,7 +36,7 @@
           </h4>
           
           <p id="item-price" class="mb-0 font-weight-bold">
-            Rs {{ cartItem.product.price }} per unit
+            $ {{ cartItem.product.price }} per unit
           </p>
           <p id="item-quantity" class="mb-0">
             Quantity :
@@ -49,7 +49,7 @@
           <p id="item-total-price" class="mb-2">
             Total Price:
             <span class="font-weight-bold">
-              Rs {{ cartItem.product.price * cartItem.quantity }}</span
+              $ {{ cartItem.product.price * cartItem.quantity }}</span
             >
           </p>
           <br /><a href="#" class="text-right" @click="deleteItem(cartItem.id)">
@@ -64,7 +64,7 @@
 
     <!-- display the price -->
     <div class="total-cost pt-2 text-right">
-      <h5>Total : Rs.{{ totalCost.toFixed(2) }}</h5>
+      <h5>Total : ${{ totalCost.toFixed(2) }}</h5>
       <button type="button" class="btn btn-primary confirm" @click="checkout">
         Confirm order
       </button>
