@@ -1,6 +1,8 @@
 <template>
   <CDropdown variant="nav-item">
-      <CDropdownToggle color="primary">   <CAvatar :src="avatar1" size="md" /> Account</CDropdownToggle>
+      <CDropdownToggle color="primary"  >  <CAvatar :src="avatar1" size="md" /> Account
+        
+      </CDropdownToggle>
       <CDropdownMenu>
         <CDropdownItem @click="signout"> <CIcon icon="cil-lock-locked" /> Logout</CDropdownItem>
       </CDropdownMenu>
@@ -24,6 +26,8 @@ export default {
   data() {
     return {
       token: null,
+  
+
     };
   },
   methods: {
@@ -43,10 +47,13 @@ export default {
     //   localStorage.removeItem("token");
     //   this.token = null;
     // },
+    
   },
+
   mounted() {
     // window.addEventListener('beforeunload', this.beforeUnload);
     this.token = localStorage.getItem("token");
+   
   },
   // beforeUnmount() {
   //   window.removeEventListener('beforeunload', this.beforeUnload);

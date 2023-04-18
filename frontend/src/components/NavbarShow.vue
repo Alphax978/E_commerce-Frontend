@@ -75,6 +75,77 @@
         </li>
         <div class="nav-link  text-light" v-if="token"> <CAvatar :src="avatar"  /> </div>
 
+           <li class="nav-item">
+          <div class="nav-link text-light"
+            href="#"
+            id="navbarAccount"
+            data-toggle="dropdown"
+          >
+
+          <div v-for="alltoken in alltokens" :key="alltoken.id" > 
+          <a
+      
+            v-if="token"
+            
+
+            
+
+          >
+         
+         
+            <a 
+            v-if="token == alltoken.token" >
+              {{alltoken.user.firstName}} 
+              
+            </a>   
+
+
+         
+      
+          
+          </a>
+          </div>
+          </div>
+          
+          
+        </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
         <li class="nav-item dropdown" >
           <a
             class="nav-link dropdown-toggle text-light"
@@ -86,19 +157,20 @@
           >
             Accounts
           </a>
+
           <a
             class="nav-link dropdown-toggle text-light"
             href="#"
             id="navbarAccount"
             data-toggle="dropdown"
             v-if="token"
-  
-          
-
+            
           >
-          Profile
+            Profile
           </a>
 
+
+    
           <div class="dropdown-menu" aria-labelledby="navbarAccount">
             <router-link
               v-if="token"
@@ -124,6 +196,12 @@
               :to="{ name: 'SignIn' }"
               >Sign in
             </router-link>
+             <router-link
+              v-if="token"
+              class="dropdown-item"
+              :to="{ name: 'SignIn' }"
+              >Edit Profile
+            </router-link>
   
             <a class="dropdown-item" v-if="token" href="#" @click="signout"
               >Sign out
@@ -131,10 +209,13 @@
           </div>
         </li> 
 
+      
+
         <li class="nav-item">
           <router-link class="nav-link text-light" v-if="token" :to="{ name: 'MakeOrder' }"
             >Orders</router-link>
         </li>
+
         <li class="nav-item"> 
           <div id="cart" style="position:relative" v-if="token">
             <!-- <span id="nav-cart-count">{{ cartCount }}</span> -->
@@ -151,6 +232,7 @@
 <script>
 import swal from "sweetalert";
 import avatar from '../Admin/assets/images/avatars/user1.png'
+import axios from 'axios';
 
 export default {
   name: "NavbarShow",
@@ -159,6 +241,11 @@ export default {
     return {
       avatar:avatar,
       token: null,
+      baseURL:"http://localhost:8084",
+      users:[],
+      alltokens:[],
+      name:"",
+    
     };
   },
   methods: {
@@ -180,10 +267,27 @@ export default {
       this.token = null;
       this.$emit("resetCartCount");
     },
+    getUsers(){
+      axios
+        .get(`${this.baseURL}/backend/user/reflect/1`)
+        .then((res) => (this.users = res.data))
+        .catch((err) => console.log(err));
+    },
+    getTokens(){
+      axios
+        .get(`${this.baseURL}/backend/token/show`)
+        .then((res) => (this.alltokens = res.data))
+        .catch((err) => console.log(err));
+
+
+    }
+    
   },
   mounted() {
     // window.addEventListener('beforeunload', this.beforeUnload);
     this.token = localStorage.getItem("token");
+    this.getUsers();
+    this.getTokens();
   },
   // beforeUnmount() {
   //   window.removeEventListener('beforeunload', this.beforeUnload);
