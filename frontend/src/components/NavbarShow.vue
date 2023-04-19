@@ -199,7 +199,7 @@
              <router-link
               v-if="token"
               class="dropdown-item"
-              :to="{ name: 'SignIn' }"
+              :to="{ name: 'EditUser' }"
               >Edit Profile
             </router-link>
   

@@ -9,6 +9,7 @@ import listProducts from '../views/Category/ListProducts';
 import VendoreditProduct from '../aVendor/views/Product/VendoreditProduct';
 import ShowDetails from '../views/Product/ShowDetails';
 import WishList from '../views/Product/WishList';
+import profile from '../views/UsereditProfile';
 import CartPage from '../views/CartPage';
 import SignIn from '../views/SignIn'
 import SignUp from '../views/SignUp'
@@ -143,6 +144,11 @@ const routes = [
     path:'/FailedP',
     name:'FailedP',
     component: FailedP
+  },
+  {
+    path:'/user/edit',
+    name:'EditUser',
+    component: profile
   },
   {
     path:'/SuccessP',

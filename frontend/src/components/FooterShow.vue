@@ -54,7 +54,7 @@ export default {
 
 <style scoped>
 footer {
-  margin-top : 320px;
+  margin-top : 380px;
   background-color:#232F3E;
   font-size:16px;
 }

@@ -127,6 +127,7 @@ h5 {
   font-family: 'Roboto', sans-serif;
   color: #484848;
   font-size: 700;
+  font-weight: bold;
 }
 .embed-responsive .card-img-top {
   object-fit: cover;
