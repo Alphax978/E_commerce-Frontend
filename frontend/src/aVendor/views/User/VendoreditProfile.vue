@@ -1,7 +1,11 @@
 <template>
-<div>
-    <NavbarShow />
-            <div class="container">
+  <div>
+    <AppSidebar />
+    <div class="wrapper d-flex flex-column min-vh-100 bg-light">
+      <AppHeader />
+        <div class="body flex-grow-1 px-3">
+
+             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
                         <h4 class="pt-3">Edit Your Profile</h4>
@@ -44,25 +48,29 @@
                 </div>
             </div>
 
-           
 
-
-
-
-    <FooterShow />
-</div>
-
+        </div>
+      <AppFooter />
+    </div>
+  </div>
 </template>
+
 
 <script>
 import axios from 'axios';
-import NavbarShow from '../components/NavbarShow';
-import FooterShow from '../components/FooterShow';
+
 import swal from "sweetalert";
+import AppFooter from '../../components/AppFooter.vue'
+import AppHeader from '../../components/AppHeader.vue'
+import AppSidebar from '../../components/AppSidebar.vue'
 
 export default {
     name:"UsereditProfile",
-    components:{NavbarShow, FooterShow},
+      components: {
+            AppFooter,
+            AppHeader,
+            AppSidebar,
+        },
     props:["baseURL"],
     data()
     {
@@ -82,7 +90,7 @@ export default {
         getTokens()
         {
             axios
-            .get(`${this.baseURL}/backend/token/show`)
+            .get(`${this.baseURL}/backend/token/showsall`)
             .then((res) => (this.alltokens = res.data))
             .catch((err) => console.log(err));
           
@@ -90,7 +98,7 @@ export default {
         getId() 
         {
             axios
-                .get(`${this.baseURL}/backend/token/show`)
+                .get(`${this.baseURL}/backend/token/showsall`)
                 .then((res) => 
                 {
                     this.alldata = res.data;
@@ -98,7 +106,7 @@ export default {
                     {
                         if (this.token == this.alldata[i].token) 
                         {
-                            this.userid = this.alldata[i].user.id;
+                            this.userid = this.alldata[i].vendor.id;
                             console.log(this.userid);
                             break;
                         }
@@ -118,11 +126,11 @@ export default {
                     password: this.password,
                 };
                 await axios
-                .post(`${this.baseURL}/backend/user/update/${this.userid}`, user)
+                .post(`${this.baseURL}/backend/Vendor/update/${this.userid}`, user)
                 .then(() => {
-                    this.$router.replace("/");
+                    this.$router.replace("/vendorpannel");
                     swal({
-                        text: "User Update successful",
+                        text: "Update successful",
                         icon: "success",
                         closeOnClickOutside: false,
                     });

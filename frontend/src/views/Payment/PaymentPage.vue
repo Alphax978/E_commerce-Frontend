@@ -2,45 +2,7 @@
 <div>
 <NavbarShow/>
 <br/>
-    <!-- <div class="container">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h4 class="pt-3">Your Confirmed Products</h4>
-            </div>
-         </div>
-         <br>
-        <table class="table table-striped table-bordered">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Product Name</th>
-                    <th>Description</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>heeh</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="cartItem in cartItems" :key="cartItem.product.id" >
-                    <td>{{cartItem.product.name}}</td>
-                    <td>{{cartItem.product.description}}</td>
-                    <td>{{cartItem.quantity}}</td>
-                    <td>{{cartItem.product.price}}</td>
-                    <td>{{cartItem.product.stock}}</td>
-                </tr>
-            </tbody>
-        </table>
 
-        <div class="total-cost pt-2 text-right">
-            <h5>Total : Rs.{{ totalCost.toFixed(2) }}</h5>
-            <button  type="button" class="btn btn-dark confirm mr-3 " @click="cart">
-                Back to Cart
-            </button>
-            <button type="button" id="cla" class="btn btn" @click="placeOrder"> <img :src="paypal" width="27"/>
-                Pay with PayPal
-            </button>
-        </div>
-
-    </div>  -->
 
     <div class="row">
 

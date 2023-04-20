@@ -267,12 +267,7 @@ export default {
       this.token = null;
       this.$emit("resetCartCount");
     },
-    getUsers(){
-      axios
-        .get(`${this.baseURL}/backend/user/reflect/1`)
-        .then((res) => (this.users = res.data))
-        .catch((err) => console.log(err));
-    },
+
     getTokens(){
       axios
         .get(`${this.baseURL}/backend/token/show`)
@@ -286,7 +281,6 @@ export default {
   mounted() {
     // window.addEventListener('beforeunload', this.beforeUnload);
     this.token = localStorage.getItem("token");
-    this.getUsers();
     this.getTokens();
   },
   // beforeUnmount() {

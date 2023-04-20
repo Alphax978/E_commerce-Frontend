@@ -38,6 +38,18 @@ export default [
       },
     ],
   },
+  {
+    component: 'CNavGroup',
+    name: 'Profile',
+    icon: 'cil-user',
+    items: [
+      {
+        component: 'CNavItem',
+        name: 'Edit Profile',
+        to: '/vendorprofile',
+      },
+    ],
+  },
 
 
 

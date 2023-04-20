@@ -35,6 +35,7 @@ import AdminsignUp from '../views/AdminsignUp';
 import VendorLayout from '../aVendor/layouts/VendorLayout';
 import VendorproductMain from '../aVendor/views/Product/VendorproductMain';
 import VendoraddProduct from '../aVendor/views/Product/VendoraddProduct';
+import VendoreditProfile from '../aVendor/views/User/VendoreditProfile';
 
 
 
@@ -276,6 +277,14 @@ const routes = [
  
   
   },
+  {
+    path:'/vendorprofile',
+    name:'Vendor Profile',
+    component: VendoreditProfile,
+ 
+  
+  },
+
 
 
 
