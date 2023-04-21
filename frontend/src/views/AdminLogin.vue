@@ -40,7 +40,7 @@
     </div>
   </div>
 </template>
-<script type="text/javascript">
+<script >
 import axios from 'axios';
 import swal from 'sweetalert';
 export default {

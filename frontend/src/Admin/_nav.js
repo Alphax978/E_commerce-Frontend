@@ -47,7 +47,6 @@ export default [
   {
     component: 'CNavGroup',
     name: 'Users',
-    to: '/forms',
     icon: 'cil-UserFollow',
     items: [
       {
@@ -60,7 +59,6 @@ export default [
   {
     component: 'CNavGroup',
     name: 'Vendors',
-    to: '/forms',
     icon: 'cil-people',
     items: [
       {
@@ -70,6 +68,19 @@ export default [
       },
     ],
   },
+  {
+    component: 'CNavGroup',
+    name: 'Profile',
+    icon: 'cil-user',
+    items: [
+      {
+        component: 'CNavItem',
+        name: 'Edit Profile',
+        to: '/Adminprofile',
+      },
+    ],
+  },
+
 
 
 
