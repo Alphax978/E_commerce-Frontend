@@ -38,13 +38,9 @@
         </div>
 
         <div class="features pt-3">
-          <h5><strong>Features</strong></h5>
+          <h5><strong>More Info</strong></h5>
           <ul>
-            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-            <li>Officia quas, officiis eius magni error magnam voluptatem</li>
-            <li>nesciunt quod! Earum voluptatibus quaerat dolorem doloribus</li>
-            <li>molestias ipsum ab, ipsa consectetur laboriosam soluta et</li>
-            <li>ut doloremque dolore corrupti, architecto iusto beatae.</li>
+            <li>{{product.description}}</li>
           </ul>
         </div>
 

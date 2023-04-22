@@ -294,7 +294,7 @@ const routes = [
   
   },
   {
-    path:'/products/:id',
+    path:'/product/:id',
     name:'Search Products',
     component: SearchedProducts,
  

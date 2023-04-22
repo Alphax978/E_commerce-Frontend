@@ -8,12 +8,15 @@
       />
     </div>
     <div class="card-body">
-      <!-- <router-link :to="{ name: 'ShowDetails', params: { id: product.id } }" > <h5 class="card-title">{{ product.name }}</h5> </router-link> -->
-      <h5 class="card-title">{{product.name}}</h5>
+      <!-- <router-link :to="{ name: 'ShowDetails', params: { id: product.id } }" > 
+        <h5 class="card-title">{{ product.name }}</h5> 
+      </router-link> -->
+      <h5 class="card-title">{{ product.name }}</h5>
       <h1 class="card-text"><sup>$</sup>{{ product.price }}</h1>
       <h1 class="card-text font-italic">
         {{ product.description}}...
       </h1>
+      <button class="btn btn-primary" @click="showDetails">show details</button>
       
     </div>
   </div>

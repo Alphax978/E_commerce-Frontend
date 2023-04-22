@@ -275,7 +275,7 @@ export default {
             console.log(response.data);
             if (response.data.length > 0) {
               // Navigate to first product details page with response data
-              this.$router.push(`/products/${response.data[0].id}`);
+              this.$router.push(`/product/${response.data[0].id}`);
             } else {
               alert("Product not found");
             }
