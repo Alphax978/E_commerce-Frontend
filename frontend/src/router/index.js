@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '../views/HomePage';
 import TestForm from '../views/TestForm';
+import SearchedProducts from '../views/Product/SearchedProducts';
 import AddCategory from '../views/Category/AddCategory';
 import CategoryMain from '../views/Category/CategoryMain';
 import ProductMain from '../views/Product/ProductMain';
@@ -289,6 +290,13 @@ const routes = [
     path:'/Adminprofile',
     name:'Admin Profile',
     component: AdmineditProfile,
+ 
+  
+  },
+  {
+    path:'/products/:id',
+    name:'Search Products',
+    component: SearchedProducts,
  
   
   },

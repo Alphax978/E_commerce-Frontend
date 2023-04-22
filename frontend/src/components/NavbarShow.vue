@@ -19,32 +19,22 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!--      Search Bar-->
-      <form class="form-inline ml-auto mr-auto">
+      <form class="form-inline ml-auto mr-auto" @submit.prevent="searchProducts(query)">
         <div class="input-group">
-          <!-- <input
+          <input
             size="100"
             type="text"
+            v-model="query"
             class="form-control"
             placeholder="Search Items"
             aria-label="Username"
             aria-describedby="basic-addon1"
-          /> -->
-          <!-- <div class="input-group-prepend">
+          />
+          <div class="input-group-prepend">
             <span class="input-group-text" id="search-button-navbar">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-search"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
-                />
-              </svg>
+                <button class="in" type="submit"><i class="fa fa-search"></i></button>
             </span>
-          </div> -->
+          </div>
         </div>
       </form>
       <!-- dropdown for browse -->
@@ -245,6 +235,8 @@ export default {
       users:[],
       alltokens:[],
       name:"",
+      query:[],
+      results:[],
     
     };
   },
@@ -275,7 +267,24 @@ export default {
         .catch((err) => console.log(err));
 
 
-    }
+    },
+    searchProducts(query) {
+      axios
+        .get(`${this.baseURL}/backend/product/products/search/${query}`)
+        .then(response => {
+            console.log(response.data);
+            if (response.data.length > 0) {
+              // Navigate to first product details page with response data
+              this.$router.push(`/products/${response.data[0].id}`);
+            } else {
+              alert("Product not found");
+            }
+          })
+         
+        .catch((error) => {
+          console.log(error);
+        });
+    },
     
   },
   mounted() {
@@ -341,5 +350,12 @@ h4{
 .bg-dark{
   background-color: #343a40!important;
 }
+
+.in{
+  background-color: #febd69;
+  border: #febd69;
+}
+
+
 
 </style>
