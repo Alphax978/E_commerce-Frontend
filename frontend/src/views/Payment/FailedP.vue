@@ -5,5 +5,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+    name:'FailedPayment',
+    mounted(){
+        localStorage.removeItem("sessionId")
+        window.location.href = '/order'
+    }
+}
 </script>

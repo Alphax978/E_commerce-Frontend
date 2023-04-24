@@ -65,7 +65,7 @@
     <!-- display the price -->
     <div class="total-cost pt-2 text-right">
       <h5>Total : ${{ totalCost.toFixed(2) }}</h5>
-      <button type="button" class="btn btn-primary confirm" @click="checkout">
+      <button type="button" class="btn btn-primary confirm" :disabled="isDisabled()" @click="checkout" >
         Confirm order
       </button>
     </div>
@@ -90,6 +90,14 @@ export default {
   },
   props: ['baseURL'],
   methods: {
+    isDisabled(){
+      if (this.cartItems.length === 0)
+      {
+        return true;
+     
+      }
+      return false;
+    },
     // fetch All items in cart
     listCartItems() {
       axios
@@ -112,7 +120,7 @@ export default {
         .catch((err) => console.log('err', err));
     },
     checkout() {
-      this.$router.push({ name: 'Payment' });
+      this.$router.push({ name: 'CheckOut' });
     },
   },
   mounted() {

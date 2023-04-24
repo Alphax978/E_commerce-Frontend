@@ -5,13 +5,3 @@
 
 // vue.config.js
 
-module.exports = {
-  devServer: {
-    proxy: {
-      '/epayment': {
-        target: 'https://a.khalti.com',
-        changeOrigin: true
-      }
-    }
-  }
-}

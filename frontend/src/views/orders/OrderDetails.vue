@@ -36,34 +36,34 @@
 
 <script>
 export default {
-//     name:'OrderDetails',
-//     props:["orderID","baseURL"],
-// data() {
-//     return {
-//         orderItems:[],
-//         order: {},
-//         token: null,
-//         orderID: 0
-//     }
-// },
-// methods:{
-//     getOrder(){
-//         axios.get(`${this.baseURL}order/${this.orderID}?token=${this.token}`).then((response) => {
-//             if(response.status === 200) {
-//                 this.order = response.data
-//                 this.orderItems = this.order.orderItems
-//             }
-//             },
-//             (err)=>{
-//                 console.log(err)
-//             })
-//     }
-// },
-// mounted(){
-//     this.orderID = this.$route.params.id;
-//     this.token = localStorage.getItem("token")
-//     this.getOrder()
-// }
+    name:'OrderDetails',
+    props:["orderID","baseURL"],
+data() {
+    return {
+        orderItems:[],
+        order: {},
+        token: null,
+        orderID: 0
+    }
+},
+methods:{
+    getOrder(){
+        axios.get(`${this.baseURL}order/${this.orderID}?token=${this.token}`).then((response) => {
+            if(response.status === 200) {
+                this.order = response.data
+                this.orderItems = this.order.orderItems
+            }
+            },
+            (err)=>{
+                console.log(err)
+            })
+    }
+},
+mounted(){
+    this.orderID = this.$route.params.id;
+    this.token = localStorage.getItem("token")
+    this.getOrder()
+}
 }
 </script>
 
