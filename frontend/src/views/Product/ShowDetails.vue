@@ -19,9 +19,15 @@
         <div class="d-flex flex-row justify-content-between">
           <div class="input-group col-md-3 col-4 p-0">
             <div class="input-group-prepend" >
-              <span class="input-group-text" id="basic-addon1">Quantity</span>
+              <div>
+                <span id="io">Quantity: </span>
+                <button @click="decrement">-</button>
+                <input class="ir" type="number" v-model="quantity">
+                <button @click="increment">+</button>
+              </div>
             </div>
-            <input class="form-control" type="number"  v-model="quantity" />
+            <!-- <input class="form-control" type="number"  v-model="quantity" /> -->
+
           </div>
 
           <div class="input-group col-md-3 col-4 p-0">
@@ -87,7 +93,7 @@ export default {
       token: null,
       isAddedToWishlist: false,
       wishlistString: "Add to wishlist",
-      quantity:null,
+      quantity:0,
       // pname:this.product.name,
       // imageurl:this.product.imageurl
       error:"",
@@ -173,6 +179,14 @@ export default {
         }
       );
     },
+    increment() {
+      this.quantity++;
+    },
+    decrement() {
+      if (this.quantity > 0) {
+        this.quantity--;
+      }
+    }
    
   },
  
@@ -213,4 +227,13 @@ input[type="number"] {
   color: white;
   border-radius: 0;
 }
+
+.ir{
+  width: 20px;
+}
+
+#io{
+  font-weight: bold;
+}
+
 </style>

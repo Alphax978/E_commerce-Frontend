@@ -144,7 +144,7 @@ const routes = [
     component: SignIn
   },
   {
-    path:'/FailedP',
+    path:'/payment/failed',
     name:'FailedP',
     component: FailedP
   },
@@ -154,7 +154,7 @@ const routes = [
     component: profile
   },
   {
-    path:'/SuccessP',
+    path:'/payment/success',
     name:'SuccessP',
     component: SuccessP
   },
@@ -169,7 +169,7 @@ const routes = [
     component: MakeOrder
   },
   {
-    path:'/ordersDetails',
+    path:'/order/:id',
     name:'OrderDetails',
     component: OrderDetails
   },

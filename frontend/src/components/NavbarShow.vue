@@ -203,7 +203,7 @@
 
         <li class="nav-item">
           <router-link class="nav-link text-light" v-if="token" :to="{ name: 'MakeOrder' }"
-            >Orders</router-link>
+            >My Orders</router-link>
         </li>
 
         <li class="nav-item"> 

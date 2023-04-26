@@ -1,4 +1,6 @@
 <template>
+<div>
+    <NavbarShow />
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
@@ -30,40 +32,46 @@
             <h5>Total Cost : $ {{order.totalPrice}}</h5>
         </div>
     </div>
+    <FooterShow />
 
-
+</div>
 </template>
 
+
 <script>
+import NavbarShow from '../../components/NavbarShow';
+import FooterShow from '../../components/FooterShow';
+import axios from 'axios';
 export default {
     name:'OrderDetails',
-    props:["orderID","baseURL"],
-data() {
-    return {
-        orderItems:[],
-        order: {},
-        token: null,
-        orderID: 0
+    components: {NavbarShow, FooterShow},
+    props:["baseURL"],
+    data() {
+        return {
+            orderItems:[],
+            order: {},
+            token: null,
+            orderID: 0
+        }
+    },
+    methods:{
+        getOrder(){
+            axios.get(`${this.baseURL}/backend/order/${this.orderID}?token=${this.token}`).then((response) => {
+                if(response.status === 200) {
+                    this.order = response.data
+                    this.orderItems = this.order.orderItems
+                }
+                },
+                (err)=>{
+                    console.log(err)
+                })
+        }
+    },
+    mounted(){
+        this.orderID = this.$route.params.id;
+        this.token = localStorage.getItem("token")
+        this.getOrder()
     }
-},
-methods:{
-    getOrder(){
-        axios.get(`${this.baseURL}order/${this.orderID}?token=${this.token}`).then((response) => {
-            if(response.status === 200) {
-                this.order = response.data
-                this.orderItems = this.order.orderItems
-            }
-            },
-            (err)=>{
-                console.log(err)
-            })
-    }
-},
-mounted(){
-    this.orderID = this.$route.params.id;
-    this.token = localStorage.getItem("token")
-    this.getOrder()
-}
 }
 </script>
 

@@ -19,7 +19,7 @@ export default {
       saveOrder() { 
            axios.post(this.baseURL+"/backend/order/add/?token="+this.token+"&sessionId="+this.sessionId)
                   .then(()=>{
-                     window.location.href = '/order'
+                     window.location.href = '/'
                   }).catch((error)=>{
                     console.log(error);
                   })
