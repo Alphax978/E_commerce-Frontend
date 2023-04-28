@@ -93,7 +93,7 @@ export default {
       token: null,
       isAddedToWishlist: false,
       wishlistString: "Add to wishlist",
-      quantity:0,
+      quantity:null,
       // pname:this.product.name,
       // imageurl:this.product.imageurl
       error:"",
@@ -229,7 +229,7 @@ input[type="number"] {
 }
 
 .ir{
-  width: 20px;
+  width: 25px;
 }
 
 #io{

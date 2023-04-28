@@ -52,9 +52,11 @@
               $ {{ cartItem.product.price * cartItem.quantity }}</span
             >
           </p>
-          <br /><a href="#" class="text-right" @click="deleteItem(cartItem.id)">
+          <br />
+          <br />
+          <button id="df" class="btn btn-primary btn-sm" @click="deleteItem(cartItem.id)">
               Remove From Cart
-            </a>
+          </button>
         </div>
       </div>
       <div class="col-2"></div>
@@ -145,6 +147,7 @@ h5 {
 }
 #item-quantity {
   float: left;
+  font-weight: bold;
 }
 #item-total-price {
   float: right;
@@ -153,6 +156,7 @@ h5 {
   font-weight: bold;
   font-size: larger;
 }
+
 a:link { text-decoration: none; }
 a:visited { text-decoration: none; }
 a:hover { text-decoration: none; }

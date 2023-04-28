@@ -36,6 +36,11 @@ export default [
         name: 'View Products',
         to: '/vendorsees',
       },
+      {
+        component: 'CNavItem',
+        name: 'Sold Products',
+        to: '/vendorsold',
+      },
     ],
   },
   {
