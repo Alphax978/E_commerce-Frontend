@@ -39,6 +39,8 @@ import VendorsoldProduct from '../aVendor/views/Product/VendorsoldProduct';
 import VendoraddProduct from '../aVendor/views/Product/VendoraddProduct';
 import VendoreditProfile from '../aVendor/views/User/VendoreditProfile';
 import AdmineditProfile from '../Admin/views/User/AdmineditProfile';
+import AdminConfirmOrder from '../Admin/views/Orders/AdminConfirmOrder';
+
 
 
 
@@ -308,6 +310,11 @@ const routes = [
  
   
   },
+  {
+    path:'/admin/order/view',
+    name:"Admin Order",
+    component: AdminConfirmOrder,
+  }
 
 
 

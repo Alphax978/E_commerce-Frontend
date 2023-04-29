@@ -80,6 +80,18 @@ export default [
       },
     ],
   },
+  {
+    component: 'CNavGroup',
+    name: 'Order Details',
+    icon: 'cil-basket',
+    items: [
+      {
+        component: 'CNavItem',
+        name: 'View Orders',
+        to: '/admin/order/view',
+      },
+    ],
+  },
 
 
 

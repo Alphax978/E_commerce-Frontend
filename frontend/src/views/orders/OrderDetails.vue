@@ -23,6 +23,8 @@
                     <p id="item-total-price" class="mb-0">
                         Total Price : $<span class="font-weight-bold">{{ orderItem.price * orderItem.quantity}}</span>
                     </p>
+
+                    <h5>Delivery Status: <span>{{orderItem.status}}</span></h5>
                 </div>
             </div>
             <div class="col-1"></div>
