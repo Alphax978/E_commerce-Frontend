@@ -21,7 +21,6 @@
                             <th>Description</th>
                             <th>Total Sold</th>
                             <th>Sold Per Unit price</th>
-
                         </tr>
                     </thead>
                     <tbody v-for="all in productItems" :key="all.id">
@@ -31,9 +30,6 @@
                             <td>{{product.description}}</td>
                             <td>{{product.totalsold}}</td>
                             <td>{{product.price * product.totalsold}}</td>
-                            
-                            
-              
                         </tr>
                     </tbody>
                   </table>
@@ -74,6 +70,8 @@ export default {
                 .then((res) => (this.productItems = res.data ))
                 .catch((err) => console.log(err));
           },
+
+        
        
     
        
