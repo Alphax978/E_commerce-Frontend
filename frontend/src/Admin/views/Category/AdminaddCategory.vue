@@ -105,10 +105,6 @@ export default {
                     console.log(err);
                 })
 
-                //ALL OF THIS WILL EXECUTE AFTER SWGAGER AND GUTHUB SETUP AND AFTER DEVELOPIHG BACKEND
-
-                //PART 1: 30:01
-
 
 
 
