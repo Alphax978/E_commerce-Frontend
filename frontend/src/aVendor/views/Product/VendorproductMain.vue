@@ -89,7 +89,10 @@
             await axios
                 .get(`${this.baseURL}/backend/product/vendorshow/?token=${this.token}`)
                 // .get(`${this.baseURL}/backend/product/showun`)
-                .then((res) => (this.productItems = res.data ))
+                .then((res) => { 
+                  this.productItems = res.data 
+                  console.log(this.productItems)
+                })
                 .catch((err) => console.log(err));
           },
 

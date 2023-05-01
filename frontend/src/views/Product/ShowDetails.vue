@@ -93,7 +93,7 @@ export default {
       token: null,
       isAddedToWishlist: false,
       wishlistString: "Add to wishlist",
-      quantity:null,
+      quantity:1,
       // pname:this.product.name,
       // imageurl:this.product.imageurl
       error:"",
@@ -126,9 +126,16 @@ export default {
         });
         return;
       }
-      if (this.quantity > this.product.stock){
+      if (this.quantity < 0){
         swal({
                 text: "Please Select Appropriate quantity",
+                icon: "error",
+                closeOnClickOutside: false,
+              });
+      }
+      if (this.quantity == 0){
+        swal({
+                text: "Please select Appropriate Quantity",
                 icon: "error",
                 closeOnClickOutside: false,
               });

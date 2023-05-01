@@ -1,6 +1,6 @@
 <template>
   <div class="text-center">
-    <h1>Success</h1>
+    <h1>Payment Successful</h1>
   </div>
 </template>
 
@@ -12,14 +12,15 @@ export default {
     data() {
     return {
       token: null,
-      sessionId:null
+      sessionId:null,
+      id:null,
     }
   },
   methods:{
       saveOrder() { 
            axios.post(this.baseURL+"/backend/order/add/?token="+this.token+"&sessionId="+this.sessionId)
                   .then(()=>{
-                     window.location.href = '/'
+                      window.location.href = '/orders'
                   }).catch((error)=>{
                     console.log(error);
                   })

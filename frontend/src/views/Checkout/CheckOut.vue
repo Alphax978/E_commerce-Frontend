@@ -26,6 +26,7 @@ export default {
         .then((response) => {
           if (response.status == 200) {
             let products = response.data;
+            console.log(products);
             for (let i = 0; i < products.cartItems.length; i++) {
               this.checkoutBodyArray.push({
                 imageUrl: products.cartItems[i].product.imageURL,
@@ -34,8 +35,10 @@ export default {
                 productName: products.cartItems[i].product.name,
                 productId: products.cartItems[i].product.id,
                 userId: products.cartItems[i].userId,
+                sellerid: products.cartItems[i].product.sellerId,
               });
             }
+            
           }
         })
         .catch((err) => console.log(err));

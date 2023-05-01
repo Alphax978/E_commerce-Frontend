@@ -46,6 +46,7 @@
               v-model="cartItem.quantity"
             />
           </p>
+
           <p id="item-total-price" class="mb-2">
             Total Price:
             <span class="font-weight-bold">
@@ -57,6 +58,7 @@
           <button id="df" class="btn btn-primary btn-sm" @click="deleteItem(cartItem.id)">
               Remove From Cart
           </button>
+          <p>{{cartItem.product.vendor_id}}ddd</p>
         </div>
       </div>
       <div class="col-2"></div>
@@ -108,6 +110,7 @@ export default {
           const result = res.data;
           this.cartItems = result.cartItems;
           this.totalCost = result.totalCost;
+          
         })
         .catch((err) => console.log('err', err));
     },

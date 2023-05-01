@@ -89,6 +89,8 @@
                 imageURL: null,
                 price: null,
                 stock:null,
+                listedtokens:[],
+                vendoris:null
             }
         },
         methods: {
@@ -99,7 +101,8 @@
                     name: this.name,
                     imageURL: this.imageURL,
                     price: this.price,
-                    stock: this.stock
+                    stock: this.stock,
+                    sellerId: this.vendoris
                 };
                 axios.post(`${this.baseURL}/backend/product/add?token=${this.token}`, newProduct)
                 .then(() => {
@@ -110,10 +113,31 @@
                 }).catch((err)=> {
                     console.log("err", err);
                 })
-            }
+            },
+            getToken(){
+                axios
+                    .get(`${this.baseURL}/backend/token/showsall`)
+                    .then((res) => {
+                        this.listedtokens = res.data;
+                        console.log(this.listedtokens);
+                        for (let i = 0; i < this.listedtokens.length; i++){
+                            if (this.token == this.listedtokens[i].token){
+                                console.log("found");
+                                console.log(this.listedtokens[i].vendor.id);
+                                this.vendoris = this.listedtokens[i].vendor.id;
+                                console.log("yes" + this.vendoris);
+                            }
+                        }
+                      
+                    })
+                    .catch((err) => console.log(err));
+
+
+            },
         },
         mounted(){
             this.token = localStorage.getItem("token");
+            this.getToken();
         }
 
 

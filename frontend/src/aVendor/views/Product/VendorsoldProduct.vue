@@ -7,7 +7,7 @@
 
             <div class="row">
                 <div class="col-12 text-center">
-                <h4>Your sold Products</h4>
+                <h4>Your Ordered Products</h4>
                 </div>
             </div>
             <br/>
@@ -57,6 +57,8 @@ export default {
         return{
             productItems:[],
             token:null,
+            sellerid:null,
+            alltokens:[],
 
 
         }
@@ -67,9 +69,35 @@ export default {
             await axios
                 .get(`${this.baseURL}/backend/product/vendorshow/?token=${this.token}`)
                 // .get(`${this.baseURL}/backend/product/showun`)
-                .then((res) => (this.productItems = res.data ))
+                .then((res) => {
+                    this.productItems = res.data;
+                    this.sellerid  = res.data.sellerId;
+                    console.log(this.productItems.sellerid);
+                    for (let i = 0; i < this.productItems.length; i++)
+                    {
+                        this.sellerid = this.productItems.productItems[i].sellerId;
+                        console.log(this.sellerid);
+                       
+
+
+                           
+                    }
+                })
                 .catch((err) => console.log(err));
           },
+
+          getTokens(){
+            axios
+                .get(`${this.baseURL}/backend/token/showsall`)
+                .then((res) => { 
+                    this.alltokens = res.data;
+                    console.log(this.alltokens)
+                    if (this.token == this.alltokens.token){
+                        console.log("fouund")
+                    }
+                })
+                .catch((err) => console.log(err));
+            }
 
         
        
@@ -80,6 +108,7 @@ export default {
     },
     mounted(){
         this.token = localStorage.getItem("token");
+        this.getTokens();
         this.getProducts();
     }
     
