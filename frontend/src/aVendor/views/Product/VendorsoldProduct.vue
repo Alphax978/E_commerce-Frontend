@@ -18,18 +18,26 @@
                         <tr >
                             <th>#</th>
                             <th>Name</th>
-                            <th>Description</th>
-                            <th>Total Sold</th>
-                            <th>Sold Per Unit price</th>
+                            <th>Quantity Ordered</th>
+                            <th>Ordered at Total Price</th>
+                            <th>Actions</th>
+                            <th>Order Status</th>
                         </tr>
                     </thead>
-                    <tbody v-for="all in productItems" :key="all.id">
-                        <tr v-for="product in all" :key="product.id" >
-                            <td>{{product.id}}</td>
-                            <td>{{product.name}}</td>
-                            <td>{{product.description}}</td>
-                            <td>{{product.totalsold}}</td>
-                            <td>{{product.price * product.totalsold}}</td>
+                    <tbody v-for="all in totalOrders" :key="all.id">
+                        <tr >
+                            <td>{{all.id}}</td>
+                            <td>{{all.product.name}}</td>
+                            <td>{{all.quantity}}</td>
+                            <td>{{all.price * all.quantity}}</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm" @click="Confirm(all.product.name)">Confirm</button>
+                                |
+                                <button class="btn btn-danger btn-sm" @click="shipmentStarted(all.product.name)">Cancel</button>
+                            </td>
+                            <td>{{all.orderStatus}}</td>
+
+                            <!-- <td>{{all.price *all.totalsold}}</td> -->
                         </tr>
                     </tbody>
                   </table>
@@ -57,8 +65,9 @@ export default {
         return{
             productItems:[],
             token:null,
-            sellerid:null,
+            sellerid: null,
             alltokens:[],
+            totalOrders:[],
 
 
         }
@@ -68,37 +77,66 @@ export default {
             async getProducts(){
             await axios
                 .get(`${this.baseURL}/backend/product/vendorshow/?token=${this.token}`)
-                // .get(`${this.baseURL}/backend/product/showun`)
                 .then((res) => {
-                    this.productItems = res.data;
-                    this.sellerid  = res.data.sellerId;
-                    console.log(this.productItems.sellerid);
-                    for (let i = 0; i < this.productItems.length; i++)
-                    {
-                        this.sellerid = this.productItems.productItems[i].sellerId;
-                        console.log(this.sellerid);
+                      if (res.data && res.data.productItems && res.data.productItems.length > 0) {
+                            this.productItems = res.data.productItems;
+                            this.sellerid = this.productItems[0].sellerId;
+                            console.log(this.sellerid);
+                            this.getVendorOrders();
+                        } else {
+                            console.log("No product items found.");
+                        }                   
+                })
+                .catch((err) => console.log(err));
                        
 
 
                            
-                    }
-                })
-                .catch((err) => console.log(err));
+                //     }
+                // })
+                // .catch((err) => console.log(err));
+
+
           },
 
-          getTokens(){
-            axios
-                .get(`${this.baseURL}/backend/token/showsall`)
-                .then((res) => { 
-                    this.alltokens = res.data;
-                    console.log(this.alltokens)
-                    if (this.token == this.alltokens.token){
-                        console.log("fouund")
-                    }
+          getVendorOrders(){
+            const selleridInt = parseInt(this.sellerid);
+             axios
+                .get(`${this.baseURL}/backend/order/allbyseller/${selleridInt}`)
+                .then((res) => {
+                    this.totalOrders = res.data;
+                    console.log(this.totalOrders);
                 })
-                .catch((err) => console.log(err));
-            }
+                .catch((err) => console.log(err))
+          },
 
+           Confirm(name){
+               const newitem = {
+                orderStatus:"Confirmed || Processing Started",
+
+            }
+            axios({
+                    method: "Post",
+                    url:`${this.baseURL}/backend/order/orderupdate/${name}`,
+                    data: JSON.stringify(newitem),
+                    headers: {
+                        "content-Type":"application/json"
+                    },
+            })
+
+            .then(() => {
+                  
+                    
+            })
+            .catch((err) => {
+                    console.log(err);
+            })
+            location.reload();
+            
+
+        },
+
+         
         
        
     
@@ -108,7 +146,6 @@ export default {
     },
     mounted(){
         this.token = localStorage.getItem("token");
-        this.getTokens();
         this.getProducts();
     }
     

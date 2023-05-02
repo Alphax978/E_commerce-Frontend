@@ -20,6 +20,7 @@
                     <th>Quantity</th>
                     <th>Price Per Unit</th>
                     <th>Sold at price</th>
+                    <th>Product Confirmation By seller</th>
                     <th>Actions</th>
                     <th>Status</th>
 
@@ -34,12 +35,11 @@
                     <td>{{orderItem.quantity}}</td>
                     <td>{{orderItem.price}}</td>
                     <td>{{orderItem.price * orderItem.quantity}}</td>
+                    <td>{{orderItem.orderStatus}}</td>
                     <td>
-                        <button class="btn btn-primary btn-sm" @click="Processing(orderItem.product.name)">Processing</button>
+                        <button class="btn btn-primary btn-sm" @click="shipmentStarted(orderItem.product.name)">Start Shipment</button>
                         |
-                        <button class="btn btn-secondary btn-sm" @click="shipmentStarted(orderItem.product.name)">Shipment started</button>
-                        |
-                        <button class="btn btn-dark btn-sm" @click="Delivered(orderItem.product.name)">Delivered</button>
+                        <button class="btn btn-secondary btn-sm" @click="Delivered(orderItem.product.name)">Delivered</button>
                         
                         
                     </td>
@@ -86,7 +86,7 @@ export default {
             }
             axios({
                     method: "Post",
-                    url:`${this.baseURL}/backend/order/update/${name}`,
+                    url:`${this.baseURL}/backend/order/statusupdate/${name}`,
                     data: JSON.stringify(newitem),
                     headers: {
                         "content-Type":"application/json"
@@ -113,7 +113,7 @@ export default {
             }
             axios({
                     method: "Post",
-                    url:`${this.baseURL}/backend/order/update/${name}`,
+                    url:`${this.baseURL}/backend/order/statusupdate/${name}`,
                     data: JSON.stringify(newitem),
                     headers: {
                         "content-Type":"application/json"
