@@ -37,9 +37,9 @@
                     <td>{{orderItem.price * orderItem.quantity}}</td>
                     <td>{{orderItem.orderStatus}}</td>
                     <td>
-                        <button class="btn btn-primary btn-sm" @click="shipmentStarted(orderItem.product.name)">Start Shipment</button>
+                        <button class="btn btn-primary btn-sm" :disabled=" isDisabled(orderItem)"  @click="shipmentStarted(orderItem.product.name)"> Start Shipment</button>
                         |
-                        <button class="btn btn-secondary btn-sm" @click="Delivered(orderItem.product.name)">Delivered</button>
+                        <button class="btn btn-secondary btn-sm" :disabled="isDisabled(orderItem)" @click="Delivered(orderItem.product.name)">Delivered</button>
                         
                         
                     </td>
@@ -73,6 +73,7 @@ export default {
     data(){
         return{
             orderItems:[],
+            
          
             
         }
@@ -95,7 +96,7 @@ export default {
 
             .then(() => {
                   
-                    this.shipped = true;
+                    
                     
                 })
             .catch((err) => {
@@ -157,6 +158,18 @@ export default {
             
 
         },
+
+        isDisabled(orderItem) {
+            return orderItem.orderStatus == null;
+        },
+
+       
+
+
+
+        
+
+       
 
 
         
