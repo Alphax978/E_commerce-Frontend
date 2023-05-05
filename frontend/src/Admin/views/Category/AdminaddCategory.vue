@@ -29,7 +29,8 @@
                         </div>
                         <div class="form-group">
                             <label>Image</label>
-                            <input type="text" class="form-control" v-model="imageUrl">
+                            <input type="file" class="form-control" @change="handleFileUpload" />
+                            
                         </div>
                         <button type="button" class="btn btn-primary" @click="addCategory">Submit</button>
                     </form>
@@ -66,7 +67,7 @@ export default {
         return {
             categoryName: "",
             description: "",
-            imageUrl: "",
+            image:null,
             
         }
 
@@ -75,43 +76,53 @@ export default {
         addCategory()
         {
             console.log(this.categoryName, this.description);
-                const newCategory = {
-                    categoryName: this.categoryName,
-                    description: this.description,
-                    imageUrl: this.imageUrl,
-                };
+              
 
                 const baseURL = "http://localhost:8084/backend/category";
+                const formData = new FormData();
 
-                axios({
-                    method: "Post",
-                    url:`${baseURL}/create`,
-                    data: JSON.stringify(newCategory),
-                    headers: {
-                        "content-Type":"application/json"
-                    },
-                })
-
-                .then(() => {
-                    sweetalert({
-                        text: 'Category has been added',
-                        icon: "success",
-
-                    });
-                    
-                })
-                .catch((err) => {
-                    console.log(err);
-                })
+                // Convert the binary image data to base64
+                const reader = new FileReader();
+                reader.readAsDataURL(this.image);
+                reader.onload = () => {
+                    const base64Image = reader.result.split(',')[1];
+                    // const blob = this.base64ToBlob(base64Image);
+                    formData.append("image", base64Image);
+                    formData.append("categoryName", this.categoryName);
+                    formData.append('description', this.description);
 
 
+                    const headers = {
+                            'Content-Type': `multipart/form-data`
+                    };
 
+                    axios.post(`${baseURL}/create`, formData, { headers })
+        
 
+                    .then(() => {
+                        sweetalert({
+                            text: 'Category has been added',
+                            icon: "success",
 
+                        });
+                            
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    })
+                };
 
+        },
 
-        }
+       
+
+        handleFileUpload(e) {
+            if (e.target.files.length > 0) {
+                this.image = e.target.files[0];
+            }
+        },
     },
+    
 };
 </script>
 
