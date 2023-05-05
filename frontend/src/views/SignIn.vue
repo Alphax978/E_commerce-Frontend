@@ -84,7 +84,7 @@ export default {
         })
         .catch((err) => {
           swal({
-            text: "Please check your sign in credentials and try again!!",
+            text: "Please check your sign in credentials and also check if the account is verified",
             icon: "error",
             closeOnClickOutside: false,
           });
