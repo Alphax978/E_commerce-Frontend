@@ -58,7 +58,6 @@
           <button id="df" class="btn btn-primary btn-sm" @click="deleteItem(cartItem.id)">
               Remove From Cart
           </button>
-          <p>{{cartItem.product.vendor_id}}ddd</p>
         </div>
       </div>
       <div class="col-2"></div>

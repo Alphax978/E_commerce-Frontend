@@ -132,14 +132,23 @@ export default {
         console.log("user", user);
         await axios
           .post(`${this.baseURL}/backend/Vendor/signup`, user)
-          .then(() => {
-            this.$router.replace("/");
-            swal({
-              text: "Seller signup successful, please login",
-              icon: "success",
-              closeOnClickOutside: false,
-            });
+           .then((response) => {
+            if (response.data.status === "success") {
+              this.$router.replace("/");
+              swal({
+                text: "Please check your email to verify your account",
+                icon: "success",
+                closeOnClickOutside: false,
+              });
+            } else {
+              swal({
+                text: response.data.message,
+                icon: "error",
+                closeOnClickOutside: false,
+              });
+            }
           })
+        
           .catch((error) => {this.error = error});
       } else {
         // show some error

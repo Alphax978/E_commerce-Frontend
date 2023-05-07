@@ -39,6 +39,7 @@
     },
     methods:{
         getProduct() {
+
             axios.get(`${this.baseURL}/backend/product/${this.id}`)
             .then(response => {
                 this.product = response.data;

@@ -94,9 +94,9 @@ export default {
       isAddedToWishlist: false,
       wishlistString: "Add to wishlist",
       quantity:1,
-      // pname:this.product.name,
-      // imageurl:this.product.imageurl
       error:"",
+      cartItems:[],
+      
     };
   },
   props: ["baseURL", "products", "categories"],
@@ -126,21 +126,46 @@ export default {
         });
         return;
       }
-      if (this.quantity < 0){
+      if (this.quantity <= 0){
         swal({
                 text: "Please Select Appropriate quantity",
                 icon: "error",
                 closeOnClickOutside: false,
               });
+              return;
       }
-      if (this.quantity == 0){
-        swal({
-                text: "Please select Appropriate Quantity",
-                icon: "error",
-                closeOnClickOutside: false,
-              });
+      let existingItem = this.cartItems.find(item => item.product.id == productId);
+      if (existingItem) {
+          // Update the quantity of the existing item
+          existingItem.quantity += this.quantity;
+          axios
+            .put(`${this.baseURL}/backend/cart/update?token=${this.token}`, {
+              id: existingItem.id,
+              quantity: existingItem.quantity,
+              productId: existingItem.product.id
+            })
+            .then((response) => {
+              if (response.status === 200) {
+                swal({
+                  text: "Product Added to the cart!",
+                  icon: "success",
+                  closeOnClickOutside: false,
+                });
+              }
+            })
+            
+            .catch((error) => {
+              this.error = error;
+              if (this.error) {
+                swal({
+                  text: "Error updating product quantity in cart",
+                  icon: "error",
+                });
+              }
+            });
       }
-      else{
+      else 
+      {
          axios
         .post(`${this.baseURL}/backend/cart/add?token=${this.token}`, {
           productId: productId,
@@ -155,9 +180,9 @@ export default {
                 text: "Product Added to the cart!",
                 icon: "success",
                 closeOnClickOutside: false,
+              }).then(() => {
+                 location.reload();
               });
-              // refresh nav bar
-              this.$emit("fetchData");
             }
           },          
         )
@@ -186,6 +211,18 @@ export default {
         }
       );
     },
+
+    totalCartItems(){
+        axios.get(`${this.baseURL}/backend/cart/?token=${this.token}`)
+        .then((res) => {
+          const result = res.data
+          this.cartItems = result.cartItems;
+          console.log(this.cartItems);
+        })
+        .catch((err) => console.log(err));
+
+
+    },
     increment() {
       this.quantity++;
     },
@@ -204,6 +241,8 @@ export default {
       (category) => category.id == this.product.categoryId
     );
     this.token = localStorage.getItem("token");
+    this.totalCartItems();
+
   },
 };
 </script>

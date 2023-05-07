@@ -36,6 +36,8 @@ export default {
                 productId: products.cartItems[i].product.id,
                 userId: products.cartItems[i].userId,
                 sellerid: products.cartItems[i].product.sellerId,
+                email: "valorenid@gmail.com"
+           
               });
             }
             

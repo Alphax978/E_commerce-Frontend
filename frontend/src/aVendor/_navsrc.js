@@ -38,7 +38,7 @@ export default [
       },
       {
         component: 'CNavItem',
-        name: 'Sold Products',
+        name: 'Ordered Products',
         to: '/vendorsold',
       },
     ],

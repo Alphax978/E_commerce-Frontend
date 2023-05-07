@@ -177,12 +177,6 @@
             <router-link
               v-if="!token"
               class="dropdown-item"
-              :to="{ name: 'AdminLogin' }"
-              >Admin
-            </router-link>
-            <router-link
-              v-if="!token"
-              class="dropdown-item"
               :to="{ name: 'SignIn' }"
               >Sign in
             </router-link>
