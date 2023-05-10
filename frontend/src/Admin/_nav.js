@@ -37,6 +37,16 @@ export default [
         name: 'View Categories',
         to: '/vcategory',
       },
+      {
+        component: 'CNavItem',
+        name: 'Upload Category Image',
+        to: '/admin/image/add',
+      },
+      {
+        component: 'CNavItem',
+        name: 'View Category Image',
+        to: '/admin/image/view',
+      },
       // {
       //   component: 'CNavItem',
       //   name: 'Edit Category',

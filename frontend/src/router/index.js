@@ -40,6 +40,10 @@ import VendoraddProduct from '../aVendor/views/Product/VendoraddProduct';
 import VendoreditProfile from '../aVendor/views/User/VendoreditProfile';
 import AdmineditProfile from '../Admin/views/User/AdmineditProfile';
 import AdminConfirmOrder from '../Admin/views/Orders/AdminConfirmOrder';
+import AdminAddImage from '../Admin/views/Image/AdminAddImage';
+import AdminViewImage from '../Admin/views/Image/AdminViewImage';
+import VendorAddImage from '../aVendor/views/Image/VendorAddImage';
+import VendorViewImage from '../aVendor/views/Image/VendorViewImage';
 
 
 
@@ -314,6 +318,26 @@ const routes = [
     path:'/admin/order/view',
     name:"Admin Order",
     component: AdminConfirmOrder,
+  },
+  {
+    path:'/admin/image/add',
+    name:"Adminadd Image",
+    component: AdminAddImage,
+  },
+  {
+    path:'/admin/image/view',
+    name:"Adminview Image",
+    component: AdminViewImage,
+  },
+  {
+    path:'/vendor/image/add',
+    name:"vendornadd Image",
+    component: VendorAddImage,
+  },
+  {
+    path:'/vendor/image/view',
+    name:"vendorview Image",
+    component: VendorViewImage,
   }
 
 

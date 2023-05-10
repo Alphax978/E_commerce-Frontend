@@ -38,6 +38,16 @@ export default [
       },
       {
         component: 'CNavItem',
+        name: 'Upload Product Images',
+        to: '/vendor/image/add',
+      },
+      {
+        component: 'CNavItem',
+        name: 'View Product Images',
+        to: '/vendor/image/view',
+      },
+      {
+        component: 'CNavItem',
         name: 'Ordered Products',
         to: '/vendorsold',
       },
