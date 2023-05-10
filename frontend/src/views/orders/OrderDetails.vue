@@ -24,7 +24,17 @@
                         Total Price : $<span class="font-weight-bold">{{ orderItem.price * orderItem.quantity}}</span>
                     </p>
 
-                    <h5>Delivery Status: <span>{{orderItem.status}}</span></h5>
+                    <h5>Delivery Status: 
+                        <span v-if="orderItem.status == adminshipment">Shipment Started</span> 
+                        <span v-if="orderItem.status === null && orderItem.orderStatus == vendorconfirm">Your Order is being Processed</span> 
+                        <span v-if="orderItem.status === null && orderItem.orderStatus === null">Your Order is being Processed</span> 
+                        <span v-if="orderItem.orderStatus == vendorcancel && orderItem.status === null">Your Order Has been cancelled due to some reasons, You will be refunded</span>
+
+                        <span v-if="orderItem.status == admindeliver" >Your Product has been delivered</span> 
+                        <span v-if="orderItem.status == adimincancel">Your Order Has been cancelled due to some reasons, You will be refunded</span> 
+
+
+                    </h5>
                 </div>
             </div>
             <div class="col-1"></div>
@@ -53,7 +63,12 @@ export default {
             orderItems:[],
             order: {},
             token: null,
-            orderID: 0
+            orderID: 0,
+            vendorcancel:"Cancelled",
+            vendorconfirm: "Confirmed || Processing Started",
+            admindeliver:"Delivered",
+            adimincancel:"Cancelled",
+            adminshipment:"Shipment Started"
         }
     },
     methods:{

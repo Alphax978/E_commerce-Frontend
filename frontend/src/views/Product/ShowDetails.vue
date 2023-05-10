@@ -102,6 +102,13 @@ export default {
   props: ["baseURL", "products", "categories"],
   methods: {
     addToWishList(productId) {
+      if (!this.token) {
+        swal({
+          text: "Please log in first!",
+          icon: "error",
+        });
+        return;
+      }
       axios
         .post(`${this.baseURL}/backend/wishlist/add?token=${this.token}`, {
           id: productId,
@@ -200,6 +207,13 @@ export default {
       }
     },
     listCartItems() {
+      if (!this.token) {
+        swal({
+          text: "Please log in first!",
+          icon: "error",
+        });
+        return;
+      }
       axios.get(`${this.baseURL}/backend/cart/?token=${this.token}`).then(
         (response) => {
           if (response.status === 200) {

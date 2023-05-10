@@ -31,9 +31,9 @@
                             <td>{{all.quantity}}</td>
                             <td>{{all.price * all.quantity}}</td>
                             <td>
-                                <button class="btn btn-primary btn-sm" @click="Confirm(all.product.name)">Confirm</button>
+                                <button class="btn btn-primary btn-sm" :disabled="isConfirmDisabled(all.orderStatus)" @click="Confirm(all.product.name)">Confirm</button>
                                 |
-                                <button class="btn btn-danger btn-sm" @click="shipmentStarted(all.product.name)">Cancel</button>
+                                <button class="btn btn-danger btn-sm" :disabled="isCancelDisabled(all.orderStatus)" @click="shipmentStarted(all.product.name)">Cancel</button>
                             </td>
                             <td>{{all.orderStatus}}</td>
 
@@ -68,6 +68,7 @@ export default {
             sellerid: null,
             alltokens:[],
             totalOrders:[],
+            
 
 
         }
@@ -110,11 +111,42 @@ export default {
                 .catch((err) => console.log(err))
           },
 
-           Confirm(name){
+        Confirm(name){
                const newitem = {
                 orderStatus:"Confirmed || Processing Started",
 
             }
+            axios({
+                    method: "Post",
+                    url:`${this.baseURL}/backend/order/orderupdate/${name}`,
+                    data: JSON.stringify(newitem),
+                    headers: {
+                        "content-Type":"application/json"
+                    },
+            })
+
+            .then(() => {
+
+                  
+                    
+            })
+            .catch((err) => {
+                    console.log(err);
+            })
+            location.reload();
+
+            
+
+        },
+
+        shipmentStarted(name){
+
+
+            const newitem = {
+                orderStatus:"Cancelled",
+
+            }
+            
             axios({
                     method: "Post",
                     url:`${this.baseURL}/backend/order/orderupdate/${name}`,
@@ -132,9 +164,31 @@ export default {
                     console.log(err);
             })
             location.reload();
-            
+
+
 
         },
+
+        isConfirmDisabled(status){
+            if (status === null)
+            {
+                return false;
+            }
+            return true;
+           
+            
+
+
+        },
+
+        isCancelDisabled(status){
+            if (status === null)
+            {
+                return false;
+            }
+            return true;
+
+        }
 
          
         

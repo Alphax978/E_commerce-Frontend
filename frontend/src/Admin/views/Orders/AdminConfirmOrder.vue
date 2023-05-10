@@ -37,9 +37,13 @@
                     <td>{{orderItem.price * orderItem.quantity}}</td>
                     <td>{{orderItem.orderStatus}}</td>
                     <td>
-                        <button class="btn btn-primary btn-sm" :disabled=" isDisabled(orderItem)"  @click="shipmentStarted(orderItem.product.name)"> Start Shipment</button>
+                        <button class="btn btn-primary btn-sm" :disabled=" isShipmentDisabled(orderItem.status, orderItem.orderStatus)"  @click="shipmentStarted(orderItem.product.name)"> Start Shipment</button>
                         |
-                        <button class="btn btn-secondary btn-sm" :disabled="isDisabled(orderItem)" @click="Delivered(orderItem.product.name)">Delivered</button>
+                        <button class="btn btn-secondary btn-sm" :disabled="isDeliveredDisabled(orderItem.status, orderItem.orderStatus)" @click="Delivered(orderItem.product.name)">Delivered</button> 
+                        |
+                        <button class="btn btn-danger btn-sm" :disabled="isCancelDisabled(orderItem.status, orderItem.orderStatus)" @click="Cancel(orderItem.product.name)">Cancel</button>
+
+
                         
                         
                     </td>
@@ -73,6 +77,7 @@ export default {
     data(){
         return{
             orderItems:[],
+          
             
          
             
@@ -133,14 +138,14 @@ export default {
 
         },
 
-        Processing(name){
+        Cancel(name){
                const newitem = {
-                status:"Processing",
+                status:"Cancelled",
 
             }
             axios({
                     method: "Post",
-                    url:`${this.baseURL}/backend/order/update/${name}`,
+                    url:`${this.baseURL}/backend/order/statusupdate/${name}`,
                     data: JSON.stringify(newitem),
                     headers: {
                         "content-Type":"application/json"
@@ -159,9 +164,45 @@ export default {
 
         },
 
-        isDisabled(orderItem) {
-            return orderItem.orderStatus == null;
+        isShipmentDisabled(status, order) {
+            if(order === null || order === "Cancelled"){
+                return true;
+            }
+            if(status === "Shipment Started" || status === "Delivered" || status === "Cancelled"){
+                return true;
+            }
+
         },
+
+        isDeliveredDisabled(status,order) {
+            if(order === null){
+                return true;
+            }
+            if(status === "Delivered"){
+                return true;
+            }
+            if (status != "Shipment Started"){
+                return true;
+            }
+            
+
+        },
+
+         isCancelDisabled(status,order) {
+            if(order === null || order === "Cancelled"){
+                return true;
+            }
+            if(status === "Cancelled"){
+                return true;
+            }
+            if(status === "Shipment Started" || status == "Delivered"){
+                return true;
+            }
+            
+             
+        },
+
+
 
        
 

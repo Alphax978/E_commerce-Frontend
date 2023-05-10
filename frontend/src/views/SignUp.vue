@@ -135,7 +135,7 @@ export default {
             if (response.data.status === "success") {
               this.$router.replace("/");
               swal({
-                text: "Please check your email to verify your account",
+                text: "Your Account has been created, Please check your email to verify your account",
                 icon: "success",
                 closeOnClickOutside: false,
               });
