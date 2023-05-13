@@ -101,41 +101,6 @@
         </li>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
         <li class="nav-item dropdown" >
           <a
             class="nav-link dropdown-toggle text-light"
@@ -185,6 +150,12 @@
               class="dropdown-item"
               :to="{ name: 'EditUser' }"
               >Edit Profile
+            </router-link>
+             <router-link
+              v-if="token"
+              class="dropdown-item"
+              :to="{ name: 'Change Password' }"
+              >Change Password
             </router-link>
   
             <a class="dropdown-item" v-if="token" href="#" @click="signout"

@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h4 class="pt-3">Your WishList</h4>
+        <h2 class="pt-3">Your WishList</h2>
       </div>
     </div>
 

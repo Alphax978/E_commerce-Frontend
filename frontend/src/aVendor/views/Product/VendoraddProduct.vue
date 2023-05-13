@@ -18,35 +18,36 @@
                 <div class="row">
                 <div class="col-3"></div>
                 <div class="col-6">
-                <form>
+                <form @submit="addProduct" >
                     <div class="form-group">
-                        <label>Category</label>
+                        <label>Category </label>
                         <select class="form-control" v-model="categoryId" required>
                             <option v-for="category in categories" :key="category.id"
                                     :value="category.id">{{ category.categoryName }}</option>
+                                    <!-- <i class="fas fa-caret-down"></i> -->
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="text" v-model="name" class="form-control" >
+                        <input type="text" v-model="name" class="form-control" required >
                     </div>
                     <div class="form-group">
                         <label>Description</label>
-                        <input type="text" v-model="description" class="form-control" >
+                        <input type="text" v-model="description" class="form-control" required >
                     </div>
                     <div class="form-group">
                         <label>Image Url</label>
-                        <input type="text"  v-model="imageURL" class="form-control" >
+                        <input type="text"  v-model="imageURL" class="form-control" required >
                     </div>
                     <div class="form-group">
                         <label>Price</label>
-                        <input type="number" v-model="price" class="form-control" >
+                        <input type="number" v-model="price" class="form-control" required >
                     </div>
                     <div class="form-group">
                         <label>Stock</label>
-                        <input type="number" v-model="stock" class="form-control" >
+                        <input type="number" v-model="stock" class="form-control" required >
                     </div>
-                    <button type="button" class="btn btn-primary" @click="addProduct">Add Product</button>
+                    <button class="btn btn-primary" @click="addProduct">Add Product</button>
                 </form>
                 </div>
                 <div class="col-3"></div>
@@ -94,7 +95,8 @@
             }
         },
         methods: {
-            addProduct() {
+            addProduct(e) {
+                e.preventDefault();
                 const newProduct = {
                     categoryId: this.categoryId,
                     description: this.description,
@@ -147,3 +149,6 @@
         
     }
 </script>
+
+
+

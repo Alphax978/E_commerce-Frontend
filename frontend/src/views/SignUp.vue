@@ -121,6 +121,15 @@ export default {
     async signup(e) {
       e.preventDefault();
       if (this.password === this.confirmPassword) {
+        if (this.password.length < 8) 
+        {
+          swal({
+            text: "Password should be at least 8 characters",
+            icon: "info",
+            closeOnClickOutside: false,
+          });
+            return;
+        }
         // call signup api
         const user = {
           email: this.email,

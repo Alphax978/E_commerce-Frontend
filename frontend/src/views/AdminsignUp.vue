@@ -120,6 +120,15 @@ export default {
     async signup(e) {
       e.preventDefault();
       if (this.password === this.confirmPassword) {
+        if (this.password.length < 8) 
+        {
+          swal({
+            text: "Password should be at least 8 characters",
+            icon: "info",
+            closeOnClickOutside: false,
+          });
+            return;
+        }
         // call signup api
         const user = {
           email: this.email,
@@ -133,7 +142,7 @@ export default {
           .then(() => {
             this.$router.replace("/");
             swal({
-              text: "Admin signup successful, please login",
+              text: "Signup successful, please login",
               icon: "success",
               closeOnClickOutside: false,
             });

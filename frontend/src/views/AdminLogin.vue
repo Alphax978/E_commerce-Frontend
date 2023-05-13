@@ -63,7 +63,7 @@ export default {
           .then((res) => {
             localStorage.setItem('token', res.data.token);
               swal({
-              text: 'Admin Login successful',
+              text: 'Login successful',
               icon: 'success',
               closeOnClickOutside: false,
             });

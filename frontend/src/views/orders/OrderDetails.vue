@@ -17,13 +17,15 @@
 
             <div class="col-md-5 px-3">
                 <div class="card-block px-3">
-                    <h6 class="card-title" >{{orderItem.product.name}}</h6>
+                    <h5 class="card-title" id="cns" >{{orderItem.product.name}}</h5>
                     <p id="item-price" class="mb-0 font-weight-bold">${{orderItem.product.price}} per unit</p>
                     <p id="item-quantity" class="mb-0">Quantity : {{orderItem.quantity}}</p>
                     <p id="item-total-price" class="mb-0">
                         Total Price : $<span class="font-weight-bold">{{ orderItem.price * orderItem.quantity}}</span>
                     </p>
-
+                    <p id="item-quantity" class="mb-0">Payment Method: Card</p>
+                    <p id="item-quantity" class="mb-0">Payment Status: successful</p>
+                    <br/>
                     <h5>Delivery Status: 
                         <span v-if="orderItem.status == adminshipment">Shipment Started</span> 
                         <span v-if="orderItem.status === null && orderItem.orderStatus == vendorconfirm">Your Order is being Processed</span> 
@@ -93,7 +95,7 @@ export default {
 </script>
 
 <style scoped>
-    h4 {
+    h6, h5, P {
         font-family: 'Roboto', sans-serif;
         color: #484848;
         font-weight: 700;
@@ -101,4 +103,9 @@ export default {
     .embed-responsive .card-img-top {
         object-fit: cover;
     }
+
+   #cns{
+    color: rgb(19, 94, 205);
+
+   }
 </style>

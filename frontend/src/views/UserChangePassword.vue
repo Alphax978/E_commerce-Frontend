@@ -12,16 +12,12 @@
                     <div class="col-6">
                         <form @submit="updateUser">
                             <div class="form-group">
-                                <label>First Name</label>
-                                <input type="text" class="form-control" v-model="firstName" required/>
-                            </div>
-                             <div class="form-group">
-                                <label>Last Name</label>
-                                <input type="text" class="form-control" v-model="lastName"  required/>
+                                <label for="password">Old Password</label>
+                                <input type="password" class="form-control" v-model="OldPassword" required/>
                             </div>
                             <div class="form-group">
-                                <label>Address</label>
-                                <input type="text" class="form-control"  required/>
+                                <label for="password">New Password</label>
+                                <input type="password" class="form-control" v-model="password" required/>
                             </div>
                             <button  class="btn btn-primary">Submit</button>
                         </form>
@@ -55,11 +51,8 @@ export default {
     data()
     {
        return{
-           email: null,
-            firstName: null,
-            lastName: null,
-            // OldPassword: null,
-            // password:null,
+            OldPassword: null,
+            password:null,
             alltokens:[],
             alldata:[],
             token:null,
@@ -98,16 +91,24 @@ export default {
         async updateUser(e) {
             e.preventDefault();
                 // call signup api
+                if (this.password.length < 8) 
+                    {
+                    swal({
+                        text: "Password should be at least 8 characters",
+                        icon: "info",
+                        closeOnClickOutside: false,
+                    });
+                     return;
+                }
                 const user = {
-                    firstName: this.firstName,
-                    lastName: this.lastName,
+                    password: this.password,
                 };
                 await axios
-                .post(`${this.baseURL}/backend/user/update/${this.userid}`, user)
+                .post(`${this.baseURL}/backend/user/updatepass/${this.userid}`, user)
                 .then(() => {
                     this.$router.replace("/");
                     swal({
-                        text: "User Update successful",
+                        text: "Password Changed",
                         icon: "success",
                         closeOnClickOutside: false,
                     });
@@ -115,7 +116,9 @@ export default {
                     
                 })
                 .catch((error) => {this.error = error});
-          
+        
+                
+        
         },
    
     },

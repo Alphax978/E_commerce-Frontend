@@ -21,7 +21,7 @@
           </h6>
           <p class="mb-0">{{order.totalItems}} item<span v-if="order.totalItems > 1">'s</span></p>
           <p id="item-price" class="mb-0 font-weight-bold">Total Cost : $ {{order.totalCost}}</p>
-          <p id="item-total-price">Ordered on : {{order.orderdate}}</p>
+          <h5 id="item-total-price">Ordered on : {{order.orderdate}}</h5>
         </div>
       </div>
       <div class="col-2"></div>
@@ -82,7 +82,7 @@
 </script>
 
 <style scoped>
-  h4, h5 {
+  h4, h5, P, h6 {
     font-family: 'Roboto', sans-serif;
     color: #484848;
     font-weight: 700;
@@ -90,4 +90,7 @@
   .embed-responsive .card-img-top {
     object-fit: cover;
   }
+
+ 
+
 </style>

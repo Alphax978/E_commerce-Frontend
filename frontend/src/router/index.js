@@ -11,6 +11,7 @@ import VendoreditProduct from '../aVendor/views/Product/VendoreditProduct';
 import ShowDetails from '../views/Product/ShowDetails';
 import WishList from '../views/Product/WishList';
 import profile from '../views/UsereditProfile';
+import Passwordchange from '../views/UserChangePassword';
 import CartPage from '../views/CartPage';
 import SignIn from '../views/SignIn'
 import SignUp from '../views/SignUp'
@@ -338,7 +339,13 @@ const routes = [
     path:'/vendor/image/view',
     name:"vendorview Image",
     component: VendorViewImage,
+  },
+  {
+    path:'/user/password',
+    name:"Change Password",
+    component: Passwordchange,
   }
+
 
 
 
