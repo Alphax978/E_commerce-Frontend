@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h4 class="pt-3">Edit Your Profile</h4>
+                        <h4 class="pt-3">Change Password</h4>
                     </div>
                 </div>
                 <div class="row">

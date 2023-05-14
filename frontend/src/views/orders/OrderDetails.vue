@@ -104,8 +104,5 @@ export default {
         object-fit: cover;
     }
 
-   #cns{
-    color: rgb(19, 94, 205);
-
-   }
+  
 </style>

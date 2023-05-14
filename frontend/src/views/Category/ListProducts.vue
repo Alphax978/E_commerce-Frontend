@@ -54,3 +54,11 @@
      
     }
 </script>
+
+<style scoped>
+ h4, h5, P {
+        font-family: 'Roboto', sans-serif;
+        color: #484848;
+        font-weight: 700;
+    }
+</style>

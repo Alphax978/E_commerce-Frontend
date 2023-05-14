@@ -40,9 +40,10 @@
                             <td>{{product.stock}}</td>
                             <td> 
                               <router-link :to="{name: 'Edit Products', params: {id: product.id}}" >
-                              <button type="button" class="btn btn-info"><i class="far fa-edit"></i></button>
+                              <button type="button" class="btn btn-info"><i class="far fa-edit">Edit</i></button>
                               </router-link>
-                              <button type="button" class="btn btn-danger" @click="deleteItem(product.id)"><i class="bi bi-trash"></i></button>
+                              ||
+                              <button type="button" class="btn btn-danger" @click="deleteItem(product.id)"><i class="bi bi-trash">Delete</i></button>
                             </td>
               
                         </tr>
@@ -116,3 +117,16 @@
   
 }
 </script>
+
+<style scoped>
+h4 {
+  font-family: 'Roboto', sans-serif;
+  color: #484848;
+  font-weight: 700;
+}
+
+#add-image {
+  float: right;
+  font-weight: 500;
+}
+</style>

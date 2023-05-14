@@ -81,7 +81,7 @@
 
             <button class="btn btn-primary mt-2 mb-4"  >Create Account</button>
           </form>
-          <hr />
+          <!-- <hr />
           <small class="form-text text-muted pt-2 pl-4 text-center"
               >Already Have an Sellers Account?</small
             >
@@ -91,7 +91,7 @@
               :to="{ name: 'SellerLogin' }"
               >Signin Here</router-link
             >
-          </p>
+          </p> -->
         </div>
       </div>
     </div>

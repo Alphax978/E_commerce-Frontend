@@ -28,34 +28,33 @@
       <!-- display product name, quantity and price -->
       <div class="col-md-5 px-3">
         <div class="card-block px-3">
-          <h4 class="card-title mb-3">
+          <h5 class="card-title mb-1 px">
             <router-link
+               style="text-decoration: none; color: inherit;"
               :to="{ name: 'ShowDetails', params: { id: cartItem.product.id } }"
               >{{ cartItem.product.name }}
             </router-link>
-          </h4>
-          
-          <p id="item-price" class="mb-0 font-weight-bold">
+          </h5>
+          <h6 id="item-price" class="mb-0 font-weight-bold">
             $ {{ cartItem.product.price }} per unit
-          </p>
-          <p id="item-quantity" class="mb-0">
+          </h6>
+          <h6 id="item-quantity" class="mb-0">
             Quantity :
             <input
               size="1"
               class="p-0 h-25 border-bottom border-top-0 border-left-0 border-right-0"
               v-model="cartItem.quantity"
             />
-          </p>
-
-          <p id="item-total-price" class="mb-2">
+          </h6>
+          <h5 id="item-total-price" class="mb-2">
             Total Price:
             <span class="font-weight-bold">
               $ {{ cartItem.product.price * cartItem.quantity }}</span
             >
-          </p>
+          </h5>
           <br />
           <br />
-          <button id="df" class="btn btn-primary btn-sm" @click="deleteItem(cartItem.id)">
+          <button id="df" class="btn btn-primary btn-sm remove" @click="deleteItem(cartItem.id)">
               Remove From Cart
           </button>
         </div>
@@ -134,11 +133,12 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 h4,
-h5 {
+h5,
+h6 {
   font-family: 'Roboto', sans-serif;
-  color: #484848;
   font-size: 700;
   font-weight: bold;
 }
@@ -146,7 +146,7 @@ h5 {
   object-fit: cover;
 }
 #item-price {
-  color: #232f3e;
+  color: #161717;
 }
 #item-quantity {
   float: left;
@@ -159,9 +159,10 @@ h5 {
   font-weight: bold;
   font-size: larger;
 }
+.remove {
+  font-weight: bold;
+}
 
-a:link { text-decoration: none; }
-a:visited { text-decoration: none; }
-a:hover { text-decoration: none; }
-a:active { text-decoration: none; }
+
+
 </style>

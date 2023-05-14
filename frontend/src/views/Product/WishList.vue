@@ -19,6 +19,7 @@
         <Box :product="product"> </Box>
       </div>
     </div>
+
   </div>
   <FooterShow/>
 
@@ -60,3 +61,7 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+
+</style>

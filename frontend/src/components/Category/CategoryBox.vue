@@ -9,7 +9,7 @@
     </div>
     <div class="card-body">
       <router-link :to="{name: 'ListProducts', params: {id: category.id} }">
-        <h5 class="card-title">{{ category.categoryName }}</h5>
+        <h4 class="card-title">{{ category.categoryName }}</h4>
       </router-link>
       <h1 class="card-text font-italic">
         {{ category.description.substring(0, 65) }}...
@@ -51,4 +51,12 @@ a {
 .card-text{
   font-size: 1.1rem;
 }
+
+ h4, h1, P {
+        font-family: 'Roboto', sans-serif;
+        color: #484848;
+        font-weight: 700;
+    }
+
+
 </style>

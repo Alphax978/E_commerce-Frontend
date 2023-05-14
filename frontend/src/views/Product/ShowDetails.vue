@@ -9,12 +9,12 @@
       </div>
       <div class="col-md-6 col-12 pt-3 pt-md-0">
         <h4>{{ product.name }}</h4>
-        <h6 class="category font-italic">{{ category.categoryName }}</h6>
-        <h6 class="font-weight-bold">$ {{ product.price }}</h6>
-        <h6 class="font-weight-bold">Total Available: {{ product.stock }}</h6>
+        <h4 class="font-weight-bold">$ {{ product.price }}</h4>
         <h5>
           {{ product.description }}
         </h5>
+        <h6 class="font-weight-bold">Total Available: {{ product.stock }}</h6>
+
 
         <div class="d-flex flex-row justify-content-between">
           <div class="input-group col-md-3 col-4 p-0">
@@ -47,8 +47,11 @@
           <h5><strong>More Info</strong></h5>
           <ul>
             <li>{{product.description}}</li>
+            <li>Product from a Well-known and reputed company.</li>
+            <li>Product Listed by verified seller.</li>
           </ul>
         </div>
+        <br/>
 
         <button
           id="wishlist-button"
@@ -293,6 +296,16 @@ input[type="number"] {
 }
 
 #io{
+  font-weight: bold;
+}
+
+h4,
+h5,
+h6,
+p,
+li {
+  font-family: 'Roboto', sans-serif;
+  font-size: 700;
   font-weight: bold;
 }
 
