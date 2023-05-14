@@ -7,7 +7,7 @@
             <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
-                    <h2>Our Category</h2>
+                    <h2>Your Categories</h2>
                     <router-link :to="{ name: 'Add Category'}">
                         <button type="button" class="btn btn-primary"  style="float:right">Add Category </button>
                     </router-link>
@@ -33,9 +33,10 @@
                             <td>{{category.description}}</td>
                             <td> 
                               <router-link :to="{name: 'Adminedits', params: {id: category.id}}" >
-                                <button type="button" class="btn btn-info"><i class="far fa-edit"></i></button>
+                                <button type="button" class="btn btn-info"><i class="far fa-edit"> Edit</i></button>
                               </router-link>
-                              <button type="button" class="btn btn-danger" @click="deleteItem(category.categoryName)"><i class="bi bi-trash"></i></button>
+                              ||
+                              <button type="button" class="btn btn-danger" @click="deleteItem(category.categoryName)"><i class="bi bi-trash"> Delete</i></button>
                             </td>
                         </tr>
                     </tbody>
@@ -99,6 +100,15 @@ export default {
 </script>
 
 
-<style >
+<style scoped>
+h2 {
+  font-family: 'Roboto', sans-serif;
+  color: #484848;
+  font-weight: 700;
+}
 
+#add-image {
+  float: right;
+  font-weight: 500;
+}
 </style>

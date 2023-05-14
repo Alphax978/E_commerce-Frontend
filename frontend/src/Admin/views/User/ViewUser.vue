@@ -12,6 +12,7 @@
                 </div>
 
             </div>
+            <br/>
             <table class="table table-striped table-bordered">
             <thead class="thead-dark">
                 <tr>
@@ -83,3 +84,16 @@ export default {
 
 };
 </script>
+
+<style scoped>
+h2 {
+  font-family: 'Roboto', sans-serif;
+  color: #484848;
+  font-weight: 700;
+}
+
+#add-image {
+  float: right;
+  font-weight: 500;
+}
+</style>

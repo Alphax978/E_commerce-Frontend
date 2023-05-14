@@ -7,7 +7,7 @@
               <div class="container">
                 <div class="row">
                 <div class="col-12 text-center">
-                    <h4 class="pt-3">Category Images</h4>
+                    <h2 class="pt-3">Category Images</h2>
                     <router-link id="add-image" :to="{name : 'Adminadd Image'}">
                         <button class="btn btn-primary">Add a new Image</button>
                     </router-link>
@@ -73,7 +73,7 @@ export default {
 </script>
 
 <style scoped>
-h4 {
+h2 {
   font-family: 'Roboto', sans-serif;
   color: #484848;
   font-weight: 700;

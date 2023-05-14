@@ -105,6 +105,15 @@ export default {
 </script>
 
 
-<style >
+<style scoped>
+h2 {
+  font-family: 'Roboto', sans-serif;
+  color: #484848;
+  font-weight: 700;
+}
 
+#add-image {
+  float: right;
+  font-weight: 500;
+}
 </style>

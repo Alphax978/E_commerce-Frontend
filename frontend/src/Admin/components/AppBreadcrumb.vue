@@ -3,7 +3,7 @@
     <CBreadcrumbItem>
        <div v-for="alltoken in alltokens" :key="alltoken.id">
         <div class="txt" v-if="token == alltoken.token">
-          Welcome {{alltoken.admin.firstName}}
+          Welcome: {{alltoken.admin.firstName}}
         </div>
       </div>
     </CBreadcrumbItem>
@@ -42,14 +42,18 @@ export default {
 }
 </script>
 
+
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:ital,wght@1,600&display=swap');
-.txt{
-  font-family: 'Sofia Sans Condensed', sans-serif;
-  font-size: 21px;
+.txt {
+  font-family: 'Roboto', sans-serif;
+  color: #484848;
+  font-weight: 700;
 }
 
+#add-image {
+  float: right;
+  font-weight: 500;
+}
 </style>
-
 
 

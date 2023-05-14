@@ -63,6 +63,11 @@ export default [
         name: 'Edit Profile',
         to: '/vendorprofile',
       },
+      {
+        component: 'CNavItem',
+        name: 'Change Password',
+        to: '/vendor/password',
+      },
     ],
   },
 

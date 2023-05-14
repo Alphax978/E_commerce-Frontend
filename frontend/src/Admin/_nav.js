@@ -88,6 +88,11 @@ export default [
         name: 'Edit Profile',
         to: '/Adminprofile',
       },
+      {
+        component: 'CNavItem',
+        name: 'Change Password',
+        to: '/admin/password',
+      },
     ],
   },
   {
@@ -100,6 +105,7 @@ export default [
         name: 'View Orders',
         to: '/admin/order/view',
       },
+      
     ],
   },
 

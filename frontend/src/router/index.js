@@ -22,13 +22,11 @@ import CheckOut  from '../views/Checkout/CheckOut';
 import MakeOrder from '../views/orders/MakeOrder';
 import OrderDetails from '../views/orders/OrderDetails';
 import AdminLayout from '../Admin/layouts/AdminLayout';
-import AdminaddProduct from '../Admin/views/Product/AdminaddProduct';
-import AdminListProducts from '../Admin/views/Category/AdminListProducts';
 import ViewUser from '../Admin/views/User/ViewUser';
+import AdminPassword from '../Admin/views/User/AdminChangePassword';
 import ViewVendors from '../Admin/views/Vendors/ViewVendor';
 import AdminaddCategory from '../Admin/views/Category/AdminaddCategory';
 import AdmincategoryMain from '../Admin/views/Category/AdmincategoryMain';
-import AdminproductMain from '../Admin/views/Product/AdminproductMain';
 import AdmineditCategory from '../Admin/views/Category/AdmineditCategory';
 import SellerSign from '../views/SellerSign';
 import SellerLogin from '../views/SellerLogin';
@@ -39,6 +37,7 @@ import VendorproductMain from '../aVendor/views/Product/VendorproductMain';
 import VendorsoldProduct from '../aVendor/views/Product/VendorsoldProduct';
 import VendoraddProduct from '../aVendor/views/Product/VendoraddProduct';
 import VendoreditProfile from '../aVendor/views/User/VendoreditProfile';
+import VendorPassword from '../aVendor/views/User/VendorChangePassword';
 import AdmineditProfile from '../Admin/views/User/AdmineditProfile';
 import AdminConfirmOrder from '../Admin/views/Orders/AdminConfirmOrder';
 import AdminAddImage from '../Admin/views/Image/AdminAddImage';
@@ -190,13 +189,7 @@ const routes = [
   
   },
 
-  {
-    path:'/Adproduct',
-    name:'Add product',
-    component: AdminaddProduct,
  
-  
-  },
 
   {
     path:'/Adcategory',
@@ -206,13 +199,7 @@ const routes = [
   
   },
 
-  {
-    path:'/vproduct',
-    name:'view products',
-    component: AdminproductMain,
  
-  
-  },
 
   {
     path:'/Admin/categpry/AdmineditCategory/:id',
@@ -221,12 +208,7 @@ const routes = [
  
   },
 
-  {
-    path:'/Admin/lists/:id',
-    name:'View Listed Products',
-    component: AdminListProducts,
  
-  },
 
   {
     path:'/vcategory',
@@ -344,7 +326,18 @@ const routes = [
     path:'/user/password',
     name:"Change Password",
     component: Passwordchange,
+  },
+  {
+    path:'/vendor/password',
+    name:'Vendor Password',
+    component: VendorPassword
+  },
+  {
+    path:'/admin/password',
+    name:'Admin Password',
+    component: AdminPassword
   }
+
 
 
 

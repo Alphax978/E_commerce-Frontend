@@ -8,7 +8,7 @@
              <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h4 class="pt-3">Edit Your Profile</h4>
+                        <h4 class="pt-3">Change Password</h4>
                     </div>
                 </div>
                 <div class="row">
@@ -16,16 +16,12 @@
                     <div class="col-6">
                         <form @submit="updateUser">
                             <div class="form-group">
-                                <label>First Name</label>
-                                <input type="text" class="form-control" v-model="firstName" required/>
-                            </div>
-                             <div class="form-group">
-                                <label>Last Name</label>
-                                <input type="text" class="form-control" v-model="lastName"  required/>
+                                <label>Old Password</label>
+                                <input type="text" class="form-control" v-model="OldPassword" required/>
                             </div>
                             <div class="form-group">
-                                <label>Address</label>
-                                <input type="text" class="form-control"  required/>
+                                <label>New Password</label>
+                                <input type="text" class="form-control" v-model="password" required/>
                             </div>
                             <button  class="btn btn-primary">Submit</button>
                         </form>
@@ -104,18 +100,25 @@ export default {
 
         async updateUser(e) {
             e.preventDefault();
-            if (this.OldPassword === this.password) {
+               if (this.password.length < 8) 
+                    {
+                    swal({
+                        text: "Password should be at least 8 characters",
+                        icon: "info",
+                        closeOnClickOutside: false,
+                    });
+                     return;
+                }
                 // call signup api
                 const user = {
-                    firstName: this.firstName,
-                    lastName: this.lastName,
+                    password: this.password,
                 };
                 await axios
-                .post(`${this.baseURL}/backend/Admin/update/${this.userid}`, user)
+                .post(`${this.baseURL}/backend/Admin/updatepass/${this.userid}`, user)
                 .then(() => {
                     this.$router.replace("/adminpannel");
                     swal({
-                        text: "Update successful",
+                        text: "Your Password has been changed",
                         icon: "success",
                         closeOnClickOutside: false,
                     });
@@ -123,14 +126,7 @@ export default {
                     
                 })
                 .catch((error) => {this.error = error});
-            } else  {
-                // show some error
-                swal({
-                    text: "passwords dont match",
-                    icon: "error",
-                    closeOnClickOutside: false,
-                });
-            }
+         
         },
    
     },
@@ -145,5 +141,14 @@ export default {
 
 
 <style scoped>
+h2 {
+  font-family: 'Roboto', sans-serif;
+  color: #484848;
+  font-weight: 700;
+}
 
+#add-image {
+  float: right;
+  font-weight: 500;
+}
 </style>

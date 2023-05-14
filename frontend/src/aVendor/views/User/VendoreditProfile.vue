@@ -24,21 +24,17 @@
                                 <input type="text" class="form-control" v-model="lastName"  required/>
                             </div>
                             <div class="form-group">
-                                <label>Email</label>
-                                <input type="text" class="form-control"  v-model="email" required/>
-                            </div>
-                            <div class="form-group">
                                 <label>Address</label>
                                 <input type="text" class="form-control"  required/>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label>Old Password</label>
                                 <input type="text" class="form-control" v-model="OldPassword" required/>
                             </div>
                             <div class="form-group">
                                 <label>New Password</label>
                                 <input type="text" class="form-control" v-model="password" required/>
-                            </div>
+                            </div> -->
                             <button  class="btn btn-primary">Submit</button>
                         </form>
 
@@ -120,10 +116,8 @@ export default {
             if (this.OldPassword === this.password) {
                 // call signup api
                 const user = {
-                    email: this.email,
                     firstName: this.firstName,
                     lastName: this.lastName,
-                    password: this.password,
                 };
                 await axios
                 .post(`${this.baseURL}/backend/Vendor/update/${this.userid}`, user)

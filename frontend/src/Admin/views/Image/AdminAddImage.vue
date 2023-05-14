@@ -7,7 +7,7 @@
             <div class="container">
                 <div class="row">
                 <div class="col-12 text-center">
-                    <h4 class="pt-3">Add a new Image</h4>
+                    <h2 class="pt-3">Add a new Image</h2>
                 </div>
                 </div>
 
@@ -108,3 +108,16 @@ export default {
     
 }
 </script>
+
+<style scoped>
+h2 {
+  font-family: 'Roboto', sans-serif;
+  color: #484848;
+  font-weight: 700;
+}
+
+#add-image {
+  float: right;
+  font-weight: 500;
+}
+</style>

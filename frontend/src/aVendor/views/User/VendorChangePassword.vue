@@ -8,7 +8,7 @@
              <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h4 class="pt-3">Edit Your Profile</h4>
+                        <h4 class="pt-3">Change Password</h4>
                     </div>
                 </div>
                 <div class="row">
@@ -16,16 +16,12 @@
                     <div class="col-6">
                         <form @submit="updateUser">
                             <div class="form-group">
-                                <label>First Name</label>
-                                <input type="text" class="form-control" v-model="firstName" required/>
-                            </div>
-                             <div class="form-group">
-                                <label>Last Name</label>
-                                <input type="text" class="form-control" v-model="lastName"  required/>
+                                <label>Old Password</label>
+                                <input type="password" class="form-control" v-model="OldPassword" required/>
                             </div>
                             <div class="form-group">
-                                <label>Address</label>
-                                <input type="text" class="form-control"  required/>
+                                <label>New Password</label>
+                                <input type="password" class="form-control" v-model="password" required/>
                             </div>
                             <button  class="btn btn-primary">Submit</button>
                         </form>
@@ -46,6 +42,7 @@
 
 <script>
 import axios from 'axios';
+
 import swal from "sweetalert";
 import AppFooter from '../../components/AppFooter.vue'
 import AppHeader from '../../components/AppHeader.vue'
@@ -77,7 +74,7 @@ export default {
         getTokens()
         {
             axios
-            .get(`${this.baseURL}/backend/token/adshows`)
+            .get(`${this.baseURL}/backend/token/showsall`)
             .then((res) => (this.alltokens = res.data))
             .catch((err) => console.log(err));
           
@@ -85,7 +82,7 @@ export default {
         getId() 
         {
             axios
-                .get(`${this.baseURL}/backend/token/adshows`)
+                .get(`${this.baseURL}/backend/token/showsall`)
                 .then((res) => 
                 {
                     this.alldata = res.data;
@@ -93,7 +90,7 @@ export default {
                     {
                         if (this.token == this.alldata[i].token) 
                         {
-                            this.userid = this.alldata[i].admin.id;
+                            this.userid = this.alldata[i].vendor.id;
                             console.log(this.userid);
                             break;
                         }
@@ -104,18 +101,25 @@ export default {
 
         async updateUser(e) {
             e.preventDefault();
-            if (this.OldPassword === this.password) {
                 // call signup api
+                 if (this.password.length < 8) 
+                    {
+                    swal({
+                        text: "Password should be at least 8 characters",
+                        icon: "info",
+                        closeOnClickOutside: false,
+                    });
+                     return;
+                }
                 const user = {
-                    firstName: this.firstName,
-                    lastName: this.lastName,
+                    password: this.password
                 };
                 await axios
-                .post(`${this.baseURL}/backend/Admin/update/${this.userid}`, user)
+                .post(`${this.baseURL}/backend/Vendor/updatepass/${this.userid}`, user)
                 .then(() => {
-                    this.$router.replace("/adminpannel");
+                    this.$router.replace("/vendorpannel");
                     swal({
-                        text: "Update successful",
+                        text: "Your Password has been changed",
                         icon: "success",
                         closeOnClickOutside: false,
                     });
@@ -123,14 +127,6 @@ export default {
                     
                 })
                 .catch((error) => {this.error = error});
-            } else  {
-                // show some error
-                swal({
-                    text: "passwords dont match",
-                    icon: "error",
-                    closeOnClickOutside: false,
-                });
-            }
         },
    
     },
