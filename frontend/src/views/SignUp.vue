@@ -115,12 +115,22 @@ export default {
       password: null,
       confirmPassword: null,
       error:"",
+      totalUsers:[]
     };
   },
   methods: {
     async signup(e) {
       e.preventDefault();
       if (this.password === this.confirmPassword) {
+        if (this.email === this.totalUsers.email){
+           swal({
+            text: "User Already Exists!!!",
+            icon: "info",
+            closeOnClickOutside: false,
+          });
+          return;
+
+        }
         if (this.password.length < 8) 
         {
           swal({
@@ -150,7 +160,7 @@ export default {
               });
             } else {
               swal({
-                text: response.data.message,
+                text: "Enter a valid email",
                 icon: "error",
                 closeOnClickOutside: false,
               });
@@ -167,10 +177,15 @@ export default {
       }
     },
 
+
+
+
+
     nextportal(){
       this.$router.replace("/vsells")
     }
   },
+ 
 };
 </script>
 <style scoped>

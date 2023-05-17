@@ -38,11 +38,11 @@
                     <td>{{orderItem.price * orderItem.quantity}}</td>
                     <td>{{orderItem.orderStatus}}</td>
                     <td>
-                        <button class="btn btn-primary btn-sm" :disabled=" isShipmentDisabled(orderItem.status, orderItem.orderStatus)"  @click="shipmentStarted(orderItem.product.name)"> Start Shipment</button>
+                        <button class="btn btn-primary btn-sm" :disabled=" isShipmentDisabled(orderItem.status, orderItem.orderStatus)"  @click="shipmentStarted(orderItem.createdDate)"> Start Shipment</button>
                         |
-                        <button class="btn btn-secondary btn-sm" :disabled="isDeliveredDisabled(orderItem.status, orderItem.orderStatus)" @click="Delivered(orderItem.product.name)">Delivered</button> 
+                        <button class="btn btn-secondary btn-sm" :disabled="isDeliveredDisabled(orderItem.status, orderItem.orderStatus)" @click="Delivered(orderItem.createdDate)">Delivered</button> 
                         |
-                        <button class="btn btn-danger btn-sm" :disabled="isCancelDisabled(orderItem.status, orderItem.orderStatus)" @click="Cancel(orderItem.product.name)">Cancel</button>
+                        <button class="btn btn-danger btn-sm" :disabled="isCancelDisabled(orderItem.status, orderItem.orderStatus)" @click="Cancel(orderItem.createdDate)">Cancel</button>
 
 
                         
@@ -86,14 +86,14 @@ export default {
     },
     props:["baseURL"],
     methods:{
-        shipmentStarted(name){
+        shipmentStarted(date){
             const newitem = {
                 status:"Shipment Started",
 
             }
             axios({
                     method: "Post",
-                    url:`${this.baseURL}/backend/order/statusupdate/${name}`,
+                    url:`${this.baseURL}/backend/order/statusupdate/${date}`,
                     data: JSON.stringify(newitem),
                     headers: {
                         "content-Type":"application/json"
@@ -113,14 +113,14 @@ export default {
 
         },
 
-        Delivered(name){
+        Delivered(date){
                const newitem = {
                 status:"Delivered",
 
             }
             axios({
                     method: "Post",
-                    url:`${this.baseURL}/backend/order/statusupdate/${name}`,
+                    url:`${this.baseURL}/backend/order/statusupdate/${date}`,
                     data: JSON.stringify(newitem),
                     headers: {
                         "content-Type":"application/json"
@@ -139,14 +139,14 @@ export default {
 
         },
 
-        Cancel(name){
+        Cancel(date){
                const newitem = {
                 status:"Cancelled",
 
             }
             axios({
                     method: "Post",
-                    url:`${this.baseURL}/backend/order/statusupdate/${name}`,
+                    url:`${this.baseURL}/backend/order/statusupdate/${date}`,
                     data: JSON.stringify(newitem),
                     headers: {
                         "content-Type":"application/json"

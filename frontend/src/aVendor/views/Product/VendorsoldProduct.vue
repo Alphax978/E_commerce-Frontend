@@ -16,7 +16,6 @@
                  <table class="table table-striped table-bordered">
                     <thead class="thead-dark">
                         <tr >
-                            <th>#</th>
                             <th>Name</th>
                             <th>Quantity Ordered</th>
                             <th>Ordered at Total Price</th>
@@ -24,20 +23,18 @@
                             <th>Order Status</th>
                         </tr>
                     </thead>
-                    <tbody v-for="all in totalOrders" :key="all.id">
+                    <tbody v-for="all in totalOrders" :key="all.id" >
                         <tr >
-                            <td>{{all.id}}</td>
                             <td>{{all.product.name}}</td>
                             <td>{{all.quantity}}</td>
                             <td>{{all.price * all.quantity}}</td>
                             <td>
-                                <button class="btn btn-primary btn-sm" :disabled="isConfirmDisabled(all.orderStatus)" @click="Confirm(all.product.name)">Confirm</button>
+                                <button class="btn btn-primary btn-sm" :disabled="isConfirmDisabled(all.orderStatus)" @click="Confirm(all.createdDate)">Confirm</button>
                                 |
-                                <button class="btn btn-danger btn-sm" :disabled="isCancelDisabled(all.orderStatus)" @click="shipmentStarted(all.product.name)">Cancel</button>
+                                <button class="btn btn-danger btn-sm" :disabled="isCancelDisabled(all.orderStatus)" @click="shipmentStarted(all.createdDate)">Cancel</button>
                             </td>
                             <td>{{all.orderStatus}}</td>
 
-                            <!-- <td>{{all.price *all.totalsold}}</td> -->
                         </tr>
                     </tbody>
                   </table>
@@ -92,12 +89,6 @@ export default {
                        
 
 
-                           
-                //     }
-                // })
-                // .catch((err) => console.log(err));
-
-
           },
 
           getVendorOrders(){
@@ -111,14 +102,14 @@ export default {
                 .catch((err) => console.log(err))
           },
 
-        Confirm(name){
+        Confirm(date){
                const newitem = {
                 orderStatus:"Confirmed || Processing Started",
 
             }
             axios({
                     method: "Post",
-                    url:`${this.baseURL}/backend/order/orderupdate/${name}`,
+                    url:`${this.baseURL}/backend/order/orderupdate/${date}`,
                     data: JSON.stringify(newitem),
                     headers: {
                         "content-Type":"application/json"
@@ -139,7 +130,7 @@ export default {
 
         },
 
-        shipmentStarted(name){
+        shipmentStarted(date){
 
 
             const newitem = {
@@ -149,7 +140,7 @@ export default {
             
             axios({
                     method: "Post",
-                    url:`${this.baseURL}/backend/order/orderupdate/${name}`,
+                    url:`${this.baseURL}/backend/order/orderupdate/${date}`,
                     data: JSON.stringify(newitem),
                     headers: {
                         "content-Type":"application/json"
