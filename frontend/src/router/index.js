@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '../views/HomePage';
-import TestForm from '../views/TestForm';
 import SearchedProducts from '../views/Product/SearchedProducts';
 import CategoryMain from '../views/Category/CategoryMain';
 import ProductMain from '../views/Product/ProductMain';
@@ -69,11 +68,6 @@ const routes = [
     component: HomePage
   },
 
-  {
-    path: '/form/form',
-    name: 'TestForm',
-    component: TestForm
-  },
   {
     path: '/admin/category',
     name: 'CategoryMain',
