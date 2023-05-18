@@ -67,7 +67,7 @@ export default {
       this.category_size = Math.min(6, this.category_size);
 
       this.product_size = this.products.length;
-      this.product_size = Math.min(5, this.product_size)
+      this.product_size = Math.min(6, this.product_size)
   }
 
 };
