@@ -24,7 +24,7 @@
                         Total Price : $<span class="font-weight-bold">{{ orderItem.price * orderItem.quantity}}</span>
                     </p>
                     <p id="item-quantity" class="mb-0">Payment Method: Card</p>
-                    <p id="item-quantity" class="mb-0">Payment Status: successful</p>
+                    <p id="item-quantity" class="mb-0">Payment Status: Successful</p>
                     <br/>
                     <h5>Delivery Status: 
                         <span v-if="orderItem.status == adminshipment">Shipment Started</span> 

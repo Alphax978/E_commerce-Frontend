@@ -21,7 +21,6 @@ export default {
       itemsCount: 42,
     }
   },
-    props: ["cartCount"],
   data() {
     return {
       token: null,

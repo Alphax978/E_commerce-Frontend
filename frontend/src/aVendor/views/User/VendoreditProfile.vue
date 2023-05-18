@@ -83,14 +83,6 @@ export default {
        }
     },
     methods:{
-        getTokens()
-        {
-            axios
-            .get(`${this.baseURL}/backend/token/showsall`)
-            .then((res) => (this.alltokens = res.data))
-            .catch((err) => console.log(err));
-          
-        },
         getId() 
         {
             axios
@@ -145,7 +137,6 @@ export default {
     },
     mounted(){
         this.token = localStorage.getItem("token")
-        this.getTokens();
         this.getId();
     }
     

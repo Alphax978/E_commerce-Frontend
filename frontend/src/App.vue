@@ -26,10 +26,8 @@ export default {
   data() {
     return {
       baseURL: 'http://localhost:8084',
-      //baseURL: 'http://localhost:8080/',
       products: null,
       categories: null,
-      cartCount: 0,
     };
   },
   methods: {
@@ -43,35 +41,6 @@ export default {
         })
         .catch((err) => console.log('err', err));
 
-        
-      // api call to get the products
-      // try 
-      // {
-      //     const response = await axios.get('http://localhost:8084/backend/category/show');
-      //     const categories = response.data;
-
-      //     // convert the base64-encoded images to image URLs
-      //     // convert the base64-encoded images to image URLs
-      //     categories.forEach(category => {
-      //       let imageUrl;
-      //       if (category.imageUrl.startsWith('data:image/jpeg')) {
-      //         imageUrl = category.imageUrl;
-      //       } else if (category.imageUrl.startsWith('data:image/png')) {
-      //         imageUrl = category.imageUrl;
-      //       } else {
-      //         imageUrl = `data:image/jpeg;base64,${category.imageUrl}`;
-      //       }
-      //       category.imageUrl = imageUrl;
-      //     });
-
-       
-
-      //     this.categories = categories;
-      //     console.log(this.categories);
-      // } catch (error) 
-      // {
-      //     console.error(error);
-      // }
       await axios
         .get(`${this.baseURL}/backend/product/showun`)
         .then((res) => {
@@ -88,9 +57,6 @@ export default {
           })
           .catch((err) => console.log('err', err));
       }
-    },
-    resetCartCount() {
-      this.cartCount = 0;
     },
   },
   mounted() {

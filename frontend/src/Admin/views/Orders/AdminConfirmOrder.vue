@@ -205,17 +205,7 @@ export default {
 
 
 
-       
-
-
-
-        
-
-       
-
-
-        
-
+    
         getOrders(){
             axios
                 .get(`${this.baseURL}/backend/order/all`)
