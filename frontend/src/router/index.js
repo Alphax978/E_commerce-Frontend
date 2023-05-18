@@ -2,10 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '../views/HomePage';
 import TestForm from '../views/TestForm';
 import SearchedProducts from '../views/Product/SearchedProducts';
-import AddCategory from '../views/Category/AddCategory';
 import CategoryMain from '../views/Category/CategoryMain';
 import ProductMain from '../views/Product/ProductMain';
-import AddProduct from '../views/Product/AddProduct';
 import listProducts from '../views/Category/ListProducts';
 import VendoreditProduct from '../aVendor/views/Product/VendoreditProduct';
 import ShowDetails from '../views/Product/ShowDetails';
@@ -15,7 +13,6 @@ import Passwordchange from '../views/UserChangePassword';
 import CartPage from '../views/CartPage';
 import SignIn from '../views/SignIn'
 import SignUp from '../views/SignUp'
-import PaymentPage from '../views/Payment/PaymentPage'
 import FailedP from '../views/Payment/FailedP';
 import SuccessP from '../views/Payment/SuccessP';
 import CheckOut  from '../views/Checkout/CheckOut';
@@ -71,11 +68,7 @@ const routes = [
     name: 'HomePage',
     component: HomePage
   },
-  {
-    path: '/admin/category/add',
-    name: 'AddCategory',
-    component: AddCategory
-  },
+
   {
     path: '/form/form',
     name: 'TestForm',
@@ -85,11 +78,6 @@ const routes = [
     path: '/admin/category',
     name: 'CategoryMain',
     component: CategoryMain
-  },
-  {
-    path:'/admin/product/add',
-    name:'AddProduct',
-    component: AddProduct
   },
   {
     path:'/admin/product',
@@ -140,11 +128,7 @@ const routes = [
     name: 'SignUp',
     component: SignUp
   },
-  {
-    path: '/Payment',
-    name: 'Payment',
-    component: PaymentPage
-  },
+
   {
     path: '/signin',
     name: 'SignIn',
