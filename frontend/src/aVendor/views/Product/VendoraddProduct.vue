@@ -21,10 +21,11 @@
                 <form @submit="addProduct" >
                     <div class="form-group">
                         <label>Category </label>
+                         <i class="fas fa-caret-down"></i>
                         <select class="form-control" v-model="categoryId" required>
                             <option v-for="category in categories" :key="category.id"
                                     :value="category.id">{{ category.categoryName }}</option>
-                                    <!-- <i class="fas fa-caret-down"></i> -->
+                                    <i class="fas fa-caret-down"></i>
                         </select>
                     </div>
                     <div class="form-group">
